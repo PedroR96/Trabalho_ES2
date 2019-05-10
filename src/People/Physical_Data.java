@@ -2,44 +2,44 @@ package People;
 
 public class Physical_Data {
 
-    private float peso;
-    private float altura;
+    private float weight;
+    private float height;
     private float IMC;
     private float BF;
-    private float GorduraV;
-    private float Musculo;
-    private float IdadeMetabo;
+    private float visceralFat;
+    private float muscle;
+    private float metabolicAge;
     private float H2O;
-    private float MetabolismoBassal;
-    private int Osso;
+    private float metabolicBasal;
+    private int bone;
 
     public Physical_Data(float peso, float altura, float IMC, float BF, float gorduraV, float musculo, float idadeMetabo, float h2O, float metabolismoBassal, int osso) {
-        this.peso = peso;
-        this.altura = altura;
+        this.weight = peso;
+        this.height = altura;
         this.IMC = IMC;
         this.BF = BF;
-        GorduraV = gorduraV;
-        Musculo = musculo;
-        IdadeMetabo = idadeMetabo;
+        visceralFat = gorduraV;
+        muscle = musculo;
+        metabolicAge = idadeMetabo;
         H2O = h2O;
-        MetabolismoBassal = metabolismoBassal;
-        Osso = osso;
+        metabolicBasal = metabolismoBassal;
+        bone = osso;
     }
 
     public float getPeso() {
-        return peso;
+        return weight;
     }
 
     public void setPeso(float peso) {
-        this.peso = peso;
+        this.weight = peso;
     }
 
-    public float getAltura() {
-        return altura;
+    public float getHeight() {
+        return height;
     }
 
-    public void setAltura(float altura) {
-        this.altura = altura;
+    public void setHeight(float height) {
+        this.height = height;
     }
 
     public float getIMC() {
@@ -58,28 +58,28 @@ public class Physical_Data {
         this.BF = BF;
     }
 
-    public float getGorduraV() {
-        return GorduraV;
+    public float getVisceralFat() {
+        return visceralFat;
     }
 
-    public void setGorduraV(float gorduraV) {
-        GorduraV = gorduraV;
+    public void setVisceralFat(float visceralFat) {
+        this.visceralFat = visceralFat;
     }
 
-    public float getMusculo() {
-        return Musculo;
+    public float getMuscle() {
+        return muscle;
     }
 
-    public void setMusculo(float musculo) {
-        Musculo = musculo;
+    public void setMuscle(float muscle) {
+        this.muscle = muscle;
     }
 
-    public float getIdadeMetabo() {
-        return IdadeMetabo;
+    public float getMetabolicAge() {
+        return metabolicAge;
     }
 
-    public void setIdadeMetabo(float idadeMetabo) {
-        IdadeMetabo = idadeMetabo;
+    public void setMetabolicAge(float metabolicAge) {
+        this.metabolicAge = metabolicAge;
     }
 
     public float getH2O() {
@@ -90,20 +90,20 @@ public class Physical_Data {
         H2O = h2O;
     }
 
-    public float getMetabolismoBassal() {
-        return MetabolismoBassal;
+    public float getMetabolicBasal() {
+        return metabolicBasal;
     }
 
-    public void setMetabolismoBassal(float metabolismoBassal) {
-        MetabolismoBassal = metabolismoBassal;
+    public void setMetabolicBasal(float metabolicBasal) {
+        this.metabolicBasal = metabolicBasal;
     }
 
-    public int getOsso() {
-        return Osso;
+    public int getBone() {
+        return bone;
     }
 
-    public void setOsso(int osso) {
-        Osso = osso;
+    public void setBone(int bone) {
+        this.bone = bone;
     }
 
 }
