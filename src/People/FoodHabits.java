@@ -1,17 +1,19 @@
 package People;
 
+import java.util.HashMap;
+
 public class FoodHabits {
     private String getUp;
-    private String breakfast;
-    private String middleMorning;
-    private String middleMorningTwo;
-    private String lunch;
-    private String snack;
-    private String snackTwo;
-    private String dinner;
-    private String supper;
+    private HashMap<String,String> breakfast;
+    private HashMap<String,String> middleMorning;
+    private HashMap<String,String> middleMorningTwo;
+    private HashMap<String,String> lunch;
+    private HashMap<String,String> snack;
+    private HashMap<String,String> snackTwo;
+    private HashMap<String,String> dinner;
+    private HashMap<String,String> supper;
 
-    public FoodHabits(String getUp, String breakfast, String middleMorning, String middleMorningTwo, String lunch, String snack, String snackTwo, String dinner, String supper) {
+    public FoodHabits(String getUp, HashMap<String, String> breakfast, HashMap<String, String> middleMorning, HashMap<String, String> middleMorningTwo, HashMap<String, String> lunch, HashMap<String, String> snack, HashMap<String, String> snackTwo, HashMap<String, String> dinner, HashMap<String, String> supper) {
         this.getUp = getUp;
         this.breakfast = breakfast;
         this.middleMorning = middleMorning;
@@ -27,35 +29,35 @@ public class FoodHabits {
         return getUp;
     }
 
-    public String getBreakfast() {
+    public HashMap<String, String> getBreakfast() {
         return breakfast;
     }
 
-    public String getMiddleMorning() {
+    public HashMap<String, String> getMiddleMorning() {
         return middleMorning;
     }
 
-    public String getMiddleMorningTwo() {
+    public HashMap<String, String> getMiddleMorningTwo() {
         return middleMorningTwo;
     }
 
-    public String getLunch() {
+    public HashMap<String, String> getLunch() {
         return lunch;
     }
 
-    public String getSnack() {
+    public HashMap<String, String> getSnack() {
         return snack;
     }
 
-    public String getSnackTwo() {
+    public HashMap<String, String> getSnackTwo() {
         return snackTwo;
     }
 
-    public String getDinner() {
+    public HashMap<String, String> getDinner() {
         return dinner;
     }
 
-    public String getSupper() {
+    public HashMap<String, String> getSupper() {
         return supper;
     }
 }
