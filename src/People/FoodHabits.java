@@ -23,6 +23,7 @@ public class FoodHabits {
         this.snackTwo = snackTwo;
         this.dinner = dinner;
         this.supper = supper;
+
     }
 
     public String getGetUp() {
