@@ -25,7 +25,6 @@ public class Physical_Data {
         this.metabolicBasal = metabolicBasal;
         this.bone = bone;
     }
-
     public float getWeight() {
         return weight;
     }
