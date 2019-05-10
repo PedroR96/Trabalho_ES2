@@ -1,9 +1,7 @@
 import People.Person;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PersonTest {
 
@@ -12,7 +10,7 @@ class PersonTest {
      * Test the Person Constructor
      */
     @Test
-    void testConstructor(){
+    void testConstructor() {
         Person p = new Person("Elton John");
     }
 
@@ -20,18 +18,18 @@ class PersonTest {
      * Test the getName method from Person class
      */
     @Test
-    void testGetAndSetNamePerson(){
+    void testGetAndSetNamePerson() {
         Person p = new Person("Elton John");
-        assertEquals("Elton John",p.getName());
+        assertEquals("Elton John", p.getName());
     }
 
     /**
      * Test the getJob method from Person class
      */
     @Test
-    void testGetJob(){
-        Person p = new Person("Elton John","Musician");
-        assertEquals("Musician",p.getJob());
+    void testGetJob() {
+        Person p = new Person("Elton John", "Musician");
+        assertEquals("Musician", p.getJob());
     }
 
 

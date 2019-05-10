@@ -11,7 +11,7 @@ public class Quiz {
     private String phisicalActivity;
     private String intestinalFunction;
     private String waterConsuming;
-    private HashMap<String,String> chemistsAndBiologicalData;
+    private HashMap<String, String> chemistsAndBiologicalData;
 
     public Quiz(String reason, String objective, String pathologies, String medication, String familyHistory, String phisicalActivity, String intestinalFunction, String waterConsuming, HashMap<String, String> chemistsAndBiologicalData) {
         this.reason = reason;
@@ -36,6 +36,7 @@ public class Quiz {
     public String getPathologies() {
         return pathologies;
     }
+
     public String getMedication() {
         return medication;
     }
