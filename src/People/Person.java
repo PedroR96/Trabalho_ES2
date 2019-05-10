@@ -3,21 +3,22 @@ package People;
 public class Person {
 
     private String name;
-    private int age;
-    private float high;
     private String job;
+    private Physical_Data physicalData;
 
-    public Person(String name, int age, float high) {
+    public Person(String name) {
         this.name = name;
-        this.age = age;
-        this.high = high;
     }
 
-    public Person(String name, int age, float high, String job) {
+    public Person(String name, String job) {
         this.name = name;
-        this.age = age;
-        this.high = high;
         this.job = job;
+    }
+
+    public Person(String name, String job, Physical_Data physicalData) {
+        this.name = name;
+        this.job = job;
+        this.physicalData = physicalData;
     }
 
     public String getName() {
@@ -28,27 +29,19 @@ public class Person {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public float getHigh() {
-        return high;
-    }
-
-    public void setHigh(float high) {
-        this.high = high;
-    }
-
     public String getJob() {
         return job;
     }
 
     public void setJob(String job) {
         this.job = job;
+    }
+
+    public Physical_Data getPhysicalData() {
+        return physicalData;
+    }
+
+    public void setPhysicalData(Physical_Data physicalData) {
+        this.physicalData = physicalData;
     }
 }
