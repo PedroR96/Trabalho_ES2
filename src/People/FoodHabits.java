@@ -6,19 +6,19 @@ public class FoodHabits {
     private String middleMorning;
     private String middleMorningTwo;
     private String lunch;
-    private String snak;
-    private String snakTwo;
+    private String snack;
+    private String snackTwo;
     private String dinner;
     private String supper;
 
-    public FoodHabits(String getUp, String breakfast, String middleMorning, String middleMorningTwo, String lunch, String snak, String snakTwo, String dinner, String supper) {
+    public FoodHabits(String getUp, String breakfast, String middleMorning, String middleMorningTwo, String lunch, String snack, String snackTwo, String dinner, String supper) {
         this.getUp = getUp;
         this.breakfast = breakfast;
         this.middleMorning = middleMorning;
         this.middleMorningTwo = middleMorningTwo;
         this.lunch = lunch;
-        this.snak = snak;
-        this.snakTwo = snakTwo;
+        this.snack = snack;
+        this.snackTwo = snackTwo;
         this.dinner = dinner;
         this.supper = supper;
     }
@@ -43,12 +43,12 @@ public class FoodHabits {
         return lunch;
     }
 
-    public String getSnak() {
-        return snak;
+    public String getSnack() {
+        return snack;
     }
 
-    public String getSnakTwo() {
-        return snakTwo;
+    public String getSnackTwo() {
+        return snackTwo;
     }
 
     public String getDinner() {
