@@ -36,7 +36,6 @@ public class Quiz {
     public String getPathologies() {
         return pathologies;
     }
-
     public String getMedication() {
         return medication;
     }
