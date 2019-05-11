@@ -1,5 +1,5 @@
 import People.Person;
-import People.Physical_Data;
+import Medical_Information.Physical_Data;
 import org.junit.jupiter.api.Test;
 
 class Physical_DataTest {

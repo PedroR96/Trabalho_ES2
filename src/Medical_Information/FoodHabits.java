@@ -1,4 +1,4 @@
-package People;
+package Medical_Information;
 
 import java.util.HashMap;
 
