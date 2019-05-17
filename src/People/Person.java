@@ -1,5 +1,7 @@
 package People;
 
+import Medical_Information.Physical_Data;
+
 public class Person {
 
     private String name;
