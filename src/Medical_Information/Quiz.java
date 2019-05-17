@@ -3,6 +3,7 @@ package Medical_Information;
 import java.util.HashMap;
 
 public class Quiz {
+
     private String reason;
     private String objective;
     private String pathologies;

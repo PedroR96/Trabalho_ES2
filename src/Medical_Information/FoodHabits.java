@@ -26,6 +26,7 @@ public class FoodHabits {
 
     }
 
+
     public String getGetUp() {
         return getUp;
     }
