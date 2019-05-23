@@ -75,6 +75,7 @@ class Physical_DataTest {
 
         IMC.setIMC( df.round((float) 8.1,2));
         assertEquals(df.round((float) 8.1,2), IMC.getIMC());
+
     }
 
 
