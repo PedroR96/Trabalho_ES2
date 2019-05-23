@@ -26,19 +26,19 @@ public class Physical_Data {
     }
 
     public void setHeight(float height) throws MaxCharacters {
-        if( height<54.5 && height > 2.72)
+        if( height < 54.5 || height > 272.0)
             throw  new MaxCharacters();
         this.height = height;
     }
 
     public void setIMC(float IMC) throws MaxCharacters {
-        if(IMC < 0 && IMC > 30)
+        if(IMC < 2.00 || IMC > 30.00)
             throw  new MaxCharacters();
         this.IMC = IMC;
     }
 
     public void setBF(float BF) throws MaxCharacters {
-        if(BF < 5 && BF > 50)
+        if(BF < 5 || BF > 50)
           throw new MaxCharacters();
         this.BF = BF;
     }

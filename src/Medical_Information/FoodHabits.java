@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 public class FoodHabits {
     private String getUp;
+
     private HashMap<String,String> breakfast;
     private HashMap<String,String> middleMorning;
     private HashMap<String,String> middleMorningTwo;

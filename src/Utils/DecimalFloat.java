@@ -8,9 +8,10 @@ public class DecimalFloat {
     }
 
 
-    public static float round(float number, int decimalPlace) {
+     public float round(float number, int decimalPlace) {
         BigDecimal bd = new BigDecimal(number);
         bd = bd.setScale(decimalPlace, BigDecimal.ROUND_HALF_UP);
         return bd.floatValue();
     }
+
 }
