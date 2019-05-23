@@ -6,8 +6,11 @@ public class Employee {
     private int age;
 
     public Employee(String name, int age) {
-        this.name = name;
-        this.age = age;
+        if ((name.length() > 0 && name.length() < 40) && (age < 145 && age > 0)) {
+            this.name = name;
+            this.age = age;
+        } else
+            throw new NullPointerException();
     }
 
     public String getName() {
