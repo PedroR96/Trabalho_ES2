@@ -20,7 +20,7 @@ public class Physical_Data {
     }
 
     public void setWeight(float weight) throws MaxCharacters {
-        if(weight > 635.0 || weight < 0 )
+        if(weight > 635.0 || weight < 2.1 )
             throw new MaxCharacters();
         this.weight = weight;
     }
