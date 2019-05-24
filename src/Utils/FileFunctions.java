@@ -37,13 +37,19 @@ public class FileFunctions {
             Reader reader = Files.newBufferedReader(Paths.get(path));
             CSVReader csvReader = new CSVReader(reader);
             String[] nextRecord;
+
+            for ( String s : csvReader.readNext()){
+                System.out.println(s);
+            }
+
+/*
             while ((nextRecord = csvReader.readNext()) != null) {
                 System.out.println("Name : " + nextRecord[0]);
                 System.out.println("Email : " + nextRecord[1]);
                 System.out.println("Phone : " + nextRecord[2]);
                 System.out.println("Country : " + nextRecord[3]);
                 System.out.println("==========================");
-            }
+            }*/
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -57,4 +63,12 @@ public class FileFunctions {
 
     }
 
+    public static void main(String[] args) {
+
+        FileFunctions f = new FileFunctions();
+        f.readCSV();
+
+
     }
+
+}
