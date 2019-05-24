@@ -1,3 +1,4 @@
+import People.MaxCharacters;
 import People.Person;
 import org.junit.jupiter.api.Test;
 

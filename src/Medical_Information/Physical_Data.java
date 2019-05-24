@@ -44,32 +44,54 @@ public class Physical_Data {
     }
 
     public void setVisceralFat(float visceralFat) throws MaxCharacters {
-        if(visceralFat<0 && visceralFat >60)
+        if(visceralFat<0 || visceralFat >60)
             throw new MaxCharacters();
         this.visceralFat = visceralFat;
     }
 
     public void setMuscle(float muscle) throws MaxCharacters {
-        if(muscle < 0 && muscle > 90)
+        if(muscle < 0 || muscle > 90)
             throw new MaxCharacters();
         this.muscle = muscle;
     }
 
-    public void setMetabolicAge(float metabolicAge) {
+    public void setMetabolicAge(int metabolicAge) throws MaxCharacters {
+        if(metabolicAge < 1 || metabolicAge >90)
+            throw new MaxCharacters();
         this.metabolicAge = metabolicAge;
     }
 
+    /*
+     *
+     *
+     *Testes deste campo e como calcular e quais os limites
+     *
+     *
+     * */
     public void setH2O(float h2O) {
         H2O = h2O;
     }
 
-    public void setMetabolicBasal(float metabolicBasal) {
+    public void setMetabolicBasal(float metabolicBasal) throws MaxCharacters {
+        if(metabolicBasal <500 || metabolicBasal > 20000)
+            throw new MaxCharacters();
         this.metabolicBasal = metabolicBasal;
     }
-
+    /*
+     *
+     *
+     *Testes deste campo e como calcular e quais os limites
+     *
+     *
+     * */
     public void setBone(int bone) {
         this.bone = bone;
     }
+
+    /***********************************************
+    * Getters
+    ************************************************/
+
     public float getWeight() {
         return weight;
     }
