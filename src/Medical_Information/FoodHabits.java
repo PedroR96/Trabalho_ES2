@@ -2,11 +2,13 @@ package Medical_Information;
 
 import Food.Meal;
 
+import java.util.ArrayList;
+
 public class FoodHabits {
     private String getUp;
-    private Meal[] meals;
+    private ArrayList<Meal> meals;
 
-    public FoodHabits(String getUp, Meal[] meals) {
+    public FoodHabits(String getUp, ArrayList<Meal> meals) {
         this.getUp = getUp;
         this.meals = meals;
     }
@@ -19,11 +21,11 @@ public class FoodHabits {
         this.getUp = getUp;
     }
 
-    public Meal[] getMeals() {
+    public ArrayList<Meal> getMeals() {
         return meals;
     }
 
-    public void setMeals(Meal[] meals) {
+    public void setMeals(ArrayList<Meal> meals) {
         this.meals = meals;
     }
 }

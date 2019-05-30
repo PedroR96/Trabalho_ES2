@@ -35,7 +35,7 @@ public class FileFunctions {
     }
 
     /**
-     * Read a CSV File
+     * Read a CSV File to get nutricional specs
      */
     public HashMap<String, NutricionalSpecs> readCSV() {
         HashMap<String, NutricionalSpecs> productNutricionalSpecs = new HashMap<>();
@@ -62,6 +62,35 @@ public class FileFunctions {
         return productNutricionalSpecs;
     }
 
+    /**
+     * Read CSV to get folha 2 values
+     *//*
+    public void readFiletwo(){
+        String path = getFilePath();
+        String nutSpecs;
+        try {
+            Reader reader = Files.newBufferedReader(Paths.get(path));
+            CSVReader csvReader = new CSVReader(reader);
+            String[] nextRecord;
+            while ((nextRecord = csvReader.readNext()) != null) {
+
+                nutSpecs = "";
+                for (int i = 0; i < 43; i++) {
+                    //System.out.println(nextRecord[i]);
+                    nutSpecs += nextRecord[i] + ";";
+                }
+                NutricionalSpecs nutricionalSpecs1 = new NutricionalSpecs(nutSpecs);
+                productNutricionalSpecs.put(nutricionalSpecs1.getProductID(),nutricionalSpecs1);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+            e.getStackTrace();
+        }
+
+    }
+
+
+*/
     /**
      * Write in a CSV File
      */
