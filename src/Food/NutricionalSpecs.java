@@ -1,11 +1,6 @@
 package Food;
 
 
-
-
-
-
-
 public class NutricionalSpecs {
     private String productID;
     private String name;

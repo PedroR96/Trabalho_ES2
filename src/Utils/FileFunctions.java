@@ -26,47 +26,46 @@ public class FileFunctions {
         return dialog.getDirectory() + dialog.getFile();
     }
 
+    public static void main(String[] args) {
+
+        FileFunctions f = new FileFunctions();
+        f.readCSV();
+
+
+    }
 
     /**
      * Read a CSV File
      */
-    public  HashMap<String, NutricionalSpecs>  readCSV() {
+    public HashMap<String, NutricionalSpecs> readCSV() {
+        HashMap<String, NutricionalSpecs> productNutricionalSpecs = new HashMap<>();
         String path = getFilePath();
-        HashMap<String, NutricionalSpecs> productNutricionalSpecs;
-
+        String nutSpecs;
         try {
             Reader reader = Files.newBufferedReader(Paths.get(path));
             CSVReader csvReader = new CSVReader(reader);
             String[] nextRecord;
-
             while ((nextRecord = csvReader.readNext()) != null) {
 
+                nutSpecs = "";
                 for (int i = 0; i < 43; i++) {
-
-                    System.out.println(nextRecord[i]);
+                    //System.out.println(nextRecord[i]);
+                    nutSpecs += nextRecord[i] + ";";
                 }
-
+                NutricionalSpecs nutricionalSpecs1 = new NutricionalSpecs(nutSpecs);
+                productNutricionalSpecs.put(nutricionalSpecs1.getProductID(),nutricionalSpecs1);
             }
         } catch (Exception e) {
             System.out.println(e);
             e.getStackTrace();
         }
+        return productNutricionalSpecs;
     }
 
     /**
      * Write in a CSV File
      */
     public void writeCSV() {
-
-
-    }
-
-
-
-    public static void main(String[] args) {
-
-        FileFunctions f = new FileFunctions();
-        f.readCSV();
 
 
     }
