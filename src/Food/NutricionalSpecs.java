@@ -50,7 +50,51 @@ public class NutricionalSpecs {
     private Float Fe;
     private Float Zn;
 
-
+    public NutricionalSpecs(String specs){
+     String[] x=   specs.split(";");
+        this.productID = x[0];
+        this.name =  x[1];
+        this.energiaKCla =  Integer.parseInt(x[2]);
+        this.energiaKj =  Integer.parseInt(x[3]);
+        this.agua = Float.parseFloat(x[4]);
+        this.proteina =  Float.parseFloat(x[5]);
+        this.gorduraTotal =  Float.parseFloat(x[6]);
+        this.totalHCDisponiveis =  Float.parseFloat(x[7]);
+        this.totalHCMonossacaridos =  Float.parseFloat(x[8]);
+        this.monoDissacaridos =  Float.parseFloat(x[9]);
+        this.acidosOrganicos =  Float.parseFloat(x[10]);
+        this.alcool =  Float.parseFloat(x[11]);
+        this.amido =  Float.parseFloat(x[12]);
+        this.oligossacaridos =  Float.parseFloat(x[13]);
+        this.fibraAlimentar =  Float.parseFloat(x[14]);
+        this.acidosGordosSaturados =  Float.parseFloat(x[15]);
+        this.acidosGordosMonoinsaturados =  Float.parseFloat(x[16]);
+        this.acidosGordosPolinsaturados =  Float.parseFloat(x[17]);
+        this.acidosGordosAcidosGordosTrans =  Float.parseFloat(x[18]);
+        this.acidoLinoleico =  Float.parseFloat(x[19]);
+        this.colesterol =  Float.parseFloat(x[20]);
+        this.vitATotal =  Float.parseFloat(x[21]);
+        this.caroteno =  Float.parseFloat(x[22]);
+        this.vitD = Float.parseFloat(x[23]);
+        this.aTocoferol = Float.parseFloat(x[24]);
+        Tiamina = Float.parseFloat(x[25]);
+        Riboflavina = Float.parseFloat(x[26]);
+        this.equivalentesNiacina = Float.parseFloat(x[27]);
+        this.niacina = Float.parseFloat(x[28]);
+        this.triptofano = Float.parseFloat(x[29]);
+        this.vitB6 = Float.parseFloat(x[30]);
+        this.vitB12 = Float.parseFloat(x[31]);
+        this.vitC = Float.parseFloat(x[32]);
+        this.folatos = Float.parseFloat(x[33]);
+        this.cinza = Float.parseFloat(x[34]);
+        Na = Float.parseFloat(x[35]);
+        K = Float.parseFloat(x[36]);
+        Ca = Float.parseFloat(x[37]);
+        P = Float.parseFloat(x[38]);
+        Mg = Float.parseFloat(x[38]);
+        Fe = Float.parseFloat(x[40]);
+        Zn = Float.parseFloat(x[41]);
+    }
     public NutricionalSpecs(String productID, String name, Integer energiaKCla, Integer energiaKj, Float agua, Float proteina, Float gorduraTotal, Float totalHCDisponiveis, Float totalHCMonossacaridos, Float monoDissacaridos, Float acidosOrganicos, Float alcool, Float amido, Float oligossacaridos, Float fibraAlimentar, Float acidosGordosSaturados, Float acidosGordosMonoinsaturados, Float acidosGordosPolinsaturados, Float acidosGordosAcidosGordosTrans, Float acidoLinoleico, Float colesterol, Float vitATotal, Float caroteno, Float vitD, Float aTocoferol, Float tiamina, Float riboflavina, Float equivalentesNiacina, Float niacina, Float triptofano, Float vitB6, Float vitB12, Float vitC, Float folatos, Float cinza, Float na, Float k, Float ca, Float p, Float mg, Float fe, Float zn) {
         this.productID = productID;
         this.name = name;

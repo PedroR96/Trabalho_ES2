@@ -1,11 +1,13 @@
 package Utils;
 
+import Food.NutricionalSpecs;
 import com.opencsv.CSVReader;
 
 import java.awt.*;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
 
 public class FileFunctions {
 
@@ -28,8 +30,9 @@ public class FileFunctions {
     /**
      * Read a CSV File
      */
-    public void readCSV() {
+    public  HashMap<String, NutricionalSpecs>  readCSV() {
         String path = getFilePath();
+        HashMap<String, NutricionalSpecs> productNutricionalSpecs;
 
         try {
             Reader reader = Files.newBufferedReader(Paths.get(path));
@@ -37,7 +40,9 @@ public class FileFunctions {
             String[] nextRecord;
 
             while ((nextRecord = csvReader.readNext()) != null) {
+
                 for (int i = 0; i < 43; i++) {
+
                     System.out.println(nextRecord[i]);
                 }
 

@@ -17,7 +17,6 @@ public class ProductSpecifications {
         ProductSpecifications.productNutricionalSpecs = productNutricionalSpecs;
     }
 
-
     public static void addProductNutricionalSpecs(String productID, NutricionalSpecs nutSpecs) {
         productNutricionalSpecs.put(productID, nutSpecs);
 
