@@ -1,6 +1,8 @@
 package People;
 
+import Medical_Information.FoodHabits;
 import Medical_Information.Physical_Data;
+import Medical_Information.Quiz;
 
 public class Person {
 
@@ -8,6 +10,9 @@ public class Person {
     private String job;
     private int age;
     private Physical_Data physicalData;
+    private Quiz quiz;
+    private FoodHabits foodHabits;
+    private FoodHabits newpPlan;
 
     public Person(String name, int age) {
         if ((name.length() > 0 && name.length() < 40 ) && (age < 145 && age > 0)) {

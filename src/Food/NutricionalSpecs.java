@@ -45,6 +45,8 @@ public class NutricionalSpecs {
     private Float Fe;
     private Float Zn;
 
+
+
     public NutricionalSpecs(String specs){
      String[] x=   specs.split(";");
         this.productID = x[0];
