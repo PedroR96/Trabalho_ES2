@@ -29,7 +29,8 @@ public class FileFunctions {
     public static void main(String[] args) {
 
         FileFunctions f = new FileFunctions();
-        f.readCSV();
+        //f.readCSV();
+        f.readFiletwo();
 
 
     }
@@ -53,7 +54,7 @@ public class FileFunctions {
                     nutSpecs += nextRecord[i] + ";";
                 }
                 NutricionalSpecs nutricionalSpecs1 = new NutricionalSpecs(nutSpecs);
-                productNutricionalSpecs.put(nutricionalSpecs1.getProductID(),nutricionalSpecs1);
+                productNutricionalSpecs.put(nutricionalSpecs1.getProductID(), nutricionalSpecs1);
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -64,24 +65,26 @@ public class FileFunctions {
 
     /**
      * Read CSV to get folha 2 values
-     *//*
-    public void readFiletwo(){
+     */
+    public void readFiletwo() {
         String path = getFilePath();
-        String nutSpecs;
+        String specs;
         try {
             Reader reader = Files.newBufferedReader(Paths.get(path));
             CSVReader csvReader = new CSVReader(reader);
             String[] nextRecord;
             while ((nextRecord = csvReader.readNext()) != null) {
 
-                nutSpecs = "";
-                for (int i = 0; i < 43; i++) {
-                    //System.out.println(nextRecord[i]);
-                    nutSpecs += nextRecord[i] + ";";
+                specs = "";
+                for (String k : nextRecord){
+                    //System.out.println(k);
+                    specs += k;
                 }
-                NutricionalSpecs nutricionalSpecs1 = new NutricionalSpecs(nutSpecs);
-                productNutricionalSpecs.put(nutricionalSpecs1.getProductID(),nutricionalSpecs1);
+                specs += "|";
+                System.out.println(specs);
             }
+
+
         } catch (Exception e) {
             System.out.println(e);
             e.getStackTrace();
@@ -90,7 +93,6 @@ public class FileFunctions {
     }
 
 
-*/
     /**
      * Write in a CSV File
      */
