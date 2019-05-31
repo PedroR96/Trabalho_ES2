@@ -92,6 +92,31 @@ public class FileFunctions {
 
     }
 
+    /**
+     * Read CSV to get folha 1 values
+     */
+    public void readFileOne() {
+        String path = getFilePath();
+        String specs;
+        try {
+            Reader reader = Files.newBufferedReader(Paths.get(path));
+            CSVReader csvReader = new CSVReader(reader);
+            String[] nextRecord;
+            while ((nextRecord = csvReader.readNext()) != null) {
+
+                for (String k : nextRecord){
+                    //System.out.println(k);
+                    System.out.println(k);
+                }
+            }
+
+
+        } catch (Exception e) {
+            System.out.println(e);
+            e.getStackTrace();
+        }
+
+    }
 
     /**
      * Write in a CSV File
