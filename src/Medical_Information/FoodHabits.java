@@ -1,6 +1,7 @@
 package Medical_Information;
 
 import Food.Meal;
+import People.MaxCharacters;
 
 import java.util.ArrayList;
 
@@ -17,7 +18,9 @@ public class FoodHabits {
         return getUp;
     }
 
-    public void setGetUp(String getUp) {
+    public void setGetUp(String getUp) throws MaxCharacters {
+        if(getUp.length() != 5)
+            throw new MaxCharacters();
         this.getUp = getUp;
     }
 

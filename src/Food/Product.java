@@ -7,6 +7,8 @@ public class Product {
     private float amount;
     private String amountDescription;
 
+    public Product() {
+    }
 
     public String getProductID() {
         return productID;
