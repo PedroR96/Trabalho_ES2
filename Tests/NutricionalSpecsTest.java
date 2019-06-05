@@ -1,5 +1,7 @@
 import Food.NutricionalSpecs;
 import People.MaxCharacters;
+import org.apache.commons.lang3.builder.ToStringExclude;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -44,7 +46,7 @@ class NutricionalSpecsTest {
         NutricionalSpecs ns = new NutricionalSpecs();
 
         assertThrows(MaxCharacters.class,()->{
-            ns.setProductID("sdefrgthyju");
+            ns.setProductID("IS152635824");
             ns.getProductID();
         });
     }
@@ -54,7 +56,7 @@ class NutricionalSpecsTest {
         NutricionalSpecs ns = new NutricionalSpecs();
 
         assertThrows(MaxCharacters.class,()->{
-            ns.setProductID("12");
+            ns.setProductID("IS");
             ns.getProductID();
         });
     }
@@ -86,7 +88,7 @@ class NutricionalSpecsTest {
         NutricionalSpecs ns = new NutricionalSpecs();
 
         assertThrows(MaxCharacters.class,()->{
-            ns.setName("qwsedrtferdaesrdftgvcfdergvbhfdertgfdetvjjokjhgfdej");
+            ns.setName("Leite de Ovelha cru com brao de milho e arroz com feijão");
             ns.getName();
         });
     }
@@ -127,7 +129,7 @@ class NutricionalSpecsTest {
         NutricionalSpecs ns = new NutricionalSpecs();
 
         assertThrows(MaxCharacters.class,()->{
-            ns.setEnergiaKCla(1001);
+            ns.setEnergiaKCla(-1);
             ns.getEnergiaKCla();
         });
     }
@@ -199,5 +201,187 @@ class NutricionalSpecsTest {
         NutricionalSpecs ns =new NutricionalSpecs();
         ns.setProteina((float) 20.2);
         assertEquals((float)20.2,ns.getProteina());
+    }
+
+    @Test
+    void testProteinBigger(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(MaxCharacters.class,()->{
+           ns.setProteina((float)40.1);
+           ns.getProteina();
+        });
+    }
+
+    @Test
+    void testProteinSmaller(){
+        NutricionalSpecs ns  = new NutricionalSpecs();
+        assertThrows(MaxCharacters.class,()->{
+           ns.setProteina((float)-0.1);
+           ns.getProteina();
+        });
+    }
+
+    /**
+     * test from total fat
+     */
+    @Test
+    void testTotalFatRight() throws MaxCharacters {
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setGorduraTotal((float) 50.2 );
+        assertEquals((float)50.2,ns.getGorduraTotal());
+    }
+
+    @Test
+    void testTotalFatBigger(){
+        NutricionalSpecs ns =  new NutricionalSpecs();
+        assertThrows(MaxCharacters.class,()->{
+           ns.setGorduraTotal((float) 100.1);
+           ns.getGorduraTotal();
+        });
+    }
+    @Test
+    void testTotalFatSmaller(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(MaxCharacters.class,()->{
+           ns.setGorduraTotal((float) -0.1);
+           ns.getGorduraTotal();
+        });
+    }
+
+    /**
+     * test from total HC disponiveis
+     */
+    @Test
+    void testTotalHCFreeRight() throws MaxCharacters {
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setTotalHCDisponiveis((float) 50.2 );
+        assertEquals((float)50.2,ns.getTotalHCDisponiveis());
+    }
+    @Test
+    void testTotalHCFreeBigger() {
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(MaxCharacters.class,()->{
+            ns.setTotalHCDisponiveis((float) 100.1);
+            ns.getTotalHCDisponiveis();
+        });
+    }
+    @Test
+    void testTotalHCFreeSmaller() {
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(MaxCharacters.class,()->{
+            ns.setTotalHCDisponiveis((float) -0.1);
+            ns.getTotalHCDisponiveis();
+        });
+    }
+
+    /**
+     * test from total HC Monossacaridos
+     */
+
+    @Test
+    void testTotalHCMonossacaridosRight() throws MaxCharacters {
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setTotalHCMonossacaridos((float) 50.2 );
+        assertEquals((float)50.2,ns.getTotalHCMonossacaridos());
+    }
+
+    @Test
+    void testTotalHCMonossacaridosBigger(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(MaxCharacters.class,()->{
+            ns.setTotalHCMonossacaridos((float) 120.1);
+            ns.getTotalHCMonossacaridos();
+        });
+    }
+
+    @Test
+    void testTotalHCMonossacaridosSmaller(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(MaxCharacters.class,()->{
+            ns.setTotalHCMonossacaridos((float) -0.1);
+            ns.getTotalHCMonossacaridos();
+        });
+    }
+
+    /**
+     * test from  MonoDissacaridos
+     */
+    @Test
+    void testMonoDissacaridosRight() throws MaxCharacters {
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setMonoDissacaridos((float) 50.2 );
+        assertEquals((float)50.2,ns.getMonoDissacaridos());
+    }
+
+    @Test
+    void testMonoDissacaridosBigger(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(MaxCharacters.class,()->{
+            ns.setMonoDissacaridos((float) 100.1);
+            ns.getMonoDissacaridos();
+        });
+    }
+
+    @Test
+    void testMonoDissacaridosSmaller(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(MaxCharacters.class,()->{
+            ns.setMonoDissacaridos((float) -0.1);
+            ns.getMonoDissacaridos();
+        });
+    }
+
+    /**
+     * test from  AcidosOrganicos
+     */
+    @Test
+    void testAcidosOrganicosRight() throws MaxCharacters {
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setAcidosOrganicos((float) 0.5);
+        assertEquals((float)0.5,ns.getAcidosOrganicos());
+    }
+    @Test
+    void testAcidosOrganicosBigger(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(MaxCharacters.class,()->{
+            ns.setAcidosOrganicos((float) 2.1);
+            ns.getAcidosOrganicos();
+        });
+    }
+    @Test
+    void testAcidosOrganicosSmaller(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(MaxCharacters.class,()->{
+            ns.setAcidosOrganicos((float) -0.1);
+            ns.getAcidosOrganicos();
+        });
+    }
+
+    /**
+     * test from alcool
+     */
+    @Test
+    void testAlcoolRight() throws MaxCharacters {
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setAcidosOrganicos((float) 1.0);
+        assertEquals((float)1.0,ns.getAcidosOrganicos());
+    }
+
+    @Test
+    void testAlcoolBigger(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(MaxCharacters.class,()->{
+            ns.setAcidosOrganicos((float) 60.1);
+            ns.getAcidosOrganicos();
+        });
+    }
+
+    @Test
+    void testAlcoolSmaller(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(MaxCharacters.class,()->{
+            ns.setAcidosOrganicos((float) -0.1);
+            ns.getAcidosOrganicos();
+        });
     }
 }

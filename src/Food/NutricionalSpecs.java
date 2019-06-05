@@ -152,8 +152,6 @@ public class NutricionalSpecs {
     public void setProductID(String productID) throws MaxCharacters {
         if(productID.length()>10 || productID.length() <3 )
             throw new MaxCharacters();
-        if (productID.equals(""))
-            throw new EmptyStackException();
         if(productID.equals(null))
             throw new NullPointerException();
         this.productID = productID;
@@ -166,8 +164,6 @@ public class NutricionalSpecs {
     public void setName(String name) throws MaxCharacters {
         if(name.length()>50 || name.length() <2 )
             throw new MaxCharacters();
-        else if (name.isEmpty())
-            throw new EmptyStackException();
         else if(name.equals(null))
             throw new NullPointerException();
         this.name = name;
@@ -217,7 +213,9 @@ public class NutricionalSpecs {
         return gorduraTotal;
     }
 
-    public void setGorduraTotal(Float gorduraTotal) {
+    public void setGorduraTotal(Float gorduraTotal) throws MaxCharacters {
+        if(gorduraTotal > 100.0 || gorduraTotal < 0)
+            throw new MaxCharacters();
         this.gorduraTotal = gorduraTotal;
     }
 
@@ -225,7 +223,9 @@ public class NutricionalSpecs {
         return totalHCDisponiveis;
     }
 
-    public void setTotalHCDisponiveis(Float totalHCDisponiveis) {
+    public void setTotalHCDisponiveis(Float totalHCDisponiveis) throws MaxCharacters {
+        if(totalHCDisponiveis > 100.0 || totalHCDisponiveis < 0)
+            throw new MaxCharacters();
         this.totalHCDisponiveis = totalHCDisponiveis;
     }
 
@@ -233,7 +233,9 @@ public class NutricionalSpecs {
         return totalHCMonossacaridos;
     }
 
-    public void setTotalHCMonossacaridos(Float totalHCMonossacaridos) {
+    public void setTotalHCMonossacaridos(Float totalHCMonossacaridos) throws MaxCharacters {
+        if(totalHCMonossacaridos > 120.0 || totalHCMonossacaridos < 0)
+            throw new MaxCharacters();
         this.totalHCMonossacaridos = totalHCMonossacaridos;
     }
 
@@ -241,7 +243,9 @@ public class NutricionalSpecs {
         return monoDissacaridos;
     }
 
-    public void setMonoDissacaridos(Float monoDissacaridos) {
+    public void setMonoDissacaridos(Float monoDissacaridos) throws MaxCharacters {
+        if(monoDissacaridos > 100.0|| monoDissacaridos < 0 )
+            throw new MaxCharacters();
         this.monoDissacaridos = monoDissacaridos;
     }
 
@@ -249,7 +253,9 @@ public class NutricionalSpecs {
         return acidosOrganicos;
     }
 
-    public void setAcidosOrganicos(Float acidosOrganicos) {
+    public void setAcidosOrganicos(Float acidosOrganicos) throws MaxCharacters {
+        if(acidosOrganicos > 2 || acidosOrganicos < 0)
+            throw new MaxCharacters();
         this.acidosOrganicos = acidosOrganicos;
     }
 
@@ -257,7 +263,9 @@ public class NutricionalSpecs {
         return alcool;
     }
 
-    public void setAlcool(Float alcool) {
+    public void setAlcool(Float alcool) throws MaxCharacters {
+        if(alcool > 60.0|| alcool < 0 )
+            throw new MaxCharacters();
         this.alcool = alcool;
     }
 
