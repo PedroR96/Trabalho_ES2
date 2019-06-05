@@ -1,6 +1,10 @@
 package Food;
 
 
+import People.MaxCharacters;
+
+import java.util.EmptyStackException;
+
 public class NutricionalSpecs {
     private String productID;
     private String name;
@@ -44,6 +48,7 @@ public class NutricionalSpecs {
     private Float Mg;
     private Float Fe;
     private Float Zn;
+
 
 
 
@@ -137,11 +142,20 @@ public class NutricionalSpecs {
         Zn = zn;
     }
 
+
+    public NutricionalSpecs() {
+    }
     public String getProductID() {
         return productID;
     }
 
-    public void setProductID(String productID) {
+    public void setProductID(String productID) throws MaxCharacters {
+        if(productID.length()>10 || productID.length() <3 )
+            throw new MaxCharacters();
+        if (productID.equals(""))
+            throw new EmptyStackException();
+        if(productID.equals(null))
+            throw new NullPointerException();
         this.productID = productID;
     }
 
@@ -149,7 +163,13 @@ public class NutricionalSpecs {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name) throws MaxCharacters {
+        if(name.length()>50 || name.length() <2 )
+            throw new MaxCharacters();
+        else if (name.isEmpty())
+            throw new EmptyStackException();
+        else if(name.equals(null))
+            throw new NullPointerException();
         this.name = name;
     }
 
@@ -157,7 +177,9 @@ public class NutricionalSpecs {
         return energiaKCla;
     }
 
-    public void setEnergiaKCla(Integer energiaKCla) {
+    public void setEnergiaKCla(Integer energiaKCla) throws MaxCharacters {
+        if(energiaKCla > 1000 || energiaKCla < 0)
+            throw new MaxCharacters();
         this.energiaKCla = energiaKCla;
     }
 
@@ -165,7 +187,9 @@ public class NutricionalSpecs {
         return energiaKj;
     }
 
-    public void setEnergiaKj(Integer energiaKj) {
+    public void setEnergiaKj(Integer energiaKj) throws MaxCharacters {
+        if(energiaKj > 4500 || energiaKj < 0 )
+            throw new MaxCharacters();
         this.energiaKj = energiaKj;
     }
 
@@ -173,7 +197,9 @@ public class NutricionalSpecs {
         return agua;
     }
 
-    public void setAgua(Float agua) {
+    public void setAgua(Float agua) throws MaxCharacters {
+        if(agua > 100 || agua < 1.5 )
+            throw new MaxCharacters();
         this.agua = agua;
     }
 
@@ -181,7 +207,9 @@ public class NutricionalSpecs {
         return proteina;
     }
 
-    public void setProteina(Float proteina) {
+    public void setProteina(Float proteina) throws MaxCharacters {
+        if(proteina > 40 || proteina < 0 )
+            throw new MaxCharacters();
         this.proteina = proteina;
     }
 

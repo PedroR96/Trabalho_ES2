@@ -1,8 +1,6 @@
 package Utils;
 
 import Food.NutricionalSpecs;
-import Medical_Information.FoodHabits;
-import People.MaxCharacters;
 import com.opencsv.CSVReader;
 
 import java.awt.*;
@@ -28,14 +26,14 @@ public class FileFunctions {
         return dialog.getDirectory() + dialog.getFile();
     }
 
-    /*public static void main(String[] args) throws MaxCharacters{
+    public static void main(String[] args) {
 
-        //FileFunctions f = new FileFunctions();
+        FileFunctions f = new FileFunctions();
         //f.readCSV();
-        //f.readFiletwo();
+        f.readFiletwo();
 
 
-    }*/
+    }
 
     /**
      * Read a CSV File to get nutricional specs
@@ -49,13 +47,12 @@ public class FileFunctions {
             CSVReader csvReader = new CSVReader(reader);
             String[] nextRecord;
             while ((nextRecord = csvReader.readNext()) != null) {
+
                 nutSpecs = "";
-
-                for (String s : nextRecord) {
-                    nutSpecs += s + ";";
+                for (int i = 0; i < 43; i++) {
+                    //System.out.println(nextRecord[i]);
+                    nutSpecs += nextRecord[i] + ";";
                 }
-
-                //System.out.println(nutSpecs);
                 NutricionalSpecs nutricionalSpecs1 = new NutricionalSpecs(nutSpecs);
                 productNutricionalSpecs.put(nutricionalSpecs1.getProductID(), nutricionalSpecs1);
             }
@@ -69,26 +66,30 @@ public class FileFunctions {
     /**
      * Read CSV to get folha 2 values
      */
-    public FoodHabits readFiletwo() throws MaxCharacters {
+    public void readFiletwo() {
         String path = getFilePath();
-        String specs="";
+        String specs;
         try {
             Reader reader = Files.newBufferedReader(Paths.get(path));
             CSVReader csvReader = new CSVReader(reader);
             String[] nextRecord;
             while ((nextRecord = csvReader.readNext()) != null) {
 
-                for (String k : nextRecord) {
-                    specs += k + ",";
+                specs = "";
+                for (String k : nextRecord){
+                    //System.out.println(k);
+                    specs += k;
                 }
-                //System.out.println(specs);
-
+                specs += "|";
+                System.out.println(specs);
             }
+
+
         } catch (Exception e) {
-            System.out.println("readFiletwo: " + e);
+            System.out.println(e);
             e.getStackTrace();
         }
-        return new FoodHabits(specs);
+
     }
 
     /**
@@ -103,7 +104,7 @@ public class FileFunctions {
             String[] nextRecord;
             while ((nextRecord = csvReader.readNext()) != null) {
 
-                for (String k : nextRecord) {
+                for (String k : nextRecord){
                     //System.out.println(k);
                     System.out.println(k);
                 }
