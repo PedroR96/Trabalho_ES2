@@ -4,6 +4,7 @@ import Food.Meal;
 import Food.Product;
 import People.MaxCharacters;
 
+import java.sql.Time;
 import java.util.ArrayList;
 
 public class FoodHabits {
@@ -35,8 +36,10 @@ public class FoodHabits {
                 /**
                  * Hora
                  */
-                //System.out.println("\t " + allMeals[i - 1]);
-                //temp.setSchedule(Time.valueOf(allMeals[i-1]));
+                //System.out.println("\t " + allMeals[i - 1]); = ﻿06:30
+                String[] horas = allMeals[i - 1].split(":");
+                Time time = new Time(Integer.parseInt(horas[0]),Integer.parseInt(horas[1]),0);
+                temp.setSchedule(time);
                 /**
                  * Refeiçao
                  */

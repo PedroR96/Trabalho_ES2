@@ -12,7 +12,7 @@ public class Person {
     private Physical_Data physicalData;
     private Quiz quiz;
     private FoodHabits foodHabits;
-    private FoodHabits newpPlan;
+    private FoodHabits newPlan;
 
     public Person() {
     }
@@ -67,5 +67,13 @@ public class Person {
 
     public void setFoodHabits(FoodHabits foodHabits) {
         this.foodHabits = foodHabits;
+    }
+
+    public FoodHabits getNewPlan() {
+        return newPlan;
+    }
+
+    public void setNewPlan(FoodHabits newPlan) {
+        this.newPlan = newPlan;
     }
 }

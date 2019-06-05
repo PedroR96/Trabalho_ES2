@@ -21,8 +21,8 @@ public class FileFunctions {
      *
      * @return path
      */
-    public static String getFilePath() {
-        FileDialog dialog = new FileDialog((Frame) null, "Escolha um ficheiro");
+    public static String getFilePath(String title) {
+        FileDialog dialog = new FileDialog((Frame) null, title);
         dialog.setMode(FileDialog.LOAD);
         dialog.setVisible(true);
         return dialog.getDirectory() + dialog.getFile();
@@ -42,7 +42,7 @@ public class FileFunctions {
      */
     public HashMap<String, NutricionalSpecs> readCSV() {
         HashMap<String, NutricionalSpecs> productNutricionalSpecs = new HashMap<>();
-        String path = getFilePath();
+        String path = getFilePath("Escolha o ficheiro com a tabela nutricional");
         String nutSpecs;
         try {
             Reader reader = Files.newBufferedReader(Paths.get(path));
@@ -69,8 +69,8 @@ public class FileFunctions {
     /**
      * Read CSV to get folha 2 values
      */
-    public FoodHabits readFiletwo() throws MaxCharacters {
-        String path = getFilePath();
+    public FoodHabits readFiletwo(String title) throws MaxCharacters {
+        String path = getFilePath(title);
         String specs="";
         try {
             Reader reader = Files.newBufferedReader(Paths.get(path));
@@ -95,8 +95,8 @@ public class FileFunctions {
     /**
      * Read CSV to get folha 1 values
      */
-    public void readFileOne() {
-        String path = getFilePath();
+    public void readFileOne(String title) {
+        String path = getFilePath(title);
         String specs;
         try {
             Reader reader = Files.newBufferedReader(Paths.get(path));
