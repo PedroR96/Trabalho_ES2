@@ -6,6 +6,7 @@ public enum WaterConsuption {
     Good,
     Obsessive;
 
+
     String getValue(WaterConsuption waterConsuption) {
         switch (this) {
             case Weak:
