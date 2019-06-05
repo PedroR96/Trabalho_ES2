@@ -14,6 +14,9 @@ public class Person {
     private FoodHabits foodHabits;
     private FoodHabits newpPlan;
 
+    public Person() {
+    }
+
     public Person(String name, int age) {
         if ((name.length() > 0 && name.length() < 40 ) && (age < 145 && age > 0)) {
             this.name = name;
@@ -56,5 +59,13 @@ public class Person {
 
     public void setPhysicalData(Physical_Data physicalData) {
         this.physicalData = physicalData;
+    }
+
+    public FoodHabits getFoodHabits() {
+        return foodHabits;
+    }
+
+    public void setFoodHabits(FoodHabits foodHabits) {
+        this.foodHabits = foodHabits;
     }
 }
