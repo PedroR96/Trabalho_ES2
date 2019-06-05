@@ -31,7 +31,7 @@ public class Main {
         FoodHabits newHabits = fileFunctions.readFiletwo("Escolha a Folha 4");
         person.setNewPlan(newHabits);
 
-        System.out.println("GET UP FOLHA 2 " + person.getFoodHabits().getGetUp());
+        System.out.println("GET UP FOLHA 2 " + person.getFoodHabits().getMeals().get(0).getSchedule());
 
         System.out.println("GET UP FOLHA 4 " + person.getNewPlan().getGetUp());
 

@@ -36,7 +36,7 @@ public class FoodHabits {
                 /**
                  * Hora
                  */
-                //System.out.println("\t " + allMeals[i - 1]); = ﻿06:30
+                //System.out.println("\t " + allMeals[i - 1]);
                 String[] horas = allMeals[i - 1].split(":");
                 Time time = new Time(Integer.parseInt(horas[0]),Integer.parseInt(horas[1]),0);
                 temp.setSchedule(time);
