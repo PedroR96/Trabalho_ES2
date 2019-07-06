@@ -4,6 +4,7 @@ import Food.NutricionalSpecs;
 import Medical_Information.FoodHabits;
 import Medical_Information.Physical_Data;
 import People.MaxCharacters;
+import People.Person;
 import com.opencsv.CSVReader;
 
 import java.awt.*;
@@ -106,9 +107,9 @@ public class FileFunctions {
     /**
      * Read CSV to get folha 1 values
      */
-    public void readFileOne(String title) {
+    public Person readFileOne(String title) {
         String path = getFilePath(title);
-        String specs;
+        String data="";
         try {
             Reader reader = Files.newBufferedReader(Paths.get(path));
             CSVReader csvReader = new CSVReader(reader);
@@ -116,17 +117,16 @@ public class FileFunctions {
             while ((nextRecord = csvReader.readNext()) != null) {
 
                 for (String k : nextRecord) {
-                    //System.out.println(k);
-                    System.out.println(k);
+                    //System.out.println(k);v
+                    data += k + ";";
                 }
             }
-
 
         } catch (Exception e) {
             System.out.println(e);
             e.getStackTrace();
         }
-
+        return new Person(data);
     }
 
     /**

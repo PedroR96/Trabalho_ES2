@@ -53,12 +53,10 @@ public class Person {
         this.height = height;
     }
 
-    public void setFoodHabits(FoodHabits foodHabits) {
-        this.foodHabits = foodHabits;
-    }
 
-    public void setNewpPlan(FoodHabits newpPlan) {
-        this.newpPlan = newpPlan;
+
+    public void setnewPlan(FoodHabits newPlan) {
+        this.newPlan = newPlan;
     }
 
     public Person(String info) {

@@ -17,28 +17,35 @@ public class Physical_Data {
 
     public Physical_Data(String s) throws MaxCharacters {
         String[] specs = s.split(",");
+        String sub =specs[0].substring(1, specs[0].length());
 
+        Float x=Float.parseFloat(specs[0].substring(1, specs[0].length()));
 
         /**
          * Compor isto
          */
+
+
+//        System.out.println("asdasd " + specs[0]);
+//
+//        System.out.println("f2" + Float.valueOf(specs[0].concat("f").trim().replace(".",",")).floatValue());
+//
+//        System.out.println( "Float " + Float.parseFloat(specs[0]));
+//
+//        System.out.println( "DOUBLE " + Double.parseDouble(specs[0]));
+//        System.out.println( "fuck this shit: "+specs[0]);
+
+
+      /*
         try {
-/*
-            System.out.println("asdasd " + specs[0]);
 
-            System.out.println("f2" + Float.valueOf(specs[0].concat("f").trim().replace(".",",")).floatValue());
 
-            System.out.println( "Float " + Float.parseFloat(specs[0]));
-
-            System.out.println( "DOUBLE " + Double.parseDouble(specs[0]));*/
-
-            this.setWeight(Float.parseFloat(specs[0]));
-
+            this.setWeight(Float.parseFloat(x.toString()));
 
         }catch (Exception e){
             System.out.println("EXCEPTION " + e.getMessage());
             e.printStackTrace();
-        }
+        }*/
 
         this.setHeight(Float.parseFloat(specs[1]));
         this.setIMC(Float.parseFloat(specs[2]));
