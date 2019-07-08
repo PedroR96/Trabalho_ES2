@@ -16,6 +16,11 @@ public class Meal {
     }
 
     public void setDescription(String description) {
+        assert description!=null;
+        assert !description.isEmpty();
+        assert description.length()<50;
+
+
         this.description = description;
     }
 
@@ -24,6 +29,7 @@ public class Meal {
     }
 
     public void setSchedule(Time schedule) {
+        assert description!=null;
         this.schedule = schedule;
     }
 
@@ -32,6 +38,7 @@ public class Meal {
     }
 
     public void setProducts(Product products) {
+        assert products!=null;
         this.products.add(products);
     }
 }

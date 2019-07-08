@@ -10,13 +10,14 @@ public class Person {
 
     private String name;
     private String job;
-
     private float height;
     private int age;
+    private String gender;
     private Physical_Data physicalData;
     private Quiz quiz;
     private FoodHabits foodHabits;
     private FoodHabits newPlan;
+
 
     public Person() {
     }
@@ -45,6 +46,15 @@ public class Person {
         this.quiz = quiz;
     }
 
+    public Quiz getQuiz() {
+        return quiz;
+    }
+
+
+    public String getGender() { return gender; }
+
+    public void setGender(String gender) { this.gender = gender; }
+
     public float getHeight() {
         return height;
     }
@@ -63,10 +73,11 @@ public class Person {
         String[] x=info.split(";");
         this.setName(x[0]);
         this.setAge(Integer.parseInt(x[1]));
-        this.setHeight(Float.parseFloat(x[2]));
-        this.setJob(x[3]);
-        HashMap<String,String> aux=new HashMap<>();aux.put("colestrol",x[12].toString());aux.put("glicémia",x[13].toString());aux.put("ureia",x[14].toString());aux.put("ereatinina",x[15].toString());aux.put("profcoreatova",x[16].toString());
-        this.setQuiz(new Quiz(x[4],x[5],x[6],x[7],x[8],x[9],x[10],x[11],aux));
+        this.setGender(x[2]);
+        this.setHeight(Float.parseFloat(x[3]));
+        this.setJob(x[4]);
+        HashMap<String,String> aux=new HashMap<>();aux.put("colestrol",x[13].toString());aux.put("glicémia",x[14].toString());aux.put("ureia",x[15].toString());aux.put("ereatinina",x[16].toString());aux.put("profcoreatova",x[17].toString());
+        this.setQuiz(new Quiz(x[5],x[6],x[7],x[8],x[9],x[10],x[11],x[12],aux));
 
     }
     public Person(String name, int age, String job) {

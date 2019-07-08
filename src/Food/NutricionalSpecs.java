@@ -3,13 +3,11 @@ package Food;
 
 import People.MaxCharacters;
 
-import java.util.EmptyStackException;
-
 public class NutricionalSpecs {
     private String productID;
     private String name;
-    private Integer energiaKCla;
-    private Integer energiaKj;
+    private Float energiaKCla;
+    private Float energiaKj;
     private Float agua;
     private Float proteina;
     private Float gorduraTotal;
@@ -24,9 +22,10 @@ public class NutricionalSpecs {
     private Float acidosGordosSaturados;
     private Float acidosGordosMonoinsaturados;
     private Float acidosGordosPolinsaturados;
-    private Float acidosGordosAcidosGordosTrans;
+    private Float acidosGordosTrans;
     private Float acidoLinoleico;
     private Float colesterol;
+    private Float Retinol;
     private Float vitATotal;
     private Float caroteno;
     private Float vitD;
@@ -53,11 +52,11 @@ public class NutricionalSpecs {
 
 
     public NutricionalSpecs(String specs){
-     String[] x=   specs.split(";");
+        String[] x=   specs.split(";");
         this.productID = x[0];
         this.name =  x[1];
-        this.energiaKCla =  Integer.parseInt(x[2]);
-        this.energiaKj =  Integer.parseInt(x[3]);
+        this.energiaKCla =  Float.parseFloat(x[2]);
+        this.energiaKj =  Float.parseFloat(x[3]);
         this.agua = Float.parseFloat(x[4]);
         this.proteina =  Float.parseFloat(x[5]);
         this.gorduraTotal =  Float.parseFloat(x[6]);
@@ -72,79 +71,36 @@ public class NutricionalSpecs {
         this.acidosGordosSaturados =  Float.parseFloat(x[15]);
         this.acidosGordosMonoinsaturados =  Float.parseFloat(x[16]);
         this.acidosGordosPolinsaturados =  Float.parseFloat(x[17]);
-        this.acidosGordosAcidosGordosTrans =  Float.parseFloat(x[18]);
+        this.acidosGordosTrans =  Float.parseFloat(x[18]);
         this.acidoLinoleico =  Float.parseFloat(x[19]);
         this.colesterol =  Float.parseFloat(x[20]);
-        this.vitATotal =  Float.parseFloat(x[21]);
-        this.caroteno =  Float.parseFloat(x[22]);
-        this.vitD = Float.parseFloat(x[23]);
-        this.aTocoferol = Float.parseFloat(x[24]);
-        Tiamina = Float.parseFloat(x[25]);
-        Riboflavina = Float.parseFloat(x[26]);
-        this.equivalentesNiacina = Float.parseFloat(x[27]);
-        this.niacina = Float.parseFloat(x[28]);
-        this.triptofano = Float.parseFloat(x[29]);
-        this.vitB6 = Float.parseFloat(x[30]);
-        this.vitB12 = Float.parseFloat(x[31]);
-        this.vitC = Float.parseFloat(x[32]);
-        this.folatos = Float.parseFloat(x[33]);
-        this.cinza = Float.parseFloat(x[34]);
-        Na = Float.parseFloat(x[35]);
-        K = Float.parseFloat(x[36]);
-        Ca = Float.parseFloat(x[37]);
-        P = Float.parseFloat(x[38]);
-        Mg = Float.parseFloat(x[38]);
-        Fe = Float.parseFloat(x[40]);
-        Zn = Float.parseFloat(x[41]);
+        this.Retinol=Float.parseFloat(x[21]);
+        this.vitATotal =  Float.parseFloat(x[22]);
+        this.caroteno =  Float.parseFloat(x[23]);
+        this.vitD = Float.parseFloat(x[24]);
+        this.aTocoferol = Float.parseFloat(x[25]);
+        Tiamina = Float.parseFloat(x[26]);
+        Riboflavina = Float.parseFloat(x[27]);
+        this.equivalentesNiacina = Float.parseFloat(x[28]);
+        this.niacina =  Float.parseFloat(x[29]);
+        this.triptofano =Float.parseFloat(x[30]);
+        this.vitB6 = Float.parseFloat(x[31]);
+        this.vitB12 = Float.parseFloat(x[32]);
+        this.vitC = Float.parseFloat(x[33]);
+        this.folatos =  Float.parseFloat(x[34]);
+        this.cinza =Float.parseFloat(x[35]);
+        Na = Float.parseFloat(x[36]);
+        K = Float.parseFloat(x[37]);
+        Ca = Float.parseFloat(x[38]);
+        P =  Float.parseFloat(x[38]);
+        Mg =Float.parseFloat(x[40]);
+        Fe = Float.parseFloat(x[41]);
+        Zn = Float.parseFloat(x[42]);
     }
-    public NutricionalSpecs(String productID, String name, Integer energiaKCla, Integer energiaKj, Float agua, Float proteina, Float gorduraTotal, Float totalHCDisponiveis, Float totalHCMonossacaridos, Float monoDissacaridos, Float acidosOrganicos, Float alcool, Float amido, Float oligossacaridos, Float fibraAlimentar, Float acidosGordosSaturados, Float acidosGordosMonoinsaturados, Float acidosGordosPolinsaturados, Float acidosGordosAcidosGordosTrans, Float acidoLinoleico, Float colesterol, Float vitATotal, Float caroteno, Float vitD, Float aTocoferol, Float tiamina, Float riboflavina, Float equivalentesNiacina, Float niacina, Float triptofano, Float vitB6, Float vitB12, Float vitC, Float folatos, Float cinza, Float na, Float k, Float ca, Float p, Float mg, Float fe, Float zn) {
-        this.productID = productID;
-        this.name = name;
-        this.energiaKCla = energiaKCla;
-        this.energiaKj = energiaKj;
-        this.agua = agua;
-        this.proteina = proteina;
-        this.gorduraTotal = gorduraTotal;
-        this.totalHCDisponiveis = totalHCDisponiveis;
-        this.totalHCMonossacaridos = totalHCMonossacaridos;
-        this.monoDissacaridos = monoDissacaridos;
-        this.acidosOrganicos = acidosOrganicos;
-        this.alcool = alcool;
-        this.amido = amido;
-        this.oligossacaridos = oligossacaridos;
-        this.fibraAlimentar = fibraAlimentar;
-        this.acidosGordosSaturados = acidosGordosSaturados;
-        this.acidosGordosMonoinsaturados = acidosGordosMonoinsaturados;
-        this.acidosGordosPolinsaturados = acidosGordosPolinsaturados;
-        this.acidosGordosAcidosGordosTrans = acidosGordosAcidosGordosTrans;
-        this.acidoLinoleico = acidoLinoleico;
-        this.colesterol = colesterol;
-        this.vitATotal = vitATotal;
-        this.caroteno = caroteno;
-        this.vitD = vitD;
-        this.aTocoferol = aTocoferol;
-        Tiamina = tiamina;
-        Riboflavina = riboflavina;
-        this.equivalentesNiacina = equivalentesNiacina;
-        this.niacina = niacina;
-        this.triptofano = triptofano;
-        this.vitB6 = vitB6;
-        this.vitB12 = vitB12;
-        this.vitC = vitC;
-        this.folatos = folatos;
-        this.cinza = cinza;
-        Na = na;
-        K = k;
-        Ca = ca;
-        P = p;
-        Mg = mg;
-        Fe = fe;
-        Zn = zn;
-    }
-
 
     public NutricionalSpecs() {
     }
+
     public String getProductID() {
         return productID;
     }
@@ -169,21 +125,21 @@ public class NutricionalSpecs {
         this.name = name;
     }
 
-    public Integer getEnergiaKCla() {
+    public Float getEnergiaKCla() {
         return energiaKCla;
     }
 
-    public void setEnergiaKCla(Integer energiaKCla) throws MaxCharacters {
-        if(energiaKCla > 1000 || energiaKCla < 0)
+    public void setEnergiaKCla(Float energiaKCla) throws MaxCharacters {
+        if(energiaKCla > 1000.0f || energiaKCla < 0.0f)
             throw new MaxCharacters();
         this.energiaKCla = energiaKCla;
     }
 
-    public Integer getEnergiaKj() {
+    public Float getEnergiaKj() {
         return energiaKj;
     }
 
-    public void setEnergiaKj(Integer energiaKj) throws MaxCharacters {
+    public void setEnergiaKj(Float energiaKj) throws MaxCharacters {
         if(energiaKj > 4500 || energiaKj < 0 )
             throw new MaxCharacters();
         this.energiaKj = energiaKj;
@@ -317,12 +273,12 @@ public class NutricionalSpecs {
         this.acidosGordosPolinsaturados = acidosGordosPolinsaturados;
     }
 
-    public Float getAcidosGordosAcidosGordosTrans() {
-        return acidosGordosAcidosGordosTrans;
+    public Float getAcidosGordosTrans() {
+        return acidosGordosTrans;
     }
 
-    public void setAcidosGordosAcidosGordosTrans(Float acidosGordosAcidosGordosTrans) {
-        this.acidosGordosAcidosGordosTrans = acidosGordosAcidosGordosTrans;
+    public void setAcidosGordosTrans(Float acidosGordosTrans) {
+        this.acidosGordosTrans = acidosGordosTrans;
     }
 
     public Float getAcidoLinoleico() {
@@ -508,4 +464,102 @@ public class NutricionalSpecs {
     public void setZn(Float zn) {
         Zn = zn;
     }
+
+
+
+    public NutricionalSpecs sum(NutricionalSpecs nutricionalSpecs,float quantity){
+
+        this.energiaKCla  +=  (nutricionalSpecs.getEnergiaKCla()/100.0f)*quantity;
+        this.energiaKj +=  (nutricionalSpecs.getEnergiaKj()/100.0f)*quantity;
+
+        this.agua += (nutricionalSpecs.getAgua()/100.0f)*quantity;
+        this.proteina += ( nutricionalSpecs.proteina/100.0f)*quantity;
+        this.gorduraTotal += ( nutricionalSpecs.gorduraTotal/100.0f)*quantity;
+        this.totalHCDisponiveis += ( nutricionalSpecs.totalHCDisponiveis/100.0f)*quantity;
+        this.totalHCMonossacaridos += ( nutricionalSpecs.totalHCMonossacaridos/100.0f)*quantity;
+        this.monoDissacaridos += ( nutricionalSpecs.monoDissacaridos/100.0f)*quantity;
+        this.acidosOrganicos += ( nutricionalSpecs.acidosOrganicos/100.0f)*quantity;
+        this.alcool += ( nutricionalSpecs.alcool/100.0f)*quantity;
+        this.amido += ( nutricionalSpecs.amido/100.0f)*quantity;
+        this.oligossacaridos += ( nutricionalSpecs.oligossacaridos/100.0f)*quantity;
+        this.fibraAlimentar += (  nutricionalSpecs.fibraAlimentar/100.0f)*quantity;
+        this.acidosGordosSaturados += ( nutricionalSpecs.acidosGordosSaturados/100.0f)*quantity;
+        this.acidosGordosMonoinsaturados += (  nutricionalSpecs.acidosGordosMonoinsaturados/100.0f)*quantity;
+        this.acidosGordosPolinsaturados += (  nutricionalSpecs.acidosGordosPolinsaturados/100.0f)*quantity;
+        this.acidosGordosTrans += (  nutricionalSpecs.acidosGordosTrans/100.0f)*quantity;
+        this.acidoLinoleico += (  nutricionalSpecs.acidoLinoleico/100.0f)*quantity;
+        this.colesterol += (  nutricionalSpecs.colesterol/100.0f)*quantity;
+        this.Retinol += (  nutricionalSpecs.Retinol/100.0f)*quantity;
+        this.vitATotal += (  nutricionalSpecs.vitATotal/100.0f)*quantity;
+        this.caroteno += (  nutricionalSpecs.caroteno/100.0f)*quantity;
+        this.vitD += (  nutricionalSpecs.vitD/100.0f)*quantity;
+        this.aTocoferol += (  nutricionalSpecs.aTocoferol/100.0f)*quantity;
+        this.Tiamina += (  nutricionalSpecs.Tiamina/100.0f)*quantity;
+        this.Riboflavina += ( nutricionalSpecs.Riboflavina/100.0f)*quantity;
+        this.equivalentesNiacina += ( nutricionalSpecs.equivalentesNiacina/100.0f)*quantity;
+        this.niacina += ( nutricionalSpecs.niacina/100.0f)*quantity;
+        this.triptofano += ( nutricionalSpecs.triptofano/100.0f)*quantity;
+        this.vitB6 += ( nutricionalSpecs.vitB6/100.0f)*quantity;
+        this.vitB12 += ( nutricionalSpecs.vitB12/100.0f)*quantity;
+        this.vitC += ( nutricionalSpecs.vitC/100.0f)*quantity;
+        this.folatos += ( nutricionalSpecs.folatos/100.0f)*quantity;
+        this.cinza += ( nutricionalSpecs.cinza/100.0f)*quantity;
+        this.Na += ( nutricionalSpecs.Na/100.0f)*quantity;
+        this.K += ( nutricionalSpecs.K/100.0f)*quantity;
+        this.Ca += ( nutricionalSpecs.Ca/100.0f)*quantity;
+        this.P += ( nutricionalSpecs.P/100.0f)*quantity;
+        this.Mg += ( nutricionalSpecs.Mg/100.0f)*quantity;
+        this.Fe += ( nutricionalSpecs.Fe/100.0f)*quantity;
+        this.Zn += ( nutricionalSpecs.Zn/100.0f)*quantity;
+
+        return this;
+    }
+
+
+    public String nutricionalSpecsToString(){
+
+        return   "Energia (kcal),Energia (kJ),Água (g),Proteína (g),Gordura total (g),Total HC disponíveis (g),Total HC expresso em monossacáridos (g),Mono + dissacáridos (g),Ácidos orgânicos (g),Álcool (g),Amido (g),Oligossacáridos (g),Fibra alimentar (g),Ácidos gordos saturados (g),Ácidos gordos monoinsaturados (g),Ácidos gordos polinsaturados  (g),Ácidos gordos trans (g),Ácido linoleico (g),Colesterol (mg),Retinol (vit. A total) (mg),Vit A total (equivalentes retinol) (mg),Caroteno (mg),vit. D (µg),a-tocoferol (mg),Tiamina (mg),Riboflavina (mg),Equivalentes de niacina (mg) ,Niacina (mg),Triptofano/60 (mg),vit B6 (mg),Vit. B12 (µg),vit. C (mg),Folatos (µg),Cinza (g),Na (mg),K(mg),Ca (mg),P (mg),Mg (mg),Fe (mg),Zn (mg)\n"+
+                this.energiaKCla+","+
+                this.energiaKj  +","+
+                this.agua +","+
+                this.proteina +","+
+                this.gorduraTotal +","+
+                this.totalHCDisponiveis +","+
+                this.totalHCMonossacaridos +","+
+                this.monoDissacaridos +","+
+                this.acidosOrganicos +","+
+                this.alcool +","+
+                this.amido +","+
+                this.oligossacaridos +","+
+                this.fibraAlimentar +","+
+                this.acidosGordosSaturados +","+
+                this.acidosGordosMonoinsaturados +","+
+                this.acidosGordosPolinsaturados +","+
+                this.acidosGordosTrans +","+
+                this.acidoLinoleico +","+
+                this.colesterol +","+
+                this.Retinol +","+
+                this.vitATotal +","+
+                this.caroteno +","+
+                this.vitD +","+
+                this.aTocoferol +","+
+                this.Tiamina +","+
+                this.Riboflavina +","+
+                this.equivalentesNiacina +","+
+                this.niacina +","+
+                this.triptofano +","+
+                this.vitB6 +","+
+                this.vitB12 +","+
+                this.vitC +","+
+                this.folatos +","+
+                this.cinza +","+
+                this.Na +","+
+                this.K +","+
+                this.Ca +","+
+                this.P +","+
+                this.Mg +","+
+                this.Fe +","+
+                this.Zn ;
+    }
 }
+

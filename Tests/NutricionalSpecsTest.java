@@ -110,7 +110,7 @@ class NutricionalSpecsTest {
     @Test
     void testEnergyKClaRight() throws MaxCharacters {
         NutricionalSpecs ns = new NutricionalSpecs();
-        ns.setEnergiaKCla(352);
+        ns.setEnergiaKCla(352.0f);
         assertEquals(352,ns.getEnergiaKCla());
     }
 
@@ -119,7 +119,7 @@ class NutricionalSpecsTest {
         NutricionalSpecs ns = new NutricionalSpecs();
 
         assertThrows(MaxCharacters.class,()->{
-            ns.setEnergiaKCla(1001);
+            ns.setEnergiaKCla(1001.0f);
             ns.getEnergiaKCla();
         });
     }
@@ -129,7 +129,7 @@ class NutricionalSpecsTest {
         NutricionalSpecs ns = new NutricionalSpecs();
 
         assertThrows(MaxCharacters.class,()->{
-            ns.setEnergiaKCla(-1);
+            ns.setEnergiaKCla(-1.0f);
             ns.getEnergiaKCla();
         });
     }
@@ -140,7 +140,7 @@ class NutricionalSpecsTest {
     @Test
     void testEnergyKJRight() throws MaxCharacters {
         NutricionalSpecs ns = new NutricionalSpecs();
-        ns.setEnergiaKj(125);
+        ns.setEnergiaKj(125.0f);
         assertEquals(125,ns.getEnergiaKj());
     }
     @Test
@@ -148,7 +148,7 @@ class NutricionalSpecsTest {
         NutricionalSpecs ns = new NutricionalSpecs();
 
         assertThrows(MaxCharacters.class,()->{
-           ns.setEnergiaKj(4501);
+           ns.setEnergiaKj(4501.0f);
            ns.getEnergiaKj();
         });
     }
@@ -157,7 +157,7 @@ class NutricionalSpecsTest {
         NutricionalSpecs ns = new NutricionalSpecs();
 
         assertThrows(MaxCharacters.class,()->{
-            ns.setEnergiaKj(-1);
+            ns.setEnergiaKj(-1.0f);
             ns.getEnergiaKj();
         });
     }

@@ -1,5 +1,10 @@
 package Utils;
 
+import Food.Meal;
+import Food.NutricionalSpecs;
+import Food.Product;
+import Medical_Information.FoodHabits;
+
 import javax.smartcardio.TerminalFactory;
 import java.util.HashMap;
 
@@ -32,6 +37,9 @@ public class CalculosxD {
         activityFactor.put("Acamado" ,1.2f );
         activityFactor.put("Acamado + móvel" ,1.25f );
         activityFactor.put("Deambulando" ,1.3f );
+
+
+        //Initialize InjurieFactor
         injurieFactor.put("Paciente não complicado" ,1f );
         injurieFactor.put("Pós operatório oncológico" ,1.1f );
         injurieFactor.put("Fratura ossos longos" ,1.2f );
@@ -46,12 +54,7 @@ public class CalculosxD {
     }
 
 
-
-
-
-
-
-    public void calculateEnergyUsingHarris(Float weight, Float size, Integer age, String gender, String activity, String termical,String injurie){
+    public void calculateEnergyUsingHarris(Float weight, Float size, Integer age, String gender, String activity, Integer termical,String injurie){
 
         if(gender.equalsIgnoreCase("Masculino"))
             TMB=(66.5f)+((13.8f*weight)+(5*(size*100))-(6.8f*age));
@@ -61,7 +64,7 @@ public class CalculosxD {
 
         float x=activityFactor.get(activity);
         float y=injurieFactor.get(injurie);
-        float z=termicalFactor.get(Integer.parseInt(termical));
+        float z=termicalFactor.get(termical);
 
         Float energyWaste=TMB*x*y*z;
 
@@ -73,5 +76,26 @@ public class CalculosxD {
     }
 
 
+
+    public  NutricionalSpecs calculateTotalNutrientsPlan(FoodHabits plan, HashMap<String, NutricionalSpecs> productNutricionalSpecs ){
+
+        NutricionalSpecs planNutricionalSpecifications=new NutricionalSpecs("0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;");
+
+        for(Meal meal : plan.getMeals()){
+            System.out.println("Meal: "+meal.getDescription());
+
+            for(Product prod:meal.getProducts()){
+                planNutricionalSpecifications.sum(productNutricionalSpecs.get(prod.getProductID()),prod.getAmount());
+
+                System.out.println("\tProduct: "+ productNutricionalSpecs.get(prod.getProductID()).getName());
+                System.out.println("\tAmount: " + prod.getAmount());
+
+                System.out.println("");
+            }
+            System.out.println("\n   ");
+
+        }
+        return planNutricionalSpecifications;
+    }
 
 }

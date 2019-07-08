@@ -20,34 +20,7 @@ public class Physical_Data {
         String sub =specs[0].substring(1, specs[0].length());
 
         Float x=Float.parseFloat(specs[0].substring(1, specs[0].length()));
-
-        /**
-         * Compor isto
-         */
-
-
-//        System.out.println("asdasd " + specs[0]);
-//
-//        System.out.println("f2" + Float.valueOf(specs[0].concat("f").trim().replace(".",",")).floatValue());
-//
-//        System.out.println( "Float " + Float.parseFloat(specs[0]));
-//
-//        System.out.println( "DOUBLE " + Double.parseDouble(specs[0]));
-//        System.out.println( "fuck this shit: "+specs[0]);
-
-
-      /*
-        try {
-
-
-            this.setWeight(Float.parseFloat(x.toString()));
-
-        }catch (Exception e){
-            System.out.println("EXCEPTION " + e.getMessage());
-            e.printStackTrace();
-        }*/
-
-        this.setHeight(Float.parseFloat(specs[1]));
+     this.setHeight(Float.parseFloat(specs[1]));
         this.setIMC(Float.parseFloat(specs[2]));
         this.setBF(Float.parseFloat(specs[3]));
         this.setVisceralFat(Float.parseFloat(specs[4]));
@@ -62,17 +35,17 @@ public class Physical_Data {
     public Physical_Data() {
     }
 
-    /***********************************************
-     * Getters
-     ************************************************/
+
 
     public float getWeight() {
         return weight;
     }
 
-    public void setWeight(float weight) throws MaxCharacters {
-        if (weight > 635.0 || weight < 2.1)
-            throw new MaxCharacters();
+    public void setWeight(Float weight) {
+        assert weight !=null;
+        assert weight > 2.1;
+        assert weight < 635.0 ;
+
         this.weight = weight;
     }
 
@@ -80,9 +53,12 @@ public class Physical_Data {
         return height;
     }
 
-    public void setHeight(float height) throws MaxCharacters {
-        if (height < 54.5 || height > 272.0)
-            throw new MaxCharacters();
+    public void setHeight(Float height) {
+
+        assert height !=null;
+        assert height >  0.53;
+        assert height < 2.72 ;
+
         this.height = height;
     }
 
@@ -90,9 +66,13 @@ public class Physical_Data {
         return IMC;
     }
 
-    public void setIMC(float IMC) throws MaxCharacters {
-        if (IMC < 2.00 || IMC > 30.00)
-            throw new MaxCharacters();
+    public void setIMC(Float IMC)
+    {
+
+        assert IMC !=null;
+        assert IMC > 2.00;
+        assert IMC < 30.00;
+
         this.IMC = IMC;
     }
 
@@ -100,9 +80,12 @@ public class Physical_Data {
         return BF;
     }
 
-    public void setBF(float BF) throws MaxCharacters {
-        if (BF < 5 || BF > 50)
-            throw new MaxCharacters();
+    public void setBF(Float BF){
+
+        assert BF !=null;
+        assert BF > 5.00;
+        assert BF < 50.00;
+
         this.BF = BF;
     }
 
@@ -110,9 +93,13 @@ public class Physical_Data {
         return visceralFat;
     }
 
-    public void setVisceralFat(float visceralFat) throws MaxCharacters {
-        if (visceralFat < 0 || visceralFat > 60)
-            throw new MaxCharacters();
+    public void setVisceralFat(Float visceralFat)  {
+
+        assert visceralFat !=null;
+        assert visceralFat > 0.00;
+        assert visceralFat < 60.00;
+
+
         this.visceralFat = visceralFat;
     }
 
@@ -120,9 +107,11 @@ public class Physical_Data {
         return muscle;
     }
 
-    public void setMuscle(float muscle) throws MaxCharacters {
-        if (muscle < 0 || muscle > 90)
-            throw new MaxCharacters();
+    public void setMuscle(Float muscle) {
+        assert muscle !=null;
+        assert muscle > 0.0;
+        assert muscle < 90.0;
+
         this.muscle = muscle;
     }
 
@@ -130,9 +119,13 @@ public class Physical_Data {
         return metabolicAge;
     }
 
-    public void setMetabolicAge(int metabolicAge) throws MaxCharacters {
-        if (metabolicAge < 1 || metabolicAge > 90)
-            throw new MaxCharacters();
+    public void setMetabolicAge(Integer metabolicAge) {
+
+        assert metabolicAge !=null;
+        assert metabolicAge > 1;
+        assert metabolicAge < 90;
+
+
         this.metabolicAge = metabolicAge;
     }
 
@@ -155,9 +148,11 @@ public class Physical_Data {
         return metabolicBasal;
     }
 
-    public void setMetabolicBasal(float metabolicBasal) throws MaxCharacters {
-        if (metabolicBasal < 500 || metabolicBasal > 20000)
-            throw new MaxCharacters();
+    public void setMetabolicBasal(Float metabolicBasal) {
+        assert metabolicBasal !=null;
+        assert metabolicBasal > 500.0;
+        assert metabolicBasal < 50000.0;
+
         this.metabolicBasal = metabolicBasal;
     }
 

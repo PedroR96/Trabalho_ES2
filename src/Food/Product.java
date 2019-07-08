@@ -10,33 +10,40 @@ public class Product {
     public Product() {
     }
 
-    public Product(String productID, float amount, String amountDescription) {
-        this.productID = productID;
-        this.amount = amount;
-        this.amountDescription = amountDescription;
-    }
 
     public String getProductID() {
         return productID;
     }
 
     public void setProductID(String productID) {
+        assert !productID.isEmpty();
+        assert productID!=null;
+        assert productID.length()<50;
         this.productID = productID;
     }
 
-    public float getAmount() {
+    public float getAmount()
+    {
         return amount;
     }
 
-    public void setAmount(float amount) {
+    public void setAmount(Float amount) {
+        assert amount!=null;
+        assert amount>0;
+
         this.amount = amount;
     }
 
-    public String getAmountDescription() {
+    public String getAmountDescription()
+    {
         return amountDescription;
     }
 
     public void setAmountDescription(String amountDescription) {
+        assert amountDescription!=null;
+        assert !amountDescription.isEmpty();
+        assert amountDescription.length()<50;
+
         this.amountDescription = amountDescription;
     }
 }
