@@ -384,4 +384,185 @@ class NutricionalSpecsTest {
             ns.getAcidosOrganicos();
         });
     }
+
+    /**
+     * test from amido
+     */
+
+    @Test
+    void testAmidoNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+
+        assertThrows(AssertionError.class, ()->{
+            ns.setAmido(null);
+
+        });
+    }
+
+    @Test
+    void testAmidoZero(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+
+        assertThrows(AssertionError.class, ()->{
+            ns.setAmido(0.0f);
+        });
+    }
+
+    @Test
+    void testAmidoRight(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+
+        ns.setAmido(0.1f);
+        assertEquals(0.1f, ns.getAmido());
+    }
+
+    /**
+     *  test for getOligossacaridos
+     */
+    @Test
+    void testOligossacaridosRight(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setOligossacaridos(0.1f);
+        assertEquals(0.1f, ns.getOligossacaridos());
+    }
+    @Test
+    void testOligossacaridosSmaller(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()->{
+           ns.setOligossacaridos(0.0f);
+        });
+    }
+    @Test
+    void testOligossacaridosNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()->{
+            ns.setOligossacaridos(null);
+        });
+    }
+
+    /**
+     *  test for fibraalimentar
+     */
+
+    @Test
+    void testFibraAlimentarNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()->{
+           ns.setFibraAlimentar(null);
+        });
+    }
+    @Test
+    void testFibraAlimentarZero(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()->{
+           ns.setFibraAlimentar(0.0f);
+        });
+    }
+    @Test
+    void testFibraAlimentarRight(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setFibraAlimentar(0.1f);
+        assertEquals(0.1f, ns.getFibraAlimentar());
+    }
+
+    /**
+     *  test acidosgordossaturados
+     */
+    @Test
+    void testAcidosGordosSaturadosRight(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setAcidosGordosSaturados(0.1f);
+        assertEquals(0.1f,ns.getAcidosGordosSaturados());
+    }
+
+    @Test
+    void testAcidosGordosSaturadosZero(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()->{
+           ns.setAcidosGordosSaturados(0.0f);
+        });
+    }
+
+    @Test
+    void testAcidosGordosSaturadosNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()->{
+            ns.setAcidosGordosSaturados(null);
+        });
+    }
+
+    /**
+     *  test
+     */
+    @Test
+    void testAcidosGordosMonoinsaturadosNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()->{ns.setAcidosGordosMonoinsaturados(null);});
+    }
+
+    @Test
+    void testAcidosGordosMonoinsaturadosZero(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()->{ns.setAcidosGordosMonoinsaturados(0.0f);});
+    }
+    @Test
+    void testAcidosGordosMonoinsaturadosRight(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setAcidosGordosMonoinsaturados(0.1f);
+        assertEquals(0.1f,ns.getAcidosGordosMonoinsaturados());
+    }
+
+    /**
+     *  test AcidosGordosPolinsaturados
+     */
+    @Test
+    void testAcidosGordosPolinsaturados(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setAcidosGordosPolinsaturados(0.1f);
+        assertEquals(0.1f,ns.getAcidosGordosPolinsaturados());
+    }
+    @Test
+    void testAcidosGordosPolinsaturadosNull(){
+
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()->{
+           ns.setAcidosGordosPolinsaturados(null);
+        });
+    }
+    @Test
+    void testAcidosGordosPolinsaturadosZero(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()->{
+            ns.setAcidosGordosPolinsaturados(0.0f);
+        });
+    }
+
+    /**
+     * test for AcidosGordosTrans
+     */
+    @Test
+    void testAcidosGordosTrans(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setAcidosGordosTrans(0.1f);
+        assertEquals(0.1f,ns.getAcidosGordosTrans());
+    }
+
+    @Test
+    void testAcidosGordosTransNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()->{
+           ns.setAcidosGordosTrans(null);
+        });
+    }
+
+    @Test
+    void testAcidosGordosTransZero(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()->{
+           ns.setAcidosGordosTrans(0.0f);
+        });
+    }
+
+
+
 }

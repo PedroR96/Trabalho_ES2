@@ -230,6 +230,9 @@ public class NutricionalSpecs {
     }
 
     public void setAmido(Float amido) {
+        assert amido!=null;
+        assert amido>0.0f;
+
         this.amido = amido;
     }
 
@@ -238,6 +241,9 @@ public class NutricionalSpecs {
     }
 
     public void setOligossacaridos(Float oligossacaridos) {
+        assert oligossacaridos != null;
+        assert oligossacaridos > 0.0f;
+
         this.oligossacaridos = oligossacaridos;
     }
 
@@ -246,6 +252,9 @@ public class NutricionalSpecs {
     }
 
     public void setFibraAlimentar(Float fibraAlimentar) {
+        assert fibraAlimentar != null;
+        assert fibraAlimentar > 0.0f;
+
         this.fibraAlimentar = fibraAlimentar;
     }
 
@@ -254,6 +263,9 @@ public class NutricionalSpecs {
     }
 
     public void setAcidosGordosSaturados(Float acidosGordosSaturados) {
+        assert acidosGordosSaturados != null;
+        assert acidosGordosSaturados > 0.0f;
+
         this.acidosGordosSaturados = acidosGordosSaturados;
     }
 
@@ -262,6 +274,9 @@ public class NutricionalSpecs {
     }
 
     public void setAcidosGordosMonoinsaturados(Float acidosGordosMonoinsaturados) {
+        assert acidosGordosMonoinsaturados != null;
+        assert acidosGordosMonoinsaturados > 0.0f;
+
         this.acidosGordosMonoinsaturados = acidosGordosMonoinsaturados;
     }
 
@@ -270,6 +285,9 @@ public class NutricionalSpecs {
     }
 
     public void setAcidosGordosPolinsaturados(Float acidosGordosPolinsaturados) {
+        assert acidosGordosPolinsaturados != null;
+        assert acidosGordosPolinsaturados > 0.0f;
+
         this.acidosGordosPolinsaturados = acidosGordosPolinsaturados;
     }
 
@@ -278,6 +296,8 @@ public class NutricionalSpecs {
     }
 
     public void setAcidosGordosTrans(Float acidosGordosTrans) {
+        assert acidosGordosTrans != null;
+        assert acidosGordosTrans > 0.0f;
         this.acidosGordosTrans = acidosGordosTrans;
     }
 
