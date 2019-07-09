@@ -21,86 +21,76 @@ class NutricionalSpecsTest {
      * Tests from ProductID
      * @throws MaxCharacters
      */
+
+
     @Test
-    void testProductIDRight() throws MaxCharacters {
-        NutricionalSpecs ns = new NutricionalSpecs();
+    void testProductIDRight(){
 
-        ns.setProductID("IS019");
 
-        assertEquals("IS019",ns.getProductID());
     }
 
     @Test
     void testProductIDNull(){
         NutricionalSpecs ns =  new NutricionalSpecs();
-
-        assertThrows(NullPointerException.class,()->{
-            ns.setProductID(null);
-            ns.getProductID();
-        });
+        assertThrows(AssertionError.class,()-> ns.setProductID(null));
     }
-
 
     @Test
     void testProductIDBigger(){
         NutricionalSpecs ns = new NutricionalSpecs();
-
-        assertThrows(MaxCharacters.class,()->{
-            ns.setProductID("IS152635824");
-            ns.getProductID();
-        });
+        assertThrows(AssertionError.class,()-> ns.setProductID("IS152635824"));
     }
+
 
     @Test
     void testProductIDSmaller(){
         NutricionalSpecs ns = new NutricionalSpecs();
-
-        assertThrows(MaxCharacters.class,()->{
-            ns.setProductID("IS");
-            ns.getProductID();
-        });
+        assertThrows(AssertionError.class,()->ns.setProductID("IS0"));
     }
+    @Test
+    void testProductIDValid(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setProductID("IS01");
+        assertEquals("IS01",ns.getProductID());
+        ns.setProductID("IS1111111");
+        assertEquals("IS1111111",ns.getProductID());
+    }
+
+//    ________________________________________________________________________
+
 
     /**
      * Tests from Name of product
      * @throws MaxCharacters
      */
     @Test
-    void testNameRight() throws MaxCharacters {
+    void testNameValid() {
         NutricionalSpecs ns = new NutricionalSpecs();
 
-        ns.setName("Leite de Ovelha cru");
-        assertEquals("Leite de Ovelha cru",ns.getName());
+        ns.setName("Lei");
+        assertEquals("Lei",ns.getName());
+
+        ns.setName("Leite de Ovelha cruuLeite de Ovelha cruuLeite de ");
+        assertEquals("Leite de Ovelha cruuLeite de Ovelha cruuLeite de ",ns.getName());
     }
 
     @Test
     void testNameNull(){
         NutricionalSpecs ns = new NutricionalSpecs();
-
-        assertThrows(NullPointerException.class,()->{
-           ns.setName(null);
-           ns.getName();
-        });
+        assertThrows(AssertionError.class,()->ns.setName(null));
     }
 
     @Test
     void testNameBigger(){
         NutricionalSpecs ns = new NutricionalSpecs();
-
-        assertThrows(MaxCharacters.class,()->{
-            ns.setName("Leite de Ovelha cru com brao de milho e arroz com feijão");
-            ns.getName();
-        });
+        assertThrows(AssertionError.class,()-> ns.setName("Leite de Ovelha cru com brao de milho e arroz com feijão"));
     }
 
     @Test
     void testNameSmaller(){
         NutricionalSpecs ns = new NutricionalSpecs();
 
-        assertThrows(MaxCharacters.class,()->{
-            ns.setName("q");
-            ns.getName();
-        });
+        assertThrows(AssertionError.class,()-> ns.setName("Le"));
     }
 
     /**
@@ -108,170 +98,184 @@ class NutricionalSpecsTest {
      */
 
     @Test
-    void testEnergyKClaRight() throws MaxCharacters {
+    void testEnergyKClaValid(){
         NutricionalSpecs ns = new NutricionalSpecs();
-        ns.setEnergiaKCla(352.0f);
-        assertEquals(352,ns.getEnergiaKCla());
+        ns.setEnergiaKCla(0.00f);
+        assertEquals(0.00f,ns.getEnergiaKCla());
+
+        ns.setEnergiaKCla(999.9f);
+        assertEquals(999.9f,ns.getEnergiaKCla());
+    }
+
+    @Test
+    void testEnergyKClaNull() {
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setEnergiaKCla(null));
     }
 
     @Test
     void testEnergyKClaBigger() {
         NutricionalSpecs ns = new NutricionalSpecs();
-
-        assertThrows(MaxCharacters.class,()->{
-            ns.setEnergiaKCla(1001.0f);
-            ns.getEnergiaKCla();
-        });
+        assertThrows(AssertionError.class,()-> ns.setEnergiaKCla(1000.0f));
     }
 
     @Test
     void testEnergyKClaSmaller() {
         NutricionalSpecs ns = new NutricionalSpecs();
-
-        assertThrows(MaxCharacters.class,()->{
-            ns.setEnergiaKCla(-1.0f);
-            ns.getEnergiaKCla();
-        });
+        assertThrows(AssertionError.class,()-> ns.setEnergiaKCla(-0.1f));
     }
 
     /**
      *tests from energiaKj of products
      */
     @Test
-    void testEnergyKJRight() throws MaxCharacters {
+    void testEnergyKJRight() {
         NutricionalSpecs ns = new NutricionalSpecs();
-        ns.setEnergiaKj(125.0f);
-        assertEquals(125,ns.getEnergiaKj());
+        ns.setEnergiaKj(0.0f);
+        assertEquals(0.0f,ns.getEnergiaKj());
+
+        ns.setEnergiaKj(999.9f);
+        assertEquals(999.9f,ns.getEnergiaKj());
     }
+    @Test
+    void testEnergyKjNull() {
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()->ns.setEnergiaKj(null) ) ;
+    }
+
+
     @Test
     void testEnergyKjBigger() {
         NutricionalSpecs ns = new NutricionalSpecs();
-
-        assertThrows(MaxCharacters.class,()->{
-           ns.setEnergiaKj(4501.0f);
-           ns.getEnergiaKj();
-        });
+        assertThrows(AssertionError.class,()->ns.setEnergiaKj(4500.0f) ) ;
     }
     @Test
     void testEnergyKjSmaller() {
         NutricionalSpecs ns = new NutricionalSpecs();
 
-        assertThrows(MaxCharacters.class,()->{
-            ns.setEnergiaKj(-1.0f);
-            ns.getEnergiaKj();
-        });
+        assertThrows(AssertionError.class,()->ns.setEnergiaKj(-0.1f));
     }
 
     /**
      *test from water of products
      */
     @Test
-    void testWaterRight() throws MaxCharacters {
+    void testWaterValid()  {
         NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setAgua(1.5f);
+        assertEquals(1.5f,ns.getAgua());
 
-        ns.setAgua((float) 25.3);
-        assertEquals((float)25.3,ns.getAgua());
+        ns.setAgua(99.9f);
+        assertEquals(99.9f,ns.getAgua());
     }
 
     @Test
     void testWaterBigger(){
         NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setAgua((float)100.0));
+    }
 
-        assertThrows(MaxCharacters.class,()->{
-           ns.setAgua((float)100.1);
-           ns.getAgua();
-        });
+    @Test
+    void testWaterNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setAgua(null));
     }
 
     @Test
     void testWaterSmaller(){
         NutricionalSpecs ns = new NutricionalSpecs();
-
-        assertThrows(MaxCharacters.class,()->{
-            ns.setAgua((float)1.4);
-            ns.getAgua();
-        });
+        assertThrows(AssertionError.class,()-> ns.setAgua((float)1.4));
     }
 
     /**
      * test from Protein of product
      */
     @Test
-    void testProteinRight() throws MaxCharacters {
+    void testProteinValid() {
         NutricionalSpecs ns =new NutricionalSpecs();
-        ns.setProteina((float) 20.2);
-        assertEquals((float)20.2,ns.getProteina());
+        ns.setProteina( 0.0f);
+        assertEquals((float)0.0,ns.getProteina());
+
+        ns.setProteina(100.0f);
+        assertEquals((float)100.0,ns.getProteina());
+    }
+
+    @Test
+    void testProteinNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setProteina(null));
     }
 
     @Test
     void testProteinBigger(){
         NutricionalSpecs ns = new NutricionalSpecs();
-        assertThrows(MaxCharacters.class,()->{
-           ns.setProteina((float)40.1);
-           ns.getProteina();
-        });
+        assertThrows(AssertionError.class,()-> ns.setProteina(100.1f));
     }
 
     @Test
     void testProteinSmaller(){
         NutricionalSpecs ns  = new NutricionalSpecs();
-        assertThrows(MaxCharacters.class,()->{
-           ns.setProteina((float)-0.1);
-           ns.getProteina();
-        });
+        assertThrows(AssertionError.class,()-> ns.setProteina((float)-0.1));
     }
 
     /**
      * test from total fat
      */
     @Test
-    void testTotalFatRight() throws MaxCharacters {
+    void testTotalFatValid(){
         NutricionalSpecs ns = new NutricionalSpecs();
-        ns.setGorduraTotal((float) 50.2 );
-        assertEquals((float)50.2,ns.getGorduraTotal());
+        ns.setGorduraTotal((float) 0.0);
+        assertEquals((float)0.0,ns.getGorduraTotal());
+
+        ns.setGorduraTotal((float) 100.0);
+        assertEquals((float)100.0,ns.getGorduraTotal());
+    }
+
+    @Test
+    void testTotalFatNull(){
+        NutricionalSpecs ns =  new NutricionalSpecs();
+        assertThrows(AssertionError.class,()->ns.setGorduraTotal(null));
     }
 
     @Test
     void testTotalFatBigger(){
         NutricionalSpecs ns =  new NutricionalSpecs();
-        assertThrows(MaxCharacters.class,()->{
-           ns.setGorduraTotal((float) 100.1);
-           ns.getGorduraTotal();
-        });
+        assertThrows(AssertionError.class,()->ns.setGorduraTotal((float) 100.1));
     }
     @Test
     void testTotalFatSmaller(){
         NutricionalSpecs ns = new NutricionalSpecs();
-        assertThrows(MaxCharacters.class,()->{
-           ns.setGorduraTotal((float) -0.1);
-           ns.getGorduraTotal();
-        });
+        assertThrows(AssertionError.class,()->ns.setGorduraTotal((float) -0.1));
     }
 
     /**
      * test from total HC disponiveis
      */
     @Test
-    void testTotalHCFreeRight() throws MaxCharacters {
+    void testTotalHCFreeRight()  {
         NutricionalSpecs ns = new NutricionalSpecs();
-        ns.setTotalHCDisponiveis((float) 50.2 );
-        assertEquals((float)50.2,ns.getTotalHCDisponiveis());
+        ns.setTotalHCDisponiveis((float) 0.0);
+        assertEquals((float)0.0,ns.getTotalHCDisponiveis());
+        ns.setTotalHCDisponiveis((float) 100.0);
+        assertEquals((float)100.0,ns.getTotalHCDisponiveis());
     }
+
+    @Test
+    void testTotalHCFreeNull() {
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setTotalHCDisponiveis(null));
+    }
+
+
     @Test
     void testTotalHCFreeBigger() {
         NutricionalSpecs ns = new NutricionalSpecs();
-        assertThrows(MaxCharacters.class,()->{
-            ns.setTotalHCDisponiveis((float) 100.1);
-            ns.getTotalHCDisponiveis();
-        });
+        assertThrows(AssertionError.class,()-> ns.setTotalHCDisponiveis((float) 100.1));
     }
     @Test
     void testTotalHCFreeSmaller() {
         NutricionalSpecs ns = new NutricionalSpecs();
-        assertThrows(MaxCharacters.class,()->{
-            ns.setTotalHCDisponiveis((float) -0.1);
-            ns.getTotalHCDisponiveis();
-        });
+        assertThrows(AssertionError.class,()-> ns.setTotalHCDisponiveis((float) -0.1));
     }
 
     /**
@@ -279,110 +283,123 @@ class NutricionalSpecsTest {
      */
 
     @Test
-    void testTotalHCMonossacaridosRight() throws MaxCharacters {
+    void testTotalHCMonossacaridosValid()  {
         NutricionalSpecs ns = new NutricionalSpecs();
-        ns.setTotalHCMonossacaridos((float) 50.2 );
-        assertEquals((float)50.2,ns.getTotalHCMonossacaridos());
+        ns.setTotalHCMonossacaridos((float) 0.0 );
+        assertEquals((float)0.0,ns.getTotalHCMonossacaridos());
+
+        ns.setTotalHCMonossacaridos((float) 120.0 );
+        assertEquals((float)120.0,ns.getTotalHCMonossacaridos());
     }
+
+    @Test
+    void testTotalHCMonossacaridosNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()->ns.setTotalHCMonossacaridos(null));
+    }
+
 
     @Test
     void testTotalHCMonossacaridosBigger(){
         NutricionalSpecs ns = new NutricionalSpecs();
-        assertThrows(MaxCharacters.class,()->{
-            ns.setTotalHCMonossacaridos((float) 120.1);
-            ns.getTotalHCMonossacaridos();
-        });
+        assertThrows(AssertionError.class,()->ns.setTotalHCMonossacaridos((float) 120.1));
     }
 
     @Test
     void testTotalHCMonossacaridosSmaller(){
         NutricionalSpecs ns = new NutricionalSpecs();
-        assertThrows(MaxCharacters.class,()->{
-            ns.setTotalHCMonossacaridos((float) -0.1);
-            ns.getTotalHCMonossacaridos();
-        });
+        assertThrows(AssertionError.class,()-> ns.setTotalHCMonossacaridos((float) -0.1));
     }
 
     /**
      * test from  MonoDissacaridos
      */
     @Test
-    void testMonoDissacaridosRight() throws MaxCharacters {
+    void testMonoDissacaridosValid(){
         NutricionalSpecs ns = new NutricionalSpecs();
-        ns.setMonoDissacaridos((float) 50.2 );
-        assertEquals((float)50.2,ns.getMonoDissacaridos());
+        ns.setMonoDissacaridos((float) 0.0 );
+        assertEquals((float)0.0,ns.getMonoDissacaridos());
+        ns.setMonoDissacaridos((float) 400.0 );
+        assertEquals((float)400.0,ns.getMonoDissacaridos());
     }
 
     @Test
     void testMonoDissacaridosBigger(){
         NutricionalSpecs ns = new NutricionalSpecs();
-        assertThrows(MaxCharacters.class,()->{
-            ns.setMonoDissacaridos((float) 100.1);
-            ns.getMonoDissacaridos();
-        });
+        assertThrows(AssertionError.class,()->ns.setMonoDissacaridos((float) 400.1));
     }
 
     @Test
     void testMonoDissacaridosSmaller(){
         NutricionalSpecs ns = new NutricionalSpecs();
-        assertThrows(MaxCharacters.class,()->{
-            ns.setMonoDissacaridos((float) -0.1);
-            ns.getMonoDissacaridos();
-        });
+        assertThrows(AssertionError.class,()-> ns.setMonoDissacaridos((float) -0.1));
+    }
+
+    @Test
+    void testMonoDissacaridosNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setMonoDissacaridos(null));
     }
 
     /**
      * test from  AcidosOrganicos
      */
     @Test
-    void testAcidosOrganicosRight() throws MaxCharacters {
+    void testAcidosOrganicosRight()  {
         NutricionalSpecs ns = new NutricionalSpecs();
-        ns.setAcidosOrganicos((float) 0.5);
-        assertEquals((float)0.5,ns.getAcidosOrganicos());
+        ns.setAcidosOrganicos((float)0.0);
+        assertEquals((float)0.0,ns.getAcidosOrganicos());
+        ns.setAcidosOrganicos((float)500.0);
+        assertEquals((float)500.0,ns.getAcidosOrganicos());
     }
+
     @Test
     void testAcidosOrganicosBigger(){
         NutricionalSpecs ns = new NutricionalSpecs();
-        assertThrows(MaxCharacters.class,()->{
-            ns.setAcidosOrganicos((float) 2.1);
-            ns.getAcidosOrganicos();
-        });
+        assertThrows(AssertionError.class,()-> ns.setAcidosOrganicos((float) 500.1));
     }
+
     @Test
     void testAcidosOrganicosSmaller(){
         NutricionalSpecs ns = new NutricionalSpecs();
-        assertThrows(MaxCharacters.class,()->{
-            ns.setAcidosOrganicos((float) -0.1);
-            ns.getAcidosOrganicos();
-        });
+        assertThrows(AssertionError.class,()-> ns.setAcidosOrganicos((float) -0.1));
     }
+
+    @Test
+    void testAcidosOrganicosNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setAcidosOrganicos(null));
+    }
+
 
     /**
      * test from alcool
      */
     @Test
-    void testAlcoolRight() throws MaxCharacters {
+    void testAlcoolRight(){
         NutricionalSpecs ns = new NutricionalSpecs();
-        ns.setAcidosOrganicos((float) 1.0);
-        assertEquals((float)1.0,ns.getAcidosOrganicos());
+        ns.setAlcool((float) 0.0);
+        assertEquals((float)0.0,ns.getAlcool());
+
+        ns.setAlcool((float) 60.0);
+        assertEquals((float)60.0,ns.getAlcool());
     }
 
     @Test
     void testAlcoolBigger(){
         NutricionalSpecs ns = new NutricionalSpecs();
-        assertThrows(MaxCharacters.class,()->{
-            ns.setAcidosOrganicos((float) 60.1);
-            ns.getAcidosOrganicos();
-        });
+        assertThrows(AssertionError.class,()->ns.setAlcool((float) 60.1));
     }
 
     @Test
     void testAlcoolSmaller(){
         NutricionalSpecs ns = new NutricionalSpecs();
-        assertThrows(MaxCharacters.class,()->{
-            ns.setAcidosOrganicos((float) -0.1);
-            ns.getAcidosOrganicos();
-        });
+        assertThrows(AssertionError.class,()->ns.setAlcool((float) -0.1));
+    }
+    @Test
+    void testAlcoolNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()->ns.setAlcool(null));
     }
 
     /**
@@ -392,7 +409,6 @@ class NutricionalSpecsTest {
     @Test
     void testAmidoNull(){
         NutricionalSpecs ns = new NutricionalSpecs();
-
         assertThrows(AssertionError.class, ()->{
             ns.setAmido(null);
 

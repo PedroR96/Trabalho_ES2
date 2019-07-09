@@ -22,54 +22,8 @@ public class Person {
     public Person() {
     }
 
-    public Person(String name, int age) {
-        if ((name.length() > 0 && name.length() < 40 ) && (age < 145 && age > 0)) {
-            this.name = name;
-            this.age = age;
-        }else
-            throw new NullPointerException();
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setJob(String job) {
-        this.job = job;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public void setQuiz(Quiz quiz) {
-        this.quiz = quiz;
-    }
-
-    public Quiz getQuiz() {
-        return quiz;
-    }
-
-
-    public String getGender() { return gender; }
-
-    public void setGender(String gender) { this.gender = gender; }
-
-    public float getHeight() {
-        return height;
-    }
-
-    public void setHeight(float height) {
-        this.height = height;
-    }
-
-
-
-    public void setnewPlan(FoodHabits newPlan) {
-        this.newPlan = newPlan;
-    }
-
     public Person(String info) {
+        assert  info!=null;
         String[] x=info.split(";");
         this.setName(x[0]);
         this.setAge(Integer.parseInt(x[1]));
@@ -78,17 +32,74 @@ public class Person {
         this.setJob(x[4]);
         HashMap<String,String> aux=new HashMap<>();aux.put("colestrol",x[13].toString());aux.put("glicémia",x[14].toString());aux.put("ureia",x[15].toString());aux.put("ereatinina",x[16].toString());aux.put("profcoreatova",x[17].toString());
         this.setQuiz(new Quiz(x[5],x[6],x[7],x[8],x[9],x[10],x[11],x[12],aux));
-
-    }
-    public Person(String name, int age, String job) {
-        if ((name.length() > 0 && name.length() < 40 ) && (age < 145 && age > 0) &&(job.length() > 0 && job.length() < 40)) {
-            this.name = name;
-            this.age = age;
-            this.job = job;
-        }else
-            throw new NullPointerException();
     }
 
+
+    public void setName(String name) {
+        assert name != null;
+        assert name.length() > 2;
+        assert name.length() < 40;
+        this.name = name;
+    }
+
+    public void setJob(String job) {
+        assert job != null;
+        assert !job.isEmpty();
+        assert job.length() < 50;
+        this.job = job;
+    }
+
+    public void setAge(Integer age) {
+        assert age != null;
+        assert age > 0;
+        assert age < 145;
+
+        this.age = age;
+    }
+
+    public void setQuiz(Quiz quiz) {
+        assert quiz != null;
+        this.quiz = quiz;
+    }
+
+
+    public void setGender(String gender) {
+        assert gender != null;
+        assert !job.isEmpty();
+        assert job.length() < 15;
+        this.gender = gender; }
+
+    public void setHeight(Float height) {
+
+        assert height !=null;
+        assert height >  0.53;
+        assert height < 2.72 ;
+        this.height = height;
+    }
+
+    public void setFoodHabits(FoodHabits foodHabits) {
+        assert foodHabits!=null;
+        this.foodHabits = foodHabits;
+    }
+    public void setNewPlan(FoodHabits newPlan) {
+        assert newPlan!=null;
+        this.newPlan = newPlan;
+    }
+
+    public void setPhysicalData(Physical_Data physicalData) {
+        assert physicalData!=null;
+        this.physicalData = physicalData;
+    }
+
+    public Quiz getQuiz() {
+        return quiz;
+    }
+
+    public String getGender() { return gender; }
+
+    public float getHeight() {
+        return height;
+    }
 
     public String getName() {
         return name;
@@ -106,23 +117,13 @@ public class Person {
         return physicalData;
     }
 
-    public void setPhysicalData(Physical_Data physicalData) {
-        this.physicalData = physicalData;
-    }
-
     public FoodHabits getFoodHabits() {
         return foodHabits;
-    }
-
-    public void setFoodHabits(FoodHabits foodHabits) {
-        this.foodHabits = foodHabits;
     }
 
     public FoodHabits getNewPlan() {
         return newPlan;
     }
 
-    public void setNewPlan(FoodHabits newPlan) {
-        this.newPlan = newPlan;
-    }
+
 }

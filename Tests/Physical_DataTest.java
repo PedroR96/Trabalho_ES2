@@ -14,15 +14,16 @@ class Physical_DataTest {
      */
 
     @Test
-    void testPhysicalDataConstructorNull(){
+    void testCreatePhysicalDataNull(){
         assertThrows(AssertionError.class,()->new Physical_Data(null));
     }
 
     @Test
-    void testPhysicalDataConstructorEmpty(){
+    void testCreatePhysicalDataEmpty(){
         assertThrows(AssertionError.class,()->new Physical_Data(""));
     }
 
+//_________________________________________________________________
 
     @Test
     void testPhysicalDataWeightValid(){
@@ -52,7 +53,7 @@ class Physical_DataTest {
         Physical_Data physical_data=new Physical_Data();
         assertThrows(AssertionError.class,()->physical_data.setWeight(635.0f));
     }
-
+//_________________________________________________________
 
     @Test
     void testPhysicalDataHeightValid(){
@@ -84,6 +85,7 @@ class Physical_DataTest {
         Physical_Data physical_data=new Physical_Data();
         assertThrows(AssertionError.class,()->physical_data.setHeight( 2.72f));
     }
+//_________________________________________________________
 
 
     @Test
@@ -109,14 +111,15 @@ class Physical_DataTest {
     @Test
     void testPhysicalDataIMCLesserThanMin(){
         Physical_Data physical_data=new Physical_Data();
-        assertThrows(AssertionError.class,()->physical_data.setIMC( 2f));
+        assertThrows(AssertionError.class,()->physical_data.setIMC( 2.00f));
     }
 
     @Test
     void testPhysicalDataIMCBiggerThanMax(){
         Physical_Data physical_data=new Physical_Data();
-        assertThrows(AssertionError.class,()->physical_data.setIMC( 30f));
+        assertThrows(AssertionError.class,()->physical_data.setIMC( 30.00f));
     }
+//_________________________________________________________
 
 
     @Test
@@ -140,14 +143,15 @@ class Physical_DataTest {
     @Test
     void testPhysicalDataBFLesserThanMin(){
         Physical_Data physical_data=new Physical_Data();
-        assertThrows(AssertionError.class,()->physical_data.setBF( 5f));
+        assertThrows(AssertionError.class,()->physical_data.setBF( 5.00f));
     }
 
     @Test
     void testPhysicalDataBFBiggerThanMax(){
         Physical_Data physical_data=new Physical_Data();
-        assertThrows(AssertionError.class,()->physical_data.setBF( 50f));
+        assertThrows(AssertionError.class,()->physical_data.setBF( 50.00f));
     }
+//_________________________________________________________
 
     @Test
     void testPhysicalDataVisceralFatValid(){
@@ -182,7 +186,7 @@ class Physical_DataTest {
         assertThrows(AssertionError.class,()->physical_data.setVisceralFat( 0.00f));
     }
 
-
+    //_________________________________________________________
     @Test
     void testPhysicalDataMuscleValid(){
 
@@ -214,7 +218,7 @@ class Physical_DataTest {
         assertThrows(AssertionError.class,()->physical_data.setMuscle( 0.0f));
     }
 
-
+    //_________________________________________________________
     @Test
     void testPhysicalDataMetabolicAgeValid(){
         Physical_Data physical_data=new Physical_Data();
@@ -245,7 +249,7 @@ class Physical_DataTest {
         assertThrows(AssertionError.class,()->physical_data.setMetabolicAge(1));
     }
 
-
+    //_________________________________________________________
     @Test
     void testPhysicalDataMetabolicBasalValid(){
         Physical_Data physical_data=new Physical_Data();
@@ -277,6 +281,7 @@ class Physical_DataTest {
     }
 
 
+    //_________________________________________________________
     @Test
     void testPhysicalDataBoneValid() {
         Physical_Data physical_data = new Physical_Data();

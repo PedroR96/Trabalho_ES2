@@ -35,6 +35,10 @@ class MealTest {
         assertThrows(AssertionError.class,()-> meal.setDescription("123456789012345678901234567890123456789012345678901"));
     }
 
+
+
+// ______________________________________________________
+
     @Test
     void testMealTimeNull(){
         Meal meal=new Meal();
@@ -42,16 +46,30 @@ class MealTest {
     }
 
     @Test
-    void testMealTimeValid(){
+    void testMealTimeValidMin(){
         Meal meal=new Meal();
-        assertThrows(AssertionError.class,()-> meal.setSchedule(new Time(19,20,00)));
+        meal.setSchedule(new Time(0,0,0));
+        assertEquals("00:00:00",meal.getSchedule().toString());
+
     }
+    @Test
+    void testMealTimeValidMax(){
+        Meal meal=new Meal();
+        meal.setSchedule(new Time(23,59,59));
+        assertEquals("23:59:59",meal.getSchedule().toString());
+
+       }
+
+
+    // ______________________________________________________
 
     @Test
     void testMealProductsNull(){
         Meal meal=new Meal();
         assertThrows(AssertionError.class,()-> meal.setProducts(null));
     }
+
+
 
     @Test
     void testMealProductsValid(){

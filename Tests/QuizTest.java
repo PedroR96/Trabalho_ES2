@@ -20,35 +20,441 @@ class QuizTest {
     }
 
     @Test
-    void testQuizCreate(){
-        Quiz quiz=new Quiz("Back pain",
-                "Get better",
-                "No one",
-                "Benoroum",
-                "Diabetes",
-                "Activo",
-                "Normal",
-                "menos de 0,5 L",
-                new HashMap<String,String>(){{
-                    put("Colestrol",null);
-                    put("Glicémia",null);
-                    put("Ureia",null);
-                    put("Nao sei",null);
-                    put("tambem naos sei",null); }}  );
-        assertEquals("Back pain",quiz.getReason());
-        assertEquals("Get better",quiz.getObjective());
-        assertEquals("No one",quiz.getPathologies());
-        assertEquals("Benoroum",quiz.getMedication());
-        assertEquals("Diabetes",quiz.getFamilyHistory());
-        assertEquals("Activo",quiz.getPhisicalActivity());
-        assertEquals("Normal",quiz.getIntestinalFunction());
-        assertEquals("menos de 0,5 L",quiz.getWaterConsuming());
-        assertEquals(new HashMap<String,String>(){{ put("Colestrol",null);put("Glicémia",null);put("Ureia",null);put("Nao sei",null);put("tambem naos sei",null); }},quiz.getChemistsAndBiologicalData());
+    void testQuizCreateValid(){
+
+        Quiz quiz=new Quiz("Excesso de peso","Perda de peso",
+                "Diabetes","Nenhuma",
+                "Hipertensão","Sedentario",
+                "Diarreias",  "Good",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }});
+
+        assertEquals("Excesso de peso",quiz.getReason());
+        assertEquals("Perda de peso",quiz.getObjective() );
+        assertEquals("Nenhuma",quiz.getMedication() );
+        assertEquals("Hipertensão",quiz.getFamilyHistory() );
+        assertEquals("Sedentario",quiz.getPhisicalActivity() );
+        assertEquals("Diarreias",quiz.getIntestinalFunction() );
+        assertEquals("Good",quiz.getWaterConsuming() );
+        assertEquals( new HashMap<String, String>() {{ put("ureia", "20");put("coleterol", "25");put("glicémia", "78");put("profcoreatova", "97");put("ereatinina", "89"); }},quiz.getChemistsAndBiologicalData() );
+
+
+        quiz=new Quiz("1234567890123456789012345678901234567890123456789",
+                "1234567890123456789012345678901234567890123456789",
+                "1234567890123456789012345678901234567890123456789",
+                "1234567890123456789012345678901234567890123456789",
+                "1234567890123456789012345678901234567890123456789",
+                "Sedentario","Diarreias",  "Good",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }});
+
+        assertEquals("1234567890123456789012345678901234567890123456789",quiz.getReason());
+        assertEquals("1234567890123456789012345678901234567890123456789",quiz.getObjective() );
+        assertEquals("1234567890123456789012345678901234567890123456789",quiz.getMedication() );
+        assertEquals("1234567890123456789012345678901234567890123456789",quiz.getFamilyHistory() );
+        assertEquals("Sedentario",quiz.getPhisicalActivity() );
+        assertEquals("Diarreias",quiz.getIntestinalFunction() );
+        assertEquals("Good",quiz.getWaterConsuming() );
+        assertEquals( new HashMap<String, String>() {{ put("ureia", "20");put("coleterol", "25");put("glicémia", "78");put("profcoreatova", "97");put("ereatinina", "89"); }},quiz.getChemistsAndBiologicalData() );
+
+
+    }
+  //____________________________________________________
+
+    @Test
+    void testQuizCreateReasonNull(){
+
+        assertThrows(AssertionError.class,()->new Quiz(null,"Perda de peso","Diabetes","Nenhuma","Hipertensão","Sedentario","Diarreias",  "Good",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }}));
+
+    }
+
+    @Test
+    void testQuizCreateReasonEmpty(){
+
+        assertThrows(AssertionError.class,()->new Quiz("","Perda de peso","Diabetes","Nenhuma","Hipertensão","Sedentario","Diarreias",  "Good",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }}));
+
+    }
+
+    @Test
+    void testQuizCreateReasonBiggerThanMax(){
+
+        assertThrows(AssertionError.class,()->new Quiz("12345678901234567890123456789012345678901234567890","Perda de peso","Diabetes","Nenhuma","Hipertensão","Sedentario","Diarreias",  "Good",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }}));
+
+    }
+
+//____________________________________________________
+
+    @Test
+    void testQuizCreateObjectiveNull(){
+
+        assertThrows(AssertionError.class,()->new Quiz("Excesso de peso",null,"Diabetes","Nenhuma","Hipertensão","Sedentario","Diarreias",  "Good",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }}));
+
+    }
+
+    @Test
+    void testQuizCreateObjectiveEmpty(){
+
+        assertThrows(AssertionError.class,()->new Quiz("Excesso de peso","","Diabetes","Nenhuma","Hipertensão","Sedentario","Diarreias",  "Good",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }}));
 
     }
 
 
+    @Test
+    void testQuizCreateObjectiveBiggerThanMax(){
 
+        assertThrows(AssertionError.class,()->new Quiz("Excesso de peso","12345678901234567890123456789012345678901234567890","Diabetes","Nenhuma","Hipertensão","Sedentario","Diarreias",  "Good",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }}));
+
+    }
+
+//____________________________________________________
+
+    @Test
+    void testQuizCreatePathologiesNull(){
+
+        assertThrows(AssertionError.class,()->new Quiz("Excesso de peso","Perda de peso",null,"Nenhuma","Hipertensão","Sedentario","Diarreias",  "Good",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }}));
+
+    }
+
+
+    @Test
+    void testQuizCreatePathologiesEmpty(){
+
+        assertThrows(AssertionError.class,()->new Quiz("Excesso de peso","Perda de peso","","Nenhuma","Hipertensão","Sedentario","Diarreias",  "Good",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }}));
+
+    }
+
+    @Test
+    void testQuizCreatePathologiesBiggerThanMax(){
+
+        assertThrows(AssertionError.class,()->new Quiz("Excesso de peso","Perda de peso","12345678901234567890123456789012345678901234567890","Nenhuma","Hipertensão","Sedentario","Diarreias",  "Good",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }}));
+
+    }
+//____________________________________________________
+
+    @Test
+    void testQuizCreateMedicationNull(){
+
+        assertThrows(AssertionError.class,()->new Quiz("Excesso de peso","Perda de peso","Diabetes",null,"Hipertensão","Sedentario","Diarreias",  "Good",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }}));
+
+    }
+
+
+    @Test
+    void testQuizCreateMedicationEmpty(){
+
+        assertThrows(AssertionError.class,()->new Quiz("Excesso de peso","Perda de peso","Diabetes","","Hipertensão","Sedentario","Diarreias",  "Good",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }}));
+
+    }
+
+    @Test
+    void testQuizCreateMedicationBiggerThanMax(){
+
+        assertThrows(AssertionError.class,()->new Quiz("Excesso de peso","Perda de peso","Diabetes","12345678901234567890123456789012345678901234567890","Hipertensão","Sedentario","Diarreias",  "Good",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }}));
+
+    }
+
+//____________________________________________________
+
+    @Test
+    void testQuizCreateFamilyHistoryNull(){
+
+        assertThrows(AssertionError.class,()->new Quiz("Excesso de peso","Perda de peso","Diabetes","Nenhuma",null,"Sedentario","Diarreias",  "Good",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }}));
+
+    }
+
+    @Test
+    void testQuizCreateFamilyHistoryEmpty(){
+
+        assertThrows(AssertionError.class,()->new Quiz("Excesso de peso","Perda de peso","Diabetes","Nenhuma","","Sedentario","Diarreias",  "Good",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }}));
+
+    }
+
+
+    @Test
+    void testQuizCreateFamilyHistoryBiggerThanMax(){
+
+        assertThrows(AssertionError.class,()->new Quiz("Excesso de peso","Perda de peso","Diabetes","Nenhuma","12345678901234567890123456789012345678901234567890","Sedentario","Diarreias",  "Good",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }}));
+
+    }
+
+ //____________________________________________________
+
+    @Test
+    void testQuizCreatePhysicalActivityNull(){
+
+        assertThrows(AssertionError.class,()->new Quiz("Excesso de peso","Perda de peso","Diabetes","Nenhuma","Diabetes",
+                null,"Diarreias",  "Good",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }}));
+
+    }
+
+    @Test
+    void testQuizCreatePhysicalActivityEmpty(){
+
+        assertThrows(AssertionError.class,()->new Quiz("Excesso de peso","Perda de peso","Diabetes","Nenhuma","Diabetes",
+                "","Diarreias",  "Good",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }}));
+
+    }
+
+    @Test
+    void testQuizCreatePhysicalActivityEnumInvalid(){
+
+        assertThrows(IllegalArgumentException.class,()->new Quiz("Excesso de peso","Perda de peso","Diabetes","Nenhuma","Diabetes",
+                "Teste","Diarreias",  "Good",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }}));
+
+    }
+
+    //____________________________________________________
+
+    @Test
+    void testQuizCreateIntestinalFunctionNull(){
+
+        assertThrows(AssertionError.class,()->new Quiz("Excesso de peso","Perda de peso","Diabetes","Nenhuma","Diabetes",
+                "Sedentario",null,  "Good",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }}));
+
+    }
+
+
+    @Test
+    void testQuizCreateIntestinalFunctionEmpty(){
+
+        assertThrows(AssertionError.class,()->new Quiz("Excesso de peso","Perda de peso","Diabetes","Nenhuma","Diabetes",
+                "Sedentario","",  "Good",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }}));
+
+    }
+
+
+    @Test
+    void testQuizCreateIntestinalFunctionEnumInvalid(){
+
+        assertThrows(IllegalArgumentException.class,()->new Quiz("Excesso de peso","Perda de peso","Diabetes","Nenhuma","Diabetes",
+                "Sedentario","Teste",  "Good",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }}));
+
+    }
+
+    //____________________________________________________
+
+    @Test
+    void testQuizCreateWaterConsumingNull(){
+
+        assertThrows(AssertionError.class,()->new Quiz("Excesso de peso","Perda de peso","Diabetes","Nenhuma","Diabetes",
+                "Sedentario","Diarreias",  null,
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }}));
+
+    }
+
+    @Test
+    void testQuizCreateWaterConsumingEmpty(){
+
+        assertThrows(AssertionError.class,()->new Quiz("Excesso de peso","Perda de peso","Diabetes","Nenhuma","Diabetes",
+                "Sedentario","Diarreias",  "",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }}));
+
+    }
+
+    @Test
+    void testQuizCreateWaterConsumingEnumInvalid(){
+
+        assertThrows(IllegalArgumentException.class,()->new Quiz("Excesso de peso","Perda de peso","Diabetes","Nenhuma","Diabetes",
+                "Sedentario","Diarreias",  "Teste",
+                new HashMap<String, String>() {{
+                    put("ureia", "20");
+                    put("coleterol", "25");
+                    put("glicémia", "78");
+                    put("profcoreatova", "97");
+                    put("ereatinina", "89");
+                }}));
+
+    }
+
+    //____________________________________________________
+
+    @Test
+    void testQuizCreateChemistsAndBiologicalDataNull(){
+        assertThrows(AssertionError.class,()->new Quiz("Excesso de peso","Perda de peso","Diabetes","Nenhuma","Diabetes",
+                "Sedentario","Diarreias",  "Good",
+                null));
+    }
+
+    @Test
+    void testQuizCreateChemistsAndBiologicalDataEmpty(){
+        assertThrows(AssertionError.class,()->new Quiz("Excesso de peso","Perda de peso","Diabetes","Nenhuma","Diabetes",
+                "Sedentario","Diarreias",  "Good",
+                new HashMap<String, String>() ));
+    }
+
+
+
+
+    //____________________________________________________
     @Test
     void testQuizReasonNull(){
         Quiz quiz=new Quiz();
@@ -74,7 +480,7 @@ class QuizTest {
         quiz.setReason("Excesso de peso");
         assertEquals("Excesso de peso",quiz.getReason());
     }
-
+    //____________________________________________________
 
     @Test
     void testQuizObjectiveNull(){
@@ -101,6 +507,7 @@ class QuizTest {
         assertEquals("Perda de peso",quiz.getObjective());
     }
 
+    //____________________________________________________
 
 
     @Test
@@ -129,6 +536,9 @@ class QuizTest {
         assertEquals("Diabetes",quiz.getPathologies());
     }
 
+    //____________________________________________________
+
+
     @Test
     void testQuizMedicationNull(){
         Quiz quiz=new Quiz();
@@ -153,6 +563,9 @@ class QuizTest {
         quiz.setMedication("Nenhuma");
         assertEquals("Nenhuma",quiz.getMedication());
     }
+
+    //____________________________________________________
+
 
     @Test
     void testQuizFamilyHistoryNull(){
@@ -179,11 +592,23 @@ class QuizTest {
         assertEquals("Diabetes",quiz.getFamilyHistory());
     }
 
+    //____________________________________________________
 
     @Test
-    void testQuizFamilyPhisiclActivityInvalid() {
+    void testQuizFamilyPhisiclActivityEnumInvalid() {
         Quiz quiz=new Quiz();
         assertThrows(IllegalArgumentException.class,()-> quiz.setPhisicalActivity("Teste"));
+    }
+
+    @Test
+    void testQuizFamilyPhisiclActivityNull() {
+        Quiz quiz=new Quiz();
+        assertThrows(AssertionError.class,()-> quiz.setPhisicalActivity(null));
+    }
+    @Test
+    void testQuizFamilyPhisiclActivityEmpty() {
+        Quiz quiz=new Quiz();
+        assertThrows(AssertionError.class,()-> quiz.setPhisicalActivity(""));
     }
 
 
@@ -194,50 +619,79 @@ class QuizTest {
         assertEquals("Sedentario",quiz.getPhisicalActivity());
 
     }
+    //____________________________________________________
 
 
     @Test
-    void testQuizFamilyIntestinalFunctionInvalid() {
+    void testQuizIntestinalFunctionEnumInvalid() {
         Quiz quiz=new Quiz();
         assertThrows(IllegalArgumentException.class,()-> quiz.setIntestinalFunction("Teste"));
     }
-
+    @Test
+    void testQuizIntestinalFunctionNull() {
+        Quiz quiz=new Quiz();
+        assertThrows(AssertionError.class,()-> quiz.setIntestinalFunction(null));
+    }
+    @Test
+    void testQuizIntestinalFunctionEmpty() {
+        Quiz quiz=new Quiz();
+        assertThrows(AssertionError.class,()-> quiz.setIntestinalFunction(""));
+    }
 
     @Test
-    void testQuizFamilyIntestinalFunctionValid() {
+    void testQuizIntestinalFunctionValid() {
         Quiz quiz=new Quiz();
         quiz.setIntestinalFunction("Normal");
         assertEquals("Normal",quiz.getIntestinalFunction());
     }
 
+
+    //____________________________________________________
+
+
     @Test
-    void testQuizFamilyWaterConsumingInvalid() {
+    void testQuizWaterConsumingEnumInvalid() {
         Quiz quiz=new Quiz();
         assertThrows(IllegalArgumentException.class,()-> quiz.setWaterConsuming("Teste"));
     }
 
+    @Test
+    void testQuizWaterConsumingNull() {
+        Quiz quiz=new Quiz();
+        assertThrows(AssertionError.class,()-> quiz.setWaterConsuming(null));
+    }
 
     @Test
-    void testQuizFamilyWaterConsumingValid() {
+    void testQuizWaterConsumingEmpty() {
+        Quiz quiz=new Quiz();
+        assertThrows(AssertionError.class,()-> quiz.setWaterConsuming(""));
+    }
+
+    @Test
+    void testQuizWaterConsumingValid() {
         Quiz quiz=new Quiz();
         quiz.setWaterConsuming("Median");
         assertEquals("Median",quiz.getWaterConsuming());
     }
 
 
+    //____________________________________________________
+
+
+
     @Test
-    void testQuizFamilyChemistsAndBiologicalDataNull() {
+    void testQuizChemistsAndBiologicalDataNull() {
         Quiz quiz=new Quiz();
         assertThrows(AssertionError.class,()-> quiz.setChemistsAndBiologicalData(null));
     }
 
     @Test
-    void testQuizFamilyChemistsAndBiologicalDataEmpty() {
+    void testQuizChemistsAndBiologicalDataEmpty() {
         Quiz quiz=new Quiz();
         assertThrows(AssertionError.class,()-> quiz.setChemistsAndBiologicalData(new HashMap<>()));
     }
     @Test
-    void testQuizFamilyChemistsAndBiologicalDataValid() {
+    void testQuizChemistsAndBiologicalDataValid() {
         Quiz quiz=new Quiz();
         HashMap<String,String> hashMap=new HashMap<>();
         hashMap.put("Ureia","56");

@@ -59,10 +59,8 @@ public class FileFunctions {
      */
     public HashMap<String, NutricionalSpecs> readCSV() {
         HashMap<String, NutricionalSpecs> productNutricionalSpecs = new HashMap<>();
-//        String path = getFilePath("Escolha o ficheiro com a tabela nutricional");
         String nutSpecs;
         Path path1=Paths.get("Assets/CALCULOCSV.csv");
-//        System.out.println(path1);
 
         try {
             Reader reader = Files.newBufferedReader(path1);
@@ -161,7 +159,7 @@ public class FileFunctions {
      * Read File 3
      */
 
-    public Physical_Data readFileThree(String title) throws MaxCharacters {
+    public Physical_Data readFileThree(String title) {
 //        String path = getFilePath(title);
         Path path1=Paths.get("Assets/Folha 3.csv");
         String specs = "";

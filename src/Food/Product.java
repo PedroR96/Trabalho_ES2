@@ -16,8 +16,9 @@ public class Product {
     }
 
     public void setProductID(String productID) {
-        assert !productID.isEmpty();
         assert productID!=null;
+        assert !productID.isEmpty();
+
         assert productID.length()<50;
         this.productID = productID;
     }

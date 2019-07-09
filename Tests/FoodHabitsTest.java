@@ -23,9 +23,9 @@ class FoodHabitsTest {
 //    }
 
     @Test
-    void testFoodHabitsGetUpDiferentFromSix(){
+    void testFoodHabitsGetUpBiggerThanMax(){
         FoodHabits foodHabits=new FoodHabits();
-        assertThrows(AssertionError.class,()->foodHabits.setGetUp(""));
+        assertThrows(AssertionError.class,()->foodHabits.setGetUp("000:000"));
     }
 
     @Test
@@ -49,6 +49,7 @@ class FoodHabitsTest {
         assertEquals("09:00",foodHabits.getGetUp());
     }
 
+//_______________________________________________________________
 
 
     @Test
@@ -69,13 +70,15 @@ class FoodHabitsTest {
         assertThrows(AssertionError.class,()->foodHabits.setMeals(null));
     }
 
+
+
     @Test
-    void testFoodHabitsConstructorEmpty(){
+    void testCreateFoodHabitsEmpty(){
         assertThrows(AssertionError.class,()->new FoodHabits(""));
     }
 
     @Test
-    void testFoodHabitsConstructorNull(){
+    void testCreateFoodHabitsNull(){
         assertThrows(AssertionError.class,()->new FoodHabits(null));
     }
 
