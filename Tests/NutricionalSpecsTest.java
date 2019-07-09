@@ -1,12 +1,6 @@
 import Food.NutricionalSpecs;
-import People.MaxCharacters;
-import org.apache.commons.lang3.builder.ToStringExclude;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import javax.swing.plaf.FontUIResource;
-import java.util.EmptyStackException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -49,10 +43,7 @@ class NutricionalSpecsTest {
 //    ______________________________________________________________________
 
 
-    /**
-     * Tests from Name of product
-     * @throws MaxCharacters
-     */
+
     @Test
     void testNameValid() {
         NutricionalSpecs ns = new NutricionalSpecs();
@@ -419,7 +410,7 @@ class NutricionalSpecsTest {
         NutricionalSpecs ns = new NutricionalSpecs();
 
         assertThrows(AssertionError.class, ()->{
-            ns.setAmido(-0.01f);
+            ns.setAmido(-0.1f);
         });
     }
 
@@ -606,7 +597,7 @@ class NutricionalSpecsTest {
      * test for AcidosGordosTrans
      */
     @Test
-    void testAcidosGordosTrans(){
+    void testAcidosGordosTransValid(){
         NutricionalSpecs ns = new NutricionalSpecs();
         ns.setAcidosGordosTrans(0.0f);
         assertEquals(0.0f,ns.getAcidosGordosTrans());
@@ -629,6 +620,13 @@ class NutricionalSpecsTest {
         NutricionalSpecs ns = new NutricionalSpecs();
         assertThrows(AssertionError.class,()->{
            ns.setAcidosGordosTrans(-0.1f);
+        });
+    }
+    @Test
+    void testAcidosGordosTransBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()->{
+            ns.setAcidosGordosTrans(17.1f);
         });
     }
 
@@ -950,5 +948,382 @@ void testColesterolValid(){
         NutricionalSpecs ns = new NutricionalSpecs();
         assertThrows(AssertionError.class,()-> ns.setNiacina(31.1f));
     }
+
+    //    ________________________________
+
+    @Test
+    void testTriptofanoValid(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setTriptofano(0.0f);
+        assertEquals(0.0f,ns.getTriptofano());
+        ns.setTriptofano(10.0f);
+        assertEquals(10.0f,ns.getTriptofano());
+    }
+
+    @Test
+    void testTriptofanoNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setTriptofano(null));
+    }
+
+    @Test
+    void testTriptofanoLesserThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setTriptofano(-0.1f));
+    }
+
+    @Test
+    void testTriptofanoBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setTriptofano(10.1f));
+    }
+
+    //    ________________________________
+
+    @Test
+    void testVitB6Valid(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setVitB6(0.0f);
+        assertEquals(0.0f,ns.getVitB6());
+        ns.setVitB6(3.4f);
+        assertEquals(3.4f,ns.getVitB6());
+    }
+
+    @Test
+    void testVitB6Null(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setVitB6(null));
+    }
+
+    @Test
+    void testVitB6LesserThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setVitB6(-0.1f));
+    }
+
+    @Test
+    void testVitB6BiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setVitB6(3.5f));
+    }
+
+    //    ________________________________
+
+    @Test
+    void testVitB12Valid(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setVitB12(0.0f);
+        assertEquals(0.0f,ns.getVitB12());
+        ns.setVitB12(110.0f);
+        assertEquals(110.0f,ns.getVitB12());
+    }
+
+    @Test
+    void testVitB12Null(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setVitB12(null));
+    }
+
+    @Test
+    void testVitB12LesserThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setVitB12(-0.1f));
+    }
+
+    @Test
+    void testVitB12BiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setVitB12(110.1f));
+    }
+
+
+    //    ________________________________
+
+    @Test
+    void testVitCValid(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setVitC(0.0f);
+        assertEquals(0.0f,ns.getVitC());
+        ns.setVitC(375.0f);
+        assertEquals(375.0f,ns.getVitC());
+    }
+
+    @Test
+    void testVitCNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setVitC(null));
+    }
+
+    @Test
+    void testVitCLesserThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setVitC(-0.1f));
+    }
+
+    @Test
+    void testVitCBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setVitC(375.1f));
+    }
+
+    //    ________________________________
+
+    @Test
+    void testFolatosValid(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setFolatos(0.0f);
+        assertEquals(0.0f,ns.getFolatos());
+        ns.setFolatos(2500.0f);
+        assertEquals(2500.0f,ns.getFolatos());
+    }
+
+    @Test
+    void testFolatosNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setFolatos(null));
+    }
+
+    @Test
+    void testFolatosLesserThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setFolatos(-0.1f));
+    }
+
+    @Test
+    void testFolatosBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setFolatos(2500.1f));
+    }
+
+    //    ________________________________
+
+    @Test
+    void testCinzaValid(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setCinza(0.0f);
+        assertEquals(0.0f,ns.getCinza());
+        ns.setCinza(98.0f);
+        assertEquals(98.0f,ns.getCinza());
+    }
+
+    @Test
+    void testCinzaNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setCinza(null));
+    }
+
+    @Test
+    void testCinzaLesserThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setCinza(-0.1f));
+    }
+
+    @Test
+    void testCinzaBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setCinza(98.1f));
+    }
+
+    //    ________________________________
+
+    @Test
+    void testNaValid(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setNa(0.0f);
+        assertEquals(0.0f,ns.getNa());
+        ns.setNa(40000.0f);
+        assertEquals(40000.0f,ns.getNa());
+    }
+
+    @Test
+    void testNaNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setNa(null));
+    }
+
+    @Test
+    void testNaLesserThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setNa(-0.1f));
+    }
+
+    @Test
+    void testNaBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setNa(40000.1f));
+    }
+
+
+    //    ________________________________
+
+    @Test
+    void testKValid(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setK(0.0f);
+        assertEquals(0.0f,ns.getK());
+        ns.setK(3930.0f);
+        assertEquals(3930.0f,ns.getK());
+    }
+
+    @Test
+    void testKNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setK(null));
+    }
+
+    @Test
+    void testKLesserThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setK(-0.1f));
+    }
+
+    @Test
+    void testKBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setK(3930.1f));
+    }
+
+    //    ________________________________
+
+    @Test
+    void testCaValid(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setCa(0.0f);
+        assertEquals(0.0f,ns.getCa());
+        ns.setCa(1300.0f);
+        assertEquals(1300.0f,ns.getCa());
+    }
+
+    @Test
+    void testCaNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setCa(null));
+    }
+
+    @Test
+    void testCaLesserThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setCa(-0.1f));
+    }
+
+    @Test
+    void testCaBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setCa(1300.1f));
+    }
+
+//    _________________________________________
+
+    @Test
+    void testPValid(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setP(0.0f);
+        assertEquals(0.0f,ns.getP());
+        ns.setP(10523.0f);
+        assertEquals(10523.0f,ns.getP());
+    }
+
+    @Test
+    void testPNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setP(null));
+    }
+
+    @Test
+    void testPLesserThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setP(-0.1f));
+    }
+
+    @Test
+    void testPBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setP(10523.1f));
+    }
+
+//    _______________________
+@Test
+void testMGValid(){
+    NutricionalSpecs ns = new NutricionalSpecs();
+    ns.setMg(0.0f);
+    assertEquals(0.0f,ns.getMg());
+    ns.setMg(406.0f);
+    assertEquals(406.0f,ns.getMg());
+}
+
+    @Test
+    void testMGNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setMg(null));
+    }
+
+    @Test
+    void testMGLesserThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setMg(-0.1f));
+    }
+
+    @Test
+    void testMGBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setMg(406.1f));
+    }
+
+    //    _______________________
+    @Test
+    void testFeValid(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setFe(0.0f);
+        assertEquals(0.0f,ns.getFe());
+        ns.setFe(38.0f);
+        assertEquals(38.0f,ns.getFe());
+    }
+
+    @Test
+    void testFeNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setFe(null));
+    }
+
+    @Test
+    void testFeLesserThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setFe(-0.1f));
+    }
+
+    @Test
+    void testFeBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setFe(406.1f));
+    }
+
+    //    _______________________
+    @Test
+    void testZnValid(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setZn(0.0f);
+        assertEquals(0.0f,ns.getZn());
+        ns.setZn(91.0f);
+        assertEquals(91.0f,ns.getZn());
+    }
+
+    @Test
+    void testZnNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setZn(null));
+    }
+
+    @Test
+    void testZnLesserThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setZn(-0.1f));
+    }
+
+    @Test
+    void testZnBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setZn(91.1f));
+    }
+
 
 }

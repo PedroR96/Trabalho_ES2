@@ -1,7 +1,5 @@
 package Medical_Information;
 
-import People.MaxCharacters;
-
 public class Physical_Data {
 
     private float weight;

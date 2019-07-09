@@ -3,11 +3,9 @@ package Utils;
 import Food.NutricionalSpecs;
 import Medical_Information.FoodHabits;
 import Medical_Information.Physical_Data;
-import People.MaxCharacters;
 import People.Person;
 import com.opencsv.CSVReader;
 
-import java.awt.*;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Path;

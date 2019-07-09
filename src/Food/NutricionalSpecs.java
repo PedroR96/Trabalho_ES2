@@ -1,8 +1,6 @@
 package Food;
 
 
-import People.MaxCharacters;
-
 public class NutricionalSpecs {
     private String productID;
     private String name;
@@ -410,42 +408,95 @@ public class NutricionalSpecs {
         this.niacina = niacina;
     }
     public void setTriptofano(Float triptofano) {
+        assert triptofano != null;
+        assert triptofano >= 0.0f;
+        assert triptofano <= 10.0f;
+
         this.triptofano = triptofano;
     }
     public void setVitB6(Float vitB6) {
+        assert vitB6 != null;
+        assert vitB6 >= 0.0f;
+        assert vitB6 <= 3.4f;
         this.vitB6 = vitB6;
     }
     public void setVitB12(Float vitB12) {
+        assert vitB12 != null;
+        assert vitB12 >= 0.0f;
+        assert vitB12 <= 110.0f;
+
         this.vitB12 = vitB12;
     }
     public void setVitC(Float vitC) {
+        assert vitC != null;
+        assert vitC >= 0.0f;
+        assert vitC <= 375.0f;
+
         this.vitC = vitC;
     }
     public void setFolatos(Float folatos) {
+        assert folatos != null;
+        assert folatos >= 0.0f;
+        assert folatos <= 2500.0f;
+
         this.folatos = folatos;
     }
+
     public void setCinza(Float cinza) {
+        assert cinza != null;
+        assert cinza >= 0.0f;
+        assert cinza <= 98.0f;
+
         this.cinza = cinza;
     }
     public void setNa(Float na) {
+        assert na != null;
+        assert na >= 0.0f;
+        assert na <= 40000.0;
+
+
         Na = na;
     }
     public void setK(Float k) {
+        assert k != null;
+        assert k >= 0.0f;
+        assert k <= 3930.0f;
+
+
         K = k;
     }
     public void setCa(Float ca) {
+        assert ca != null;
+        assert ca >= 0.0f;
+        assert ca <= 1300.0f;
+
         Ca = ca;
     }
+
     public void setP(Float p) {
+        assert p != null;
+        assert p >= 0.0f;
+        assert p <= 10523.0f;
+
         P = p;
     }
     public void setMg(Float mg) {
+        assert mg != null;
+        assert mg >= 0.0f;
+        assert mg <= 406.0f;
         Mg = mg;
     }
     public void setFe(Float fe) {
+        assert fe != null;
+        assert fe >= 0.0f;
+        assert fe <= 38.0f;
         Fe = fe;
     }
     public void setZn(Float zn) {
+        assert zn != null;
+        assert zn >= 0.0f;
+        assert zn <= 91.0f;
+
         Zn = zn;
     }
     public Float getColesterol(){return colesterol;}

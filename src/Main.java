@@ -1,20 +1,14 @@
 import Food.NutricionalSpecs;
 import Medical_Information.FoodHabits;
-import Medical_Information.Physical_Data;
-import People.MaxCharacters;
 import People.Person;
 import Utils.CalculosxD;
 import Utils.FileFunctions;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.OpenOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -25,7 +19,7 @@ public class Main {
     private static HashMap<String, NutricionalSpecs> productNutricionalSpecs = new HashMap<>();
     private static Person person= new Person();
 
-    public static void main(String[] args) throws MaxCharacters {
+    public static void main(String[] args)  {
 
         /**
          * Upload Nutricional table to hashmap
