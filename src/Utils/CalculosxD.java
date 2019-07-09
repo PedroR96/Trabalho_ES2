@@ -54,7 +54,8 @@ public class CalculosxD {
     }
 
 
-    public void calculateEnergyUsingHarris(Float weight, Float size, Integer age, String gender, String activity, Integer termical,String injurie){
+    public void calculateEnergyUsingHarris(
+            Float weight, Float size, Integer age, String gender, String activity, Integer termical,String injurie){
 
         if(gender.equalsIgnoreCase("Masculino"))
             TMB=(66.5f)+((13.8f*weight)+(5*(size*100))-(6.8f*age));

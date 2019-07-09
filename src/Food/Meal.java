@@ -30,6 +30,7 @@ public class Meal {
 
     public void setSchedule(Time schedule) {
         assert description!=null;
+
         this.schedule = schedule;
     }
 

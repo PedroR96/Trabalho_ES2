@@ -15,12 +15,15 @@ public class Physical_Data {
     private float metabolicBasal;
     private int bone;
 
-    public Physical_Data(String s) throws MaxCharacters {
+    public Physical_Data(String s)  {
+        assert s!=null;
+        assert !s.isEmpty();
+
         String[] specs = s.split(",");
         String sub =specs[0].substring(1, specs[0].length());
 
         Float x=Float.parseFloat(specs[0].substring(1, specs[0].length()));
-     this.setHeight(Float.parseFloat(specs[1]));
+        this.setHeight(Float.parseFloat(specs[1]));
         this.setIMC(Float.parseFloat(specs[2]));
         this.setBF(Float.parseFloat(specs[3]));
         this.setVisceralFat(Float.parseFloat(specs[4]));
@@ -167,7 +170,12 @@ public class Physical_Data {
      *
      *
      * */
-    public void setBone(int bone) {
+    public void setBone(Integer bone) {
+
+        assert bone !=null;
+        assert bone > 0;
+        assert bone < 150;
+
         this.bone = bone;
     }
 }

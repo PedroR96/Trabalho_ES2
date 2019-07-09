@@ -150,7 +150,6 @@ public class FileFunctions {
                     data += k + ";";
                 }
             }
-
         } catch (Exception e) {
             System.out.println(e);
             e.getStackTrace();
