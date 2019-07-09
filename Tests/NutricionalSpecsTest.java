@@ -17,17 +17,7 @@ class NutricionalSpecsTest {
     }
 
 
-    /**
-     * Tests from ProductID
-     * @throws MaxCharacters
-     */
 
-
-    @Test
-    void testProductIDRight(){
-
-
-    }
 
     @Test
     void testProductIDNull(){
@@ -56,7 +46,7 @@ class NutricionalSpecsTest {
         assertEquals("IS1111111",ns.getProductID());
     }
 
-//    ________________________________________________________________________
+//    ______________________________________________________________________
 
 
     /**
@@ -129,7 +119,7 @@ class NutricionalSpecsTest {
      *tests from energiaKj of products
      */
     @Test
-    void testEnergyKJRight() {
+    void testEnergyKJValid() {
         NutricionalSpecs ns = new NutricionalSpecs();
         ns.setEnergiaKj(0.0f);
         assertEquals(0.0f,ns.getEnergiaKj());
@@ -193,7 +183,7 @@ class NutricionalSpecsTest {
     @Test
     void testProteinValid() {
         NutricionalSpecs ns =new NutricionalSpecs();
-        ns.setProteina( 0.0f);
+        ns.setProteina(0.0f);
         assertEquals((float)0.0,ns.getProteina());
 
         ns.setProteina(100.0f);
@@ -252,7 +242,7 @@ class NutricionalSpecsTest {
      * test from total HC disponiveis
      */
     @Test
-    void testTotalHCFreeRight()  {
+    void testTotalHCFreeValid()  {
         NutricionalSpecs ns = new NutricionalSpecs();
         ns.setTotalHCDisponiveis((float) 0.0);
         assertEquals((float)0.0,ns.getTotalHCDisponiveis());
@@ -345,7 +335,7 @@ class NutricionalSpecsTest {
      * test from  AcidosOrganicos
      */
     @Test
-    void testAcidosOrganicosRight()  {
+    void testAcidosOrganicosValid()  {
         NutricionalSpecs ns = new NutricionalSpecs();
         ns.setAcidosOrganicos((float)0.0);
         assertEquals((float)0.0,ns.getAcidosOrganicos());
@@ -376,7 +366,7 @@ class NutricionalSpecsTest {
      * test from alcool
      */
     @Test
-    void testAlcoolRight(){
+    void testAlcoolValid(){
         NutricionalSpecs ns = new NutricionalSpecs();
         ns.setAlcool((float) 0.0);
         assertEquals((float)0.0,ns.getAlcool());
@@ -401,7 +391,6 @@ class NutricionalSpecsTest {
         NutricionalSpecs ns = new NutricionalSpecs();
         assertThrows(AssertionError.class,()->ns.setAlcool(null));
     }
-
     /**
      * test from amido
      */
@@ -416,36 +405,52 @@ class NutricionalSpecsTest {
     }
 
     @Test
-    void testAmidoZero(){
+    void testAmidoBiggerThanMax(){
         NutricionalSpecs ns = new NutricionalSpecs();
 
         assertThrows(AssertionError.class, ()->{
-            ns.setAmido(0.0f);
+            ns.setAmido(90.3f);
+        });
+    }
+
+
+    @Test
+    void testAmidoSmallerThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+
+        assertThrows(AssertionError.class, ()->{
+            ns.setAmido(-0.01f);
         });
     }
 
     @Test
-    void testAmidoRight(){
+    void testAmidoValid(){
         NutricionalSpecs ns = new NutricionalSpecs();
 
-        ns.setAmido(0.1f);
-        assertEquals(0.1f, ns.getAmido());
-    }
+        ns.setAmido(0.0f);
+        assertEquals(0.0f, ns.getAmido());
+
+        ns.setAmido(90.2f);
+        assertEquals(90.2f, ns.getAmido());
+   }
 
     /**
      *  test for getOligossacaridos
      */
     @Test
-    void testOligossacaridosRight(){
+    void testOligossacaridosValid(){
         NutricionalSpecs ns = new NutricionalSpecs();
-        ns.setOligossacaridos(0.1f);
-        assertEquals(0.1f, ns.getOligossacaridos());
+        ns.setOligossacaridos(0.0f);
+        assertEquals(0.0f, ns.getOligossacaridos());
+
+        ns.setOligossacaridos(6.3f);
+        assertEquals(6.3f, ns.getOligossacaridos());
     }
     @Test
-    void testOligossacaridosSmaller(){
+    void testOligossacaridosLesserThanMin(){
         NutricionalSpecs ns = new NutricionalSpecs();
         assertThrows(AssertionError.class,()->{
-           ns.setOligossacaridos(0.0f);
+           ns.setOligossacaridos(-0.1f);
         });
     }
     @Test
@@ -455,7 +460,13 @@ class NutricionalSpecsTest {
             ns.setOligossacaridos(null);
         });
     }
-
+    @Test
+    void testOligossacaridosBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()->{
+            ns.setOligossacaridos(6.4f);
+        });
+    }
     /**
      *  test for fibraalimentar
      */
@@ -468,34 +479,54 @@ class NutricionalSpecsTest {
         });
     }
     @Test
-    void testFibraAlimentarZero(){
+    void testFibraAlimentarLesserThanMin(){
         NutricionalSpecs ns = new NutricionalSpecs();
         assertThrows(AssertionError.class,()->{
-           ns.setFibraAlimentar(0.0f);
+           ns.setFibraAlimentar(-0.1f);
+        });
+    }
+
+    @Test
+    void testFibraAlimentarBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()->{
+            ns.setFibraAlimentar(30.1f);
         });
     }
     @Test
-    void testFibraAlimentarRight(){
+    void testFibraAlimentarValid(){
         NutricionalSpecs ns = new NutricionalSpecs();
         ns.setFibraAlimentar(0.1f);
         assertEquals(0.1f, ns.getFibraAlimentar());
+        ns.setFibraAlimentar(30.0f);
+        assertEquals(30.0f, ns.getFibraAlimentar());
     }
 
     /**
      *  test acidosgordossaturados
      */
     @Test
-    void testAcidosGordosSaturadosRight(){
+    void testAcidosGordosSaturadosValid(){
         NutricionalSpecs ns = new NutricionalSpecs();
-        ns.setAcidosGordosSaturados(0.1f);
-        assertEquals(0.1f,ns.getAcidosGordosSaturados());
+        ns.setAcidosGordosSaturados(0.0f);
+        assertEquals(0.0f,ns.getAcidosGordosSaturados());
+        ns.setAcidosGordosSaturados(86.9f);
+        assertEquals(86.9f,ns.getAcidosGordosSaturados());
     }
 
     @Test
-    void testAcidosGordosSaturadosZero(){
+    void testAcidosGordosSaturadosLesserThanMin(){
         NutricionalSpecs ns = new NutricionalSpecs();
         assertThrows(AssertionError.class,()->{
-           ns.setAcidosGordosSaturados(0.0f);
+           ns.setAcidosGordosSaturados(-0.1f);
+        });
+    }
+
+    @Test
+    void testAcidosGordosSaturadosBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()->{
+            ns.setAcidosGordosSaturados(87.0f);
         });
     }
 
@@ -517,25 +548,36 @@ class NutricionalSpecsTest {
     }
 
     @Test
-    void testAcidosGordosMonoinsaturadosZero(){
+    void testAcidosGordosMonoinsaturadosLesserThanMin(){
         NutricionalSpecs ns = new NutricionalSpecs();
-        assertThrows(AssertionError.class,()->{ns.setAcidosGordosMonoinsaturados(0.0f);});
+        assertThrows(AssertionError.class,()->{ns.setAcidosGordosMonoinsaturados(-0.1f);});
+    }
+
+    @Test
+    void testAcidosGordosMonoinsaturadosBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()->{ns.setAcidosGordosMonoinsaturados(78.7f);});
     }
     @Test
-    void testAcidosGordosMonoinsaturadosRight(){
+    void testAcidosGordosMonoinsaturadosValid(){
         NutricionalSpecs ns = new NutricionalSpecs();
-        ns.setAcidosGordosMonoinsaturados(0.1f);
-        assertEquals(0.1f,ns.getAcidosGordosMonoinsaturados());
+        ns.setAcidosGordosMonoinsaturados(0.0f);
+        assertEquals(0.0f,ns.getAcidosGordosMonoinsaturados());
+        ns.setAcidosGordosMonoinsaturados(78.6f);
+        assertEquals(78.6f,ns.getAcidosGordosMonoinsaturados());
     }
 
     /**
      *  test AcidosGordosPolinsaturados
      */
     @Test
-    void testAcidosGordosPolinsaturados(){
+    void testAcidosGordosPolinsaturadosValid(){
         NutricionalSpecs ns = new NutricionalSpecs();
-        ns.setAcidosGordosPolinsaturados(0.1f);
-        assertEquals(0.1f,ns.getAcidosGordosPolinsaturados());
+        ns.setAcidosGordosPolinsaturados(0.0f);
+        assertEquals(0.0f,ns.getAcidosGordosPolinsaturados());
+
+        ns.setAcidosGordosPolinsaturados(63.9f);
+        assertEquals(63.9f,ns.getAcidosGordosPolinsaturados());
     }
     @Test
     void testAcidosGordosPolinsaturadosNull(){
@@ -546,21 +588,32 @@ class NutricionalSpecsTest {
         });
     }
     @Test
-    void testAcidosGordosPolinsaturadosZero(){
+    void testAcidosGordosPolinsaturadosLesserThanMin(){
         NutricionalSpecs ns = new NutricionalSpecs();
         assertThrows(AssertionError.class,()->{
-            ns.setAcidosGordosPolinsaturados(0.0f);
+            ns.setAcidosGordosPolinsaturados(-0.1f);
         });
     }
 
+    @Test
+    void testAcidosGordosPolinsaturadosBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()->{
+            ns.setAcidosGordosPolinsaturados(64.0f);
+        });
+    }
     /**
      * test for AcidosGordosTrans
      */
     @Test
     void testAcidosGordosTrans(){
         NutricionalSpecs ns = new NutricionalSpecs();
-        ns.setAcidosGordosTrans(0.1f);
-        assertEquals(0.1f,ns.getAcidosGordosTrans());
+        ns.setAcidosGordosTrans(0.0f);
+        assertEquals(0.0f,ns.getAcidosGordosTrans());
+
+        ns.setAcidosGordosTrans(17.0f);
+        assertEquals(17.0f,ns.getAcidosGordosTrans());
+
     }
 
     @Test
@@ -572,13 +625,330 @@ class NutricionalSpecsTest {
     }
 
     @Test
-    void testAcidosGordosTransZero(){
+    void testAcidosGordosTransSmalleThanMin(){
         NutricionalSpecs ns = new NutricionalSpecs();
         assertThrows(AssertionError.class,()->{
-           ns.setAcidosGordosTrans(0.0f);
+           ns.setAcidosGordosTrans(-0.1f);
         });
     }
 
+//    ________________________________
 
+    @Test
+    void testRetinolValid(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setRetinol(0.0f);
+        assertEquals(0.0f,ns.getRetinol());
+        ns.setRetinol(14.9f);
+        assertEquals(14.9f,ns.getRetinol());
+    }
+
+    @Test
+    void testRetinolnull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setRetinol(null));
+    }
+
+    @Test
+    void testRetinolLesserThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setRetinol(-0.1f));
+    }
+
+    @Test
+    void testRetinolBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setRetinol(15.0f));
+    }
+
+
+//    ________________________________
+
+    @Test
+    void testAcidoLinoleicoValid(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setAcidoLinoleico(0.0f);
+        assertEquals(0.0f,ns.getAcidoLinoleico());
+        ns.setAcidoLinoleico(64.0f);
+        assertEquals(64.0f,ns.getAcidoLinoleico());
+    }
+
+    @Test
+    void testAcidoLinoleiconull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setAcidoLinoleico(null));
+    }
+
+    @Test
+    void testAcidoLinoleicoLesserThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setAcidoLinoleico(-0.1f));
+    }
+
+    @Test
+    void testAcidoLinoleicoBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setAcidoLinoleico(14500.1f));
+    }
+//    ________________________________
+@Test
+void testColesterolValid(){
+    NutricionalSpecs ns = new NutricionalSpecs();
+    ns.setColesterol(0.0f);
+    assertEquals(0.0f,ns.getColesterol());
+    ns.setColesterol(1280.0f);
+    assertEquals(1280.0f,ns.getColesterol());
+}
+
+    @Test
+    void testColesterolNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setColesterol(null));
+    }
+
+    @Test
+    void testColesterolLesserThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setColesterol(-0.1f));
+    }
+
+    @Test
+    void testColesterolBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setColesterol(1280.1f));
+    }
+
+    //    ________________________________
+
+    @Test
+    void testVitATotalValid(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setVitATotal(0.0f);
+        assertEquals(0.0f,ns.getVitATotal());
+        ns.setVitATotal(15000.0f);
+        assertEquals(15000.0f,ns.getVitATotal());
+    }
+
+    @Test
+    void testVitATotalNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setVitATotal(null));
+    }
+
+    @Test
+    void testVitATotalLesserThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setVitATotal(-0.1f));
+    }
+
+    @Test
+    void testVitATotalBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setVitATotal(15000.1f));
+    }
+
+    //    ________________________________
+
+    @Test
+    void testCarotenoValid(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setCaroteno(0.0f);
+        assertEquals(0.0f,ns.getCaroteno());
+        ns.setCaroteno(30730.0f);
+        assertEquals(30730.0f,ns.getCaroteno());
+    }
+
+    @Test
+    void testCarotenoNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setCaroteno(null));
+    }
+
+    @Test
+    void testCarotenoLesserThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setCaroteno(-0.1f));
+    }
+
+    @Test
+    void testCarotenoBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setCaroteno(30730.1f));
+    }
+
+    //    ________________________________
+
+    @Test
+    void testVitDValid(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setVitD(0.0f);
+        assertEquals(0.0f,ns.getVitD());
+        ns.setVitD(92.0f);
+        assertEquals(92.0f,ns.getVitD());
+    }
+
+    @Test
+    void testVitDNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setVitD(null));
+    }
+
+    @Test
+    void testVitDLesserThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setVitD(-0.1f));
+    }
+
+    @Test
+    void testVitDBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setVitD(92.1f));
+    }
+
+    //    ________________________________
+
+    @Test
+    void testaTocoferolValid(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setaTocoferol(0.0f);
+        assertEquals(0.0f,ns.getaTocoferol());
+        ns.setaTocoferol(84.0f);
+        assertEquals(84.0f,ns.getaTocoferol());
+    }
+
+    @Test
+    void testaTocoferolNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setaTocoferol(null));
+    }
+
+    @Test
+    void testaTocoferolLesserThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setaTocoferol(-0.1f));
+    }
+
+    @Test
+    void testaTocoferolBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setaTocoferol(84.1f));
+    }
+
+    //    ________________________________
+
+    @Test
+    void testTiaminaValid(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setTiamina(0.0f);
+        assertEquals(0.0f,ns.getTiamina());
+        ns.setTiamina(2.5f);
+        assertEquals(2.5f,ns.getTiamina());
+    }
+
+    @Test
+    void testTiaminaNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setTiamina(null));
+    }
+
+    @Test
+    void testTiaminaLesserThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setTiamina(-0.1f));
+    }
+
+    @Test
+    void testTiaminaBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setTiamina(2.6f));
+    }
+
+    //    ________________________________
+
+    @Test
+    void testRiboflavinaValid(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setRiboflavina(0.0f);
+        assertEquals(0.0f,ns.getRiboflavina());
+        ns.setRiboflavina(4.7f);
+        assertEquals(4.7f,ns.getRiboflavina());
+    }
+
+    @Test
+    void testRiboflavinaNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setRiboflavina(null));
+    }
+
+    @Test
+    void testRiboflavinaLesserThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setRiboflavina(-0.1f));
+    }
+
+    @Test
+    void testRiboflavinaBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setRiboflavina(4.8f));
+    }
+
+    //    ________________________________
+
+    @Test
+    void testEquivalentesNiacinaValid(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setEquivalentesNiacina(0.0f);
+        assertEquals(0.0f,ns.getEquivalentesNiacina());
+        ns.setEquivalentesNiacina(33.0f);
+        assertEquals(33.0f,ns.getEquivalentesNiacina());
+    }
+
+    @Test
+    void testEquivalentesNiacinaNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setEquivalentesNiacina(null));
+    }
+
+    @Test
+    void testEquivalentesNiacinaLesserThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setEquivalentesNiacina(-0.1f));
+    }
+
+    @Test
+    void testEquivalentesNiacinaBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setEquivalentesNiacina(33.1f));
+    }
+
+
+    //    ________________________________
+
+    @Test
+    void testNiacinaValid(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        ns.setNiacina(0.0f);
+        assertEquals(0.0f,ns.getNiacina());
+        ns.setNiacina(31.0f);
+        assertEquals(31.0f,ns.getNiacina());
+    }
+
+    @Test
+    void testNiacinaNull(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setNiacina(null));
+    }
+
+    @Test
+    void testNiacinaLesserThanMin(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setNiacina(-0.1f));
+    }
+
+    @Test
+    void testNiacinaBiggerThanMax(){
+        NutricionalSpecs ns = new NutricionalSpecs();
+        assertThrows(AssertionError.class,()-> ns.setNiacina(31.1f));
+    }
 
 }

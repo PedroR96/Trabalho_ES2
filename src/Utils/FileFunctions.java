@@ -19,40 +19,6 @@ public class FileFunctions {
     public FileFunctions() {
     }
 
-    /**
-     * Get the File Path
-     *
-     * @return path
-     */
-    public static String getFilePath(String title) {
-        FileDialog dialog = new FileDialog((Frame) null, title);
-        dialog.setMode(FileDialog.LOAD);
-        dialog.setVisible(true);
-        return dialog.getDirectory() + dialog.getFile();
-    }
-
-    public static void main(String[] args) throws MaxCharacters {
-
-        //FileFunctions f = new FileFunctions();
-        //f.readCSV("CALCULO");
-        //f.readFiletwo("FOLHA 2");
-        //f.readFileThree("FOLHA 3");
-
-
-        String s = "85.0";
-
-        try
-        {
-            float f = Float.valueOf(s.trim()).floatValue();
-
-            System.out.println("float f = " + f + "\n" + Float.parseFloat(s));
-        }
-        catch (NumberFormatException nfe)
-        {
-            System.out.println("NumberFormatException: " + nfe.getMessage());
-        }
-
-    }
 
     /**
      * Read a CSV File to get nutricional specs
@@ -73,7 +39,6 @@ public class FileFunctions {
                     nutSpecs += s + ";";
                 }
 
-                //System.out.println(nutSpecs);
                 NutricionalSpecs nutricionalSpecs1 = new NutricionalSpecs(nutSpecs);
                 productNutricionalSpecs.put(nutricionalSpecs1.getProductID(), nutricionalSpecs1);
             }
@@ -88,8 +53,7 @@ public class FileFunctions {
      * Read CSV to get folha 2 values
      */
 
-    public FoodHabits  readFileFour(String title) throws MaxCharacters {
-//        String path = getFilePath(title);
+    public FoodHabits  readFileFour()  {
         Path path1=Paths.get("Assets/Folha 4.csv");
         String specs = "";
         try {
@@ -109,8 +73,8 @@ public class FileFunctions {
     }
 
 
-    public FoodHabits readFiletwo(String title) throws MaxCharacters {
-//        String path = getFilePath(title);
+    public FoodHabits readFiletwo()  {
+
         Path path1=Paths.get("Assets/Folha 2.csv");
 
         String specs = "";
@@ -133,8 +97,7 @@ public class FileFunctions {
     /**
      * Read CSV to get folha 1 values
      */
-    public Person readFileOne(String title) {
-//        String path = getFilePath(title);
+    public Person readFileOne() {
         String data="";
         Path path1=Paths.get("Assets/Folha 1.csv");
         try {
@@ -144,7 +107,6 @@ public class FileFunctions {
             while ((nextRecord = csvReader.readNext()) != null) {
 
                 for (String k : nextRecord) {
-                    //System.out.println(k);v
                     data += k + ";";
                 }
             }
@@ -159,8 +121,8 @@ public class FileFunctions {
      * Read File 3
      */
 
-    public Physical_Data readFileThree(String title) {
-//        String path = getFilePath(title);
+    public Physical_Data readFileThree() {
+
         Path path1=Paths.get("Assets/Folha 3.csv");
         String specs = "";
         try {
@@ -170,7 +132,6 @@ public class FileFunctions {
             while ((nextRecord = csvReader.readNext()) != null) {
 
                 for (String k : nextRecord) {
-                    //System.out.println(k);
                     specs += k + ",";
                 }
             }

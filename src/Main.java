@@ -35,25 +35,25 @@ public class Main {
         /**
          * Upload Folha 1
          */
-        person=fileFunctions.readFileOne("Escolha a Folha 1");
+        person=fileFunctions.readFileOne();
 
         /**
          * Upload Folha 2
          */
-        FoodHabits oldHabits = fileFunctions.readFiletwo("Escolha a Folha 2");
+        FoodHabits oldHabits = fileFunctions.readFiletwo();
         person.setFoodHabits(oldHabits);
 
         /**
          * Upload Folha 3
          */
-                person.setPhysicalData(  fileFunctions.readFileThree("Escolha a Folha 3"));
+                person.setPhysicalData(  fileFunctions.readFileThree());
 
 
 
         /**
          * Upload Folha 4
          */
-        person.setNewPlan(fileFunctions.readFileFour("Escolha a Folha 4"));
+        person.setNewPlan(fileFunctions.readFileFour());
 
 
 
