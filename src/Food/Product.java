@@ -4,7 +4,7 @@ package Food;
 public class Product {
 
     private String productID;
-    private float amount;
+    private Float amount;
     private String amountDescription;
 
     public Product() {
@@ -18,7 +18,7 @@ public class Product {
     public void setProductID(String productID) {
         assert productID!=null;
         assert !productID.isEmpty();
-
+        assert productID.length()>2;
         assert productID.length()<50;
         this.productID = productID;
     }
@@ -30,7 +30,8 @@ public class Product {
 
     public void setAmount(Float amount) {
         assert amount!=null;
-        assert amount>0;
+        assert amount>=0f;
+        assert amount<5000.0f;
 
         this.amount = amount;
     }
