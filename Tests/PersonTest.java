@@ -236,5 +236,37 @@ class PersonTest {
         assertThrows(AssertionError.class, () -> person.setPhysicalData(null));
 
     }
+// ____________________________________________________
 
+
+    @Test
+    void testPersonGenderValid() {
+
+        Person person = new Person();
+        person.setGender("a");
+        assertEquals("a", person.getGender());
+
+        person.setGender("12345678901234");
+        assertEquals("12345678901234", person.getGender());
+
+    }
+
+    @Test
+    void testPersonGenderNull() {
+        Person person = new Person();
+        assertThrows(AssertionError.class, () -> person.setGender(null));
+    }
+
+    @Test
+    void testGenderLesserThanMin() {
+        Person person = new Person();
+        assertThrows(AssertionError.class, () -> person.setGender(""));
+    }
+
+
+    @Test
+    void testGenderBiggerThanMax() {
+        Person person = new Person();
+        assertThrows(AssertionError.class, () -> person.setGender("123456789012345"));
+    }
 }

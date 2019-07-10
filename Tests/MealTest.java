@@ -12,8 +12,11 @@ class MealTest {
     @Test
     void testMealDescriptionValid(){
         Meal meal=new Meal();
-        meal.setDescription("Pequeno-Almoço");
-        assertEquals("Pequeno-Almoço",meal.getDescription());
+        meal.setDescription("P");
+        assertEquals("P",meal.getDescription());
+
+        meal.setDescription("1234567890123456789012345678901234567890123456789");
+        assertEquals("1234567890123456789012345678901234567890123456789",meal.getDescription());
     }
 
     @Test
@@ -45,20 +48,20 @@ class MealTest {
         assertThrows(AssertionError.class,()-> meal.setSchedule(null));
     }
 
+
+
     @Test
-    void testMealTimeValidMin(){
+    void testMealTimeValidMax(){
         Meal meal=new Meal();
         meal.setSchedule(new Time(0,0,0));
         assertEquals("00:00:00",meal.getSchedule().toString());
 
-    }
-    @Test
-    void testMealTimeValidMax(){
-        Meal meal=new Meal();
         meal.setSchedule(new Time(23,59,59));
         assertEquals("23:59:59",meal.getSchedule().toString());
 
-       }
+    }
+
+
 
 
     // ______________________________________________________

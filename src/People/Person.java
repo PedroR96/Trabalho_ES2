@@ -65,9 +65,10 @@ public class Person {
 
     public void setGender(String gender) {
         assert gender != null;
-        assert !job.isEmpty();
-        assert job.length() < 15;
-        this.gender = gender; }
+        assert !gender.isEmpty();
+        assert gender.length() < 15;
+        this.gender = gender;
+    }
 
     public void setHeight(Float height) {
 

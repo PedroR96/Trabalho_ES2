@@ -13,9 +13,9 @@ class ProductTest {
     }
 
     @Test
-    void testProductProductIDEmpty(){
+    void testProductProductIDLesserThanMin(){
         Product product=new Product();
-        assertThrows(AssertionError.class,()->product.setProductID(""));
+        assertThrows(AssertionError.class,()->product.setProductID("IS"));
     }
 
     @Test
@@ -24,18 +24,26 @@ class ProductTest {
         assertThrows(AssertionError.class,()->product.setProductID("12345678901234567890123456789012345678901234567890"));
     }
 
+
     @Test
     void testProductProductIDValid(){
         Product product=new Product();
-        product.setProductID("IS1563");
-      assertEquals("IS1563",product.getProductID());
+        product.setProductID("IS1");
+      assertEquals("IS1",product.getProductID());
+        product.setProductID("IS34567890123456789012345678901234567890123456789");
+        assertEquals("IS34567890123456789012345678901234567890123456789",product.getProductID());
     }
+
+//_____________________________________________
+
 
     @Test
     void testProductAmountValid(){
         Product product=new Product();
-        product.setAmount(150f);
-        assertEquals(150f,product.getAmount());
+        product.setAmount(0f);
+        assertEquals(0f,product.getAmount());
+        product.setAmount(4999.9f);
+        assertEquals(4999.9f,product.getAmount());
     }
 
     @Test
@@ -46,16 +54,29 @@ class ProductTest {
     }
 
     @Test
-    void testProductAmountLesserThanZero(){
+    void testProductAmountLesserThanMin(){
         Product product=new Product();
-        assertThrows(AssertionError.class,()-> product.setAmount(0f));
+        assertThrows(AssertionError.class,()-> product.setAmount(-0.1f));
     }
+
+    @Test
+    void testProductAmountBiggerThanMax(){
+        Product product=new Product();
+        assertThrows(AssertionError.class,()-> product.setAmount(5000.0f));
+    }
+
+    //_____________________________________________
+
+
+
 
     @Test
     void testProductAmountDescriptionValid(){
         Product product=new Product();
-        product.setAmountDescription("4 colheres de sopa");
-        assertEquals("4 colheres de sopa",product.getAmountDescription());
+        product.setAmountDescription("4");
+        assertEquals("4",product.getAmountDescription());
+        product.setAmountDescription("1234567890123456789012345678901234567890123456789");
+        assertEquals("1234567890123456789012345678901234567890123456789",product.getAmountDescription());
     }
     @Test
     void testProductAmountDescriptionNull(){

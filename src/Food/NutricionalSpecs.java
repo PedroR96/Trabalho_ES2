@@ -50,7 +50,11 @@ public class NutricionalSpecs {
 
 
     public NutricionalSpecs(String specs){
+        assert specs!=null;
+        assert !specs.isEmpty();
+
         String[] x=   specs.split(";");
+
         setProductID( x[0]);
         setName( x[1]);
         setEnergiaKCla(Float.parseFloat(x[2]));

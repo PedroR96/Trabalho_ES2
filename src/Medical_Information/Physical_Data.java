@@ -18,9 +18,8 @@ public class Physical_Data {
         assert !s.isEmpty();
 
         String[] specs = s.split(",");
-        String sub =specs[0].substring(1, specs[0].length());
 
-        Float x=Float.parseFloat(specs[0].substring(1, specs[0].length()));
+        this.setWeight(Float.parseFloat(specs[0].substring(1, specs[0].length())));
         this.setHeight(Float.parseFloat(specs[1]));
         this.setIMC(Float.parseFloat(specs[2]));
         this.setBF(Float.parseFloat(specs[3]));

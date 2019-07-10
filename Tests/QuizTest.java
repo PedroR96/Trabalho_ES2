@@ -477,8 +477,10 @@ class QuizTest {
     @Test
     void testQuizReasonValid(){
         Quiz quiz=new Quiz();
-        quiz.setReason("Excesso de peso");
-        assertEquals("Excesso de peso",quiz.getReason());
+        quiz.setReason("E");
+        assertEquals("E",quiz.getReason());
+        quiz.setReason("1234567890123456789012345678901234567890123456789");
+        assertEquals("1234567890123456789012345678901234567890123456789",quiz.getReason());
     }
     //____________________________________________________
 
@@ -503,8 +505,11 @@ class QuizTest {
     @Test
     void testQuizObjectiveValid(){
         Quiz quiz=new Quiz();
-        quiz.setObjective("Perda de peso");
-        assertEquals("Perda de peso",quiz.getObjective());
+        quiz.setObjective("P");
+        assertEquals("P",quiz.getObjective());
+        quiz.setObjective("1234567890123456789012345678901234567890123456789");
+        assertEquals("1234567890123456789012345678901234567890123456789",quiz.getObjective());
+
     }
 
     //____________________________________________________
@@ -532,8 +537,11 @@ class QuizTest {
     @Test
     void testQuizPathologiesValid(){
         Quiz quiz=new Quiz();
-        quiz.setPathologies("Diabetes");
-        assertEquals("Diabetes",quiz.getPathologies());
+        quiz.setPathologies("D");
+        assertEquals("D",quiz.getPathologies());
+
+        quiz.setPathologies("1234567890123456789012345678901234567890123456789");
+        assertEquals("1234567890123456789012345678901234567890123456789",quiz.getPathologies());
     }
 
     //____________________________________________________
@@ -560,8 +568,11 @@ class QuizTest {
     @Test
     void testQuizMedicationValid(){
         Quiz quiz=new Quiz();
-        quiz.setMedication("Nenhuma");
-        assertEquals("Nenhuma",quiz.getMedication());
+        quiz.setMedication("N");
+        assertEquals("N",quiz.getMedication());
+
+        quiz.setMedication("1234567890123456789012345678901234567890123456789");
+        assertEquals("1234567890123456789012345678901234567890123456789",quiz.getMedication());
     }
 
     //____________________________________________________
@@ -588,8 +599,11 @@ class QuizTest {
     @Test
     void testQuizFamilyHistoryValid(){
         Quiz quiz=new Quiz();
-        quiz.setFamilyHistory("Diabetes");
-        assertEquals("Diabetes",quiz.getFamilyHistory());
+        quiz.setFamilyHistory("D");
+        assertEquals("D",quiz.getFamilyHistory());
+
+        quiz.setFamilyHistory("1234567890123456789012345678901234567890123456789");
+        assertEquals("1234567890123456789012345678901234567890123456789",quiz.getFamilyHistory());
     }
 
     //____________________________________________________
@@ -617,6 +631,12 @@ class QuizTest {
         Quiz quiz=new Quiz();
         quiz.setPhisicalActivity("Sedentario");
         assertEquals("Sedentario",quiz.getPhisicalActivity());
+        quiz.setPhisicalActivity("ModeradamenteAtivo");
+        assertEquals("ModeradamenteAtivo",quiz.getPhisicalActivity());
+        quiz.setPhisicalActivity("Ativo");
+        assertEquals("Ativo",quiz.getPhisicalActivity());
+        quiz.setPhisicalActivity("MuitoAtivo");
+        assertEquals("MuitoAtivo",quiz.getPhisicalActivity());
 
     }
     //____________________________________________________
@@ -643,6 +663,14 @@ class QuizTest {
         Quiz quiz=new Quiz();
         quiz.setIntestinalFunction("Normal");
         assertEquals("Normal",quiz.getIntestinalFunction());
+
+        quiz.setIntestinalFunction("Obstipado");
+        assertEquals("Obstipado",quiz.getIntestinalFunction());
+
+        quiz.setIntestinalFunction("Diarreias");
+        assertEquals("Diarreias",quiz.getIntestinalFunction());
+
+
     }
 
 
@@ -672,6 +700,15 @@ class QuizTest {
         Quiz quiz=new Quiz();
         quiz.setWaterConsuming("Median");
         assertEquals("Median",quiz.getWaterConsuming());
+        quiz.setWaterConsuming("Weak");
+        assertEquals("Weak",quiz.getWaterConsuming());
+
+        quiz.setWaterConsuming("Good");
+        assertEquals("Good",quiz.getWaterConsuming());
+
+        quiz.setWaterConsuming("Obsessive");
+        assertEquals("Obsessive",quiz.getWaterConsuming());
+
     }
 
 

@@ -1326,4 +1326,19 @@ void testMGValid(){
     }
 
 
+
+    //    _______________________
+
+
+    @Test
+    void testCreateNutricionalSpecsNull(){
+        assertThrows(AssertionError.class,()-> new NutricionalSpecs(null));
+
+    }
+
+    @Test
+    void testCreateNutricionalSpecsEmpty(){
+        assertThrows(AssertionError.class,()-> new NutricionalSpecs(""));
+    }
+
 }
