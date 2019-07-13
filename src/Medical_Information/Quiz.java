@@ -14,7 +14,13 @@ public class Quiz {
     private WaterConsuption waterConsuming;
     private HashMap<String, String> chemistsAndBiologicalData;
     public Quiz(){}
-    public Quiz(String reason, String objective, String pathologies, String medication, String familyHistory, String phisicalActivity, String intestinalFunction, String waterConsuming, HashMap<String, String> chemistsAndBiologicalData) {
+
+
+    public Quiz(String reason, String objective, String pathologies,
+                String medication, String familyHistory,
+                String phisicalActivity, String intestinalFunction,
+                String waterConsuming,
+                HashMap<String, String> chemistsAndBiologicalData) {
         assert reason!=null;
         assert !reason.isEmpty();
         assert reason.length()<50;

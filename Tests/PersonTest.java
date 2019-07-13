@@ -4,25 +4,37 @@ import Medical_Information.Quiz;
 import People.Person;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class PersonTest {
 
 
+    //﻿Alfredo;25;Masculino;1.86;Mecanico;Excesso de peso;Perda de peso;Diabetes;Nenhuma;Hipertensão;Sedentario;Diarreias;Good;20;25;78;97;89;
     @Test
     void testCreatePersonNull() {
-        assertThrows(AssertionError.class, () ->new Person(null));
+        assertThrows(AssertionError.class, () -> new Person(null));
     }
 
 
     @Test
     void testCreatePersonEmpty() {
-        assertThrows(AssertionError.class, () ->new Person(""));
+        assertThrows(AssertionError.class, () -> new Person(""));
     }
 
+    @Test
+    void testCreatePersonValid() {
+        Person person = new Person("Alfredo;25;Masculino;1.86;Mecanico;Excesso de peso;Perda de peso;Diabetes;Nenhuma;Hipertensão;Sedentario;Diarreias;Good;20;25;78;97;89;");
+        assertEquals("Alfredo", person.getName());
+        assertEquals(25, person.getAge());
+        assertEquals(1.86f, person.getHeight());
+        assertEquals("Mecanico", person.getJob());
+        assertEquals("Masculino", person.getGender());
+    }
 
-//_____________________________________________
+    //____________________________________________
     @Test
     void testPersonNameValid() {
 
