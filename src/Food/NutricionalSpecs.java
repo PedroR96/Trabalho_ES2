@@ -174,7 +174,7 @@ public class NutricionalSpecs {
     public void setName(String name)  {
 
         assert name!=null;
-        assert name.length()<50;
+        assert name.length()<500;
         assert name.length()>2;
 
         this.name = name;
@@ -201,7 +201,7 @@ public class NutricionalSpecs {
 
     public void setAgua(Float agua)  {
         assert agua!=null;
-        assert agua>=1.5f;
+        assert agua>=0f;
         assert agua<100.0f;
 
 

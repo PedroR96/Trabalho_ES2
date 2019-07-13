@@ -21,11 +21,10 @@ public class FileFunctions {
     /**
      * Read a CSV File to get nutricional specs
      */
-    public HashMap<String, NutricionalSpecs> readCSV() {
+    public HashMap<String, NutricionalSpecs> readCSV(String relactivePath ) {
         HashMap<String, NutricionalSpecs> productNutricionalSpecs = new HashMap<>();
         String nutSpecs;
-        Path path1=Paths.get("Assets/CALCULOCSV.csv");
-
+        Path path1=Paths.get(relactivePath);
         try {
             Reader reader = Files.newBufferedReader(path1);
             CSVReader csvReader = new CSVReader(reader);

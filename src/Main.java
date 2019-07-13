@@ -24,7 +24,7 @@ public class Main {
         /**
          * Upload Nutricional table to hashmap
          */
-        productNutricionalSpecs = fileFunctions.readCSV();
+        productNutricionalSpecs = fileFunctions.readCSV("Assets/CALCULOCSV.csv");
 
         /**
          * Upload Folha 1

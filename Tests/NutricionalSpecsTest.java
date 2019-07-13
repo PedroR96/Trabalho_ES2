@@ -30,55 +30,54 @@ class NutricionalSpecsTest {
         assertEquals("IS019", ns.getProductID());
         assertEquals("Leite Cabra cru", ns.getName());
         assertEquals(69f, ns.getEnergiaKCla());
-        assertEquals(290f,ns.getEnergiaKj());
-        assertEquals(86.9f,ns.getAgua());
-        assertEquals(3.8f,ns.getProteina());
-        assertEquals(4.0f,ns.getGorduraTotal());
-        assertEquals(4.6f,ns.getTotalHCDisponiveis());
-        assertEquals(4.8f,ns.getTotalHCMonossacaridos());
-        assertEquals(4.6f,ns.getMonoDissacaridos());
-        assertEquals(0f,ns.getAcidosOrganicos());
-        assertEquals(0f,ns.getAlcool());
-        assertEquals(0f,ns.getAmido());
-        assertEquals(0f,ns.getOligossacaridos());
-        assertEquals(0f,ns.getFibraAlimentar());
-        assertEquals(2.6f,ns.getAcidosGordosSaturados());
-        assertEquals(1.1f,ns.getAcidosGordosMonoinsaturados());
-        assertEquals(0.1f,ns.getAcidosGordosPolinsaturados());
-        assertEquals(0.1f,ns.getAcidosGordosTrans());
-        assertEquals(0.1f,ns.getAcidoLinoleico());
-        assertEquals(11,ns.getColesterol());
-        assertEquals(0.053f,ns.getRetinol());
-        assertEquals(53f,ns.getVitATotal());
-        assertEquals(0f,ns.getCaroteno());
-        assertEquals(0.05f,ns.getVitD());
-        assertEquals(0.030f,ns.getaTocoferol());
-        assertEquals(0.050f,ns.getTiamina());
-        assertEquals(0.10f,ns.getRiboflavina());
-        assertEquals(1.0f,ns.getEquivalentesNiacina());
-        assertEquals(0.30f,ns.getNiacina());
-        assertEquals(0.70f,ns.getTriptofano());
-        assertEquals(0.040f,ns.getVitB6());
-        assertEquals(0.080f,ns.getVitB12());
-        assertEquals(3.0f,ns.getVitC());
-        assertEquals(1.0f,ns.getFolatos());
-        assertEquals(0.85f,ns.getCinza());
-        assertEquals(40f,ns.getNa());
-        assertEquals(181f,ns.getK());
-        assertEquals(153f,ns.getCa());
-        assertEquals(120f,ns.getP());
-        assertEquals(20f,ns.getMg());
-        assertEquals(0.2f,ns.getFe());
-        assertEquals(0.3f,ns.getZn());
+        assertEquals(290f, ns.getEnergiaKj());
+        assertEquals(86.9f, ns.getAgua());
+        assertEquals(3.8f, ns.getProteina());
+        assertEquals(4.0f, ns.getGorduraTotal());
+        assertEquals(4.6f, ns.getTotalHCDisponiveis());
+        assertEquals(4.8f, ns.getTotalHCMonossacaridos());
+        assertEquals(4.6f, ns.getMonoDissacaridos());
+        assertEquals(0f, ns.getAcidosOrganicos());
+        assertEquals(0f, ns.getAlcool());
+        assertEquals(0f, ns.getAmido());
+        assertEquals(0f, ns.getOligossacaridos());
+        assertEquals(0f, ns.getFibraAlimentar());
+        assertEquals(2.6f, ns.getAcidosGordosSaturados());
+        assertEquals(1.1f, ns.getAcidosGordosMonoinsaturados());
+        assertEquals(0.1f, ns.getAcidosGordosPolinsaturados());
+        assertEquals(0.1f, ns.getAcidosGordosTrans());
+        assertEquals(0.1f, ns.getAcidoLinoleico());
+        assertEquals(11, ns.getColesterol());
+        assertEquals(0.053f, ns.getRetinol());
+        assertEquals(53f, ns.getVitATotal());
+        assertEquals(0f, ns.getCaroteno());
+        assertEquals(0.05f, ns.getVitD());
+        assertEquals(0.030f, ns.getaTocoferol());
+        assertEquals(0.050f, ns.getTiamina());
+        assertEquals(0.10f, ns.getRiboflavina());
+        assertEquals(1.0f, ns.getEquivalentesNiacina());
+        assertEquals(0.30f, ns.getNiacina());
+        assertEquals(0.70f, ns.getTriptofano());
+        assertEquals(0.040f, ns.getVitB6());
+        assertEquals(0.080f, ns.getVitB12());
+        assertEquals(3.0f, ns.getVitC());
+        assertEquals(1.0f, ns.getFolatos());
+        assertEquals(0.85f, ns.getCinza());
+        assertEquals(40f, ns.getNa());
+        assertEquals(181f, ns.getK());
+        assertEquals(153f, ns.getCa());
+        assertEquals(120f, ns.getP());
+        assertEquals(20f, ns.getMg());
+        assertEquals(0.2f, ns.getFe());
+        assertEquals(0.3f, ns.getZn());
     }
 
     @Test
-    void testNutSpecsCorrectSum(){
+    void testNutSpecsCorrectSum() {
         String specs = "IS019;Leite Cabra cru;69;290;86.9;3.8;4.0;4.6;4.8;4.6;0;0;0;0;0;2.6;1.1;0.1;0.1;0.1;11;0.053;53;0;0.05;0.030;0.050;0.10;1.0;0.30;0.70;0.040;0.080;3.0;1.0;0.85;40;181;153;120;20;0.2;0.3";
         NutricionalSpecs ns = new NutricionalSpecs(specs);
-        boolean flag=false;
-        if(ns.sum(ns,1f) instanceof NutricionalSpecs)
-        {
+        boolean flag = false;
+        if (ns.sum(ns, 1f) instanceof NutricionalSpecs) {
             flag = true;
         }
 
@@ -88,19 +87,19 @@ class NutricionalSpecsTest {
 
 
     @Test
-    void testNutSpecsNullSum(){
+    void testNutSpecsNullSum() {
         String specs = "IS019;Leite Cabra cru;69;290;86.9;3.8;4.0;4.6;4.8;4.6;0;0;0;0;0;2.6;1.1;0.1;0.1;0.1;11;0.053;53;0;0.05;0.030;0.050;0.10;1.0;0.30;0.70;0.040;0.080;3.0;1.0;0.85;40;181;153;120;20;0.2;0.3";
         NutricionalSpecs ns = new NutricionalSpecs(specs);
 
-        assertThrows(AssertionError.class, () -> ns.sum(null,1f));
+        assertThrows(AssertionError.class, () -> ns.sum(null, 1f));
     }
 
     @Test
-    void testNutSpecsNullQuantSum(){
+    void testNutSpecsNullQuantSum() {
         String specs = "IS019;Leite Cabra cru;69;290;86.9;3.8;4.0;4.6;4.8;4.6;0;0;0;0;0;2.6;1.1;0.1;0.1;0.1;11;0.053;53;0;0.05;0.030;0.050;0.10;1.0;0.30;0.70;0.040;0.080;3.0;1.0;0.85;40;181;153;120;20;0.2;0.3";
         NutricionalSpecs ns = new NutricionalSpecs(specs);
 
-        assertThrows(AssertionError.class, () -> ns.sum(ns,0f));
+        assertThrows(AssertionError.class, () -> ns.sum(ns, 0f));
     }
 
 
@@ -141,9 +140,11 @@ class NutricionalSpecsTest {
 
         ns.setName("Lei");
         assertEquals("Lei", ns.getName());
+        String x = "";
+        for (int i = 0; i < 499; i++) x += "a";
 
-        ns.setName("Leite de Ovelha cruuLeite de Ovelha cruuLeite de ");
-        assertEquals("Leite de Ovelha cruuLeite de Ovelha cruuLeite de ", ns.getName());
+        ns.setName(x);
+        assertEquals(x, ns.getName());
     }
 
     @Test
@@ -155,7 +156,16 @@ class NutricionalSpecsTest {
     @Test
     void testNameBigger() {
         NutricionalSpecs ns = new NutricionalSpecs();
-        assertThrows(AssertionError.class, () -> ns.setName("Leite de Ovelha cru com brao de milho e arroz com feijão"));
+        String x = "";
+        for (int i = 0; i < 500; i++)
+            x += "a";
+        try {
+            ns.setName(x);
+        } catch (AssertionError e) {
+            assertTrue(true);
+
+        }
+
     }
 
     @Test
@@ -236,8 +246,8 @@ class NutricionalSpecsTest {
     @Test
     void testWaterValid() {
         NutricionalSpecs ns = new NutricionalSpecs();
-        ns.setAgua(1.5f);
-        assertEquals(1.5f, ns.getAgua());
+        ns.setAgua(0.0f);
+        assertEquals(0.0f, ns.getAgua());
 
         ns.setAgua(99.9f);
         assertEquals(99.9f, ns.getAgua());
@@ -258,7 +268,7 @@ class NutricionalSpecsTest {
     @Test
     void testWaterSmaller() {
         NutricionalSpecs ns = new NutricionalSpecs();
-        assertThrows(AssertionError.class, () -> ns.setAgua((float) 1.4));
+        assertThrows(AssertionError.class, () -> ns.setAgua((float) -0.1));
     }
 
     /**

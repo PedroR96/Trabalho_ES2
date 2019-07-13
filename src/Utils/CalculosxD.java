@@ -79,7 +79,7 @@ public class CalculosxD {
         assert plan != null;
         assert productNutricionalSpecs != null;
 
-        NutricionalSpecs planNutricionalSpecifications = new NutricionalSpecs("0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;");
+        NutricionalSpecs planNutricionalSpecifications = new NutricionalSpecs("0000;0000;0000;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;");
 
         for (Meal meal : plan.getMeals()) {
             System.out.println("Meal: " + meal.getDescription());
