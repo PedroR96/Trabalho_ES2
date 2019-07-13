@@ -94,7 +94,7 @@ public class NutricionalSpecs {
         setNa(Float.parseFloat(x[36]));
         setK(Float.parseFloat(x[37]));
         setCa(Float.parseFloat(x[38]));
-        setP(Float.parseFloat(x[38]));
+        setP(Float.parseFloat(x[39]));
         setMg(Float.parseFloat(x[40]));
         setFe(Float.parseFloat(x[41]));
         setZn(Float.parseFloat(x[42]));
