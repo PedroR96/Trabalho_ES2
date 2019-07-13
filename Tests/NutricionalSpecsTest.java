@@ -11,6 +11,17 @@ class NutricionalSpecsTest {
     void setUp() {
     }
 
+    @Test
+    void testNullConstructor() {
+
+        assertThrows(AssertionError.class, () -> new NutricionalSpecs(null));
+    }
+
+    @Test
+    void testEmptyConstructor() {
+
+        assertThrows(AssertionError.class, () -> new NutricionalSpecs(""));
+    }
 
     @Test
     void testValidConstructor() {
