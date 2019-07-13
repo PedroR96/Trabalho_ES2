@@ -2,8 +2,8 @@ import Food.NutricionalSpecs;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 class NutricionalSpecsTest {
 
@@ -59,8 +59,37 @@ class NutricionalSpecsTest {
         assertEquals(20f,ns.getMg());
         assertEquals(0.2f,ns.getFe());
         assertEquals(0.3f,ns.getZn());
+    }
+
+    @Test
+    void testNutSpecsCorrectSum(){
+        String specs = "IS019;Leite Cabra cru;69;290;86.9;3.8;4.0;4.6;4.8;4.6;0;0;0;0;0;2.6;1.1;0.1;0.1;0.1;11;0.053;53;0;0.05;0.030;0.050;0.10;1.0;0.30;0.70;0.040;0.080;3.0;1.0;0.85;40;181;153;120;20;0.2;0.3";
+        NutricionalSpecs ns = new NutricionalSpecs(specs);
+        boolean flag=false;
+        if(ns.sum(ns,1f) instanceof NutricionalSpecs)
+        {
+            flag = true;
+        }
+
+        assertTrue(flag);
+
+    }
 
 
+    @Test
+    void testNutSpecsNullSum(){
+        String specs = "IS019;Leite Cabra cru;69;290;86.9;3.8;4.0;4.6;4.8;4.6;0;0;0;0;0;2.6;1.1;0.1;0.1;0.1;11;0.053;53;0;0.05;0.030;0.050;0.10;1.0;0.30;0.70;0.040;0.080;3.0;1.0;0.85;40;181;153;120;20;0.2;0.3";
+        NutricionalSpecs ns = new NutricionalSpecs(specs);
+
+        assertThrows(AssertionError.class, () -> ns.sum(null,1f));
+    }
+
+    @Test
+    void testNutSpecsNullQuantSum(){
+        String specs = "IS019;Leite Cabra cru;69;290;86.9;3.8;4.0;4.6;4.8;4.6;0;0;0;0;0;2.6;1.1;0.1;0.1;0.1;11;0.053;53;0;0.05;0.030;0.050;0.10;1.0;0.30;0.70;0.040;0.080;3.0;1.0;0.85;40;181;153;120;20;0.2;0.3";
+        NutricionalSpecs ns = new NutricionalSpecs(specs);
+
+        assertThrows(AssertionError.class, () -> ns.sum(ns,0f));
     }
 
 

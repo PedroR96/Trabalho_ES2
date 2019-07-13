@@ -90,7 +90,6 @@ public class CalculosxD {
                 System.out.println("\tProduct: " + productNutricionalSpecs.get(prod.getProductID()).getName());
                 System.out.println("\tAmount: " + prod.getAmount());
 
-                System.out.println("");
             }
             System.out.println("\n   ");
 

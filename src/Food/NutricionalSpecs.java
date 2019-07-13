@@ -104,8 +104,9 @@ public class NutricionalSpecs {
     }
 
 
-    public NutricionalSpecs sum(NutricionalSpecs nutricionalSpecs,float quantity){
-
+    public NutricionalSpecs sum(NutricionalSpecs nutricionalSpecs, Float quantity){
+        assert nutricionalSpecs != null;
+        assert quantity > 0;
         this.energiaKCla  +=  (nutricionalSpecs.getEnergiaKCla()/100.0f)*quantity;
         this.energiaKj +=  (nutricionalSpecs.getEnergiaKj()/100.0f)*quantity;
         this.agua += (nutricionalSpecs.getAgua()/100.0f)*quantity;
