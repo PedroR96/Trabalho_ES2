@@ -24,6 +24,23 @@ class Physical_DataTest {
 //_________________________________________________________________
 
     @Test
+    void testConstructPhisicalData(){
+        Physical_Data fd = new Physical_Data(" 100,1.0,29.4,20,40,30,35,2.1,600,3");
+        assertEquals(100f,fd.getWeight());
+        assertEquals(1.0f,fd.getHeight());
+        assertEquals(29.40f,fd.getIMC());
+        assertEquals(20.00f,fd.getBF());
+        assertEquals(40.00f,fd.getVisceralFat());
+        assertEquals(30.00f,fd.getMuscle());
+        assertEquals(35,fd.getMetabolicAge());
+        assertEquals(2.10f,fd.getH2O());
+        assertEquals(600.00f,fd.getMetabolicBasal());
+        assertEquals(3,fd.getBone());
+    }
+
+//_________________________________________________________________
+
+    @Test
     void testPhysicalDataWeightValid() {
         Physical_Data physical_data = new Physical_Data();
         physical_data.setWeight(2.2f);
