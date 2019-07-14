@@ -19,7 +19,7 @@ class FoodHabitsTest {
     @Test
     void testFoodHabitsGetUpBiggerThanMax(){
         FoodHabits foodHabits=new FoodHabits();
-        assertThrows(AssertionError.class,()->foodHabits.setGetUp("00:000"));
+        assertThrows(AssertionError.class,()->foodHabits.setGetUp("00:0000"));
     }
 
     @Test

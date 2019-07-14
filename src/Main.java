@@ -17,9 +17,9 @@ public class Main {
     private static FileFunctions fileFunctions = new FileFunctions();
 
     private static HashMap<String, NutricionalSpecs> productNutricionalSpecs = new HashMap<>();
-    private static Person person= new Person();
+    private static Person person = new Person();
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
 
         /**
          * Upload Nutricional table to hashmap
@@ -29,37 +29,36 @@ public class Main {
         /**
          * Upload Folha 1
          */
-        person=fileFunctions.readFileOne();
+        person = fileFunctions.readFileOne("Assets/Folha 1.csv");
 
         /**
          * Upload Folha 2
          */
-        FoodHabits oldHabits = fileFunctions.readFiletwo();
+        FoodHabits oldHabits = fileFunctions.readFiletwo("Assets/Folha 2.csv");
         person.setFoodHabits(oldHabits);
 
         /**
          * Upload Folha 3
          */
-                person.setPhysicalData(  fileFunctions.readFileThree());
-
+        person.setPhysicalData(fileFunctions.readFileThree("Assets/Folha 3.csv"));
 
 
         /**
          * Upload Folha 4
          */
-        person.setNewPlan(fileFunctions.readFileFour());
+        person.setNewPlan(fileFunctions.readFileFour("Assets/Folha 4.csv"));
 
 
-
-        CalculosxD calulo=new CalculosxD();
-        NutricionalSpecs  newPlanNutricionalSpecifications= calulo.calculateTotalNutrientsPlan(person.getNewPlan(),productNutricionalSpecs);
-        NutricionalSpecs  oldPlanNutricionalSpecifications= calulo.calculateTotalNutrientsPlan(person.getFoodHabits(),productNutricionalSpecs);
-        String toCSV="Old Plan \n"+oldPlanNutricionalSpecifications.nutricionalSpecsToString()+"\nNew Plan\n"+newPlanNutricionalSpecifications.nutricionalSpecsToString();
+        CalculosxD calulo = new CalculosxD();
+        NutricionalSpecs newPlanNutricionalSpecifications = calulo.calculateTotalNutrientsPlan(person.getNewPlan(), productNutricionalSpecs);
+        NutricionalSpecs oldPlanNutricionalSpecifications = calulo.calculateTotalNutrientsPlan(person.getFoodHabits(), productNutricionalSpecs);
+        String toCSV = "Old Plan \n" + oldPlanNutricionalSpecifications.nutricionalSpecsToString() + "\nNew Plan\n" + newPlanNutricionalSpecifications.nutricionalSpecsToString();
 //               calulo.calculateEnergyUsingHarris(person.getPhysicalData().getWeight(),person.getPhysicalData().getHeight()*100,person.getAge(),person.getGender(),person.getQuiz().getPhisicalActivity(),38,"Acamado");
 
-        Date date = new Date();SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy_HHmm");
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy_HHmm");
 
-        Path file = Paths.get("Assets/"+person.getName()+"_"+formatter.format(date)+".csv");
+        Path file = Paths.get("Assets/" + person.getName() + "_" + formatter.format(date) + ".csv");
         try {
 
             Files.write(file, toCSV.getBytes());
@@ -67,10 +66,6 @@ public class Main {
             e.printStackTrace();
         }
     }
-
-
-
-
 
 
 }

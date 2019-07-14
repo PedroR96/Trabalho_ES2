@@ -2,19 +2,20 @@ package Medical_Information;
 
 import Food.Meal;
 import Food.Product;
+
 import java.sql.Time;
 import java.util.ArrayList;
 
-public class FoodHabits  {
+public class FoodHabits {
 
     private String getUp;
     private ArrayList<Meal> meals = new ArrayList<>();
 
 
-    public FoodHabits(String s)  {
+    public FoodHabits(String s) {
 
-        assert   s!=null;
-        assert   !s.isEmpty();
+        assert s != null;
+        assert !s.isEmpty();
 
         String[] allMeals = s.split(",");
 
@@ -28,11 +29,11 @@ public class FoodHabits  {
             if (i % 3 == 0) {
 
                 /*** Descriçao*/
-                temp.setDescription(allMeals[i-2]);
+                temp.setDescription(allMeals[i - 2]);
                 /*** Hora*/
 
                 String[] horas = allMeals[i - 1].split(":");
-                Time time = new Time(Integer.parseInt(horas[0]),Integer.parseInt(horas[1]),0);
+                Time time = new Time(Integer.parseInt(horas[0]), Integer.parseInt(horas[1]), 0);
                 temp.setSchedule(time);
                 /*** Refeiçao*/
                 String[] ref = allMeals[i].split(";");
@@ -61,10 +62,9 @@ public class FoodHabits  {
     }
 
     public void setGetUp(String getUp) {
-        assert  getUp != null;
-        assert getUp.length() == 5;
+        assert getUp != null;
+        assert getUp.length() <= 6;
         assert !getUp.isEmpty();
-
 
         this.getUp = getUp;
     }
@@ -74,7 +74,7 @@ public class FoodHabits  {
     }
 
     public void setMeals(Meal meals) {
-        assert meals!=null;
+        assert meals != null;
         this.meals.add(meals);
     }
 }

@@ -21,10 +21,10 @@ public class FileFunctions {
     /**
      * Read a CSV File to get nutricional specs
      */
-    public HashMap<String, NutricionalSpecs> readCSV(String relactivePath ) {
+    public HashMap<String, NutricionalSpecs> readCSV(String relactivePath) {
         HashMap<String, NutricionalSpecs> productNutricionalSpecs = new HashMap<>();
         String nutSpecs;
-        Path path1=Paths.get(relactivePath);
+        Path path1 = Paths.get(relactivePath);
         try {
             Reader reader = Files.newBufferedReader(path1);
             CSVReader csvReader = new CSVReader(reader);
@@ -40,8 +40,7 @@ public class FileFunctions {
                 productNutricionalSpecs.put(nutricionalSpecs1.getProductID(), nutricionalSpecs1);
             }
         } catch (Exception e) {
-            System.out.println(e);
-            e.getStackTrace();
+            assert false;
         }
         return productNutricionalSpecs;
     }
@@ -50,8 +49,8 @@ public class FileFunctions {
      * Read CSV to get folha 2 values
      */
 
-    public FoodHabits  readFileFour()  {
-        Path path1=Paths.get("Assets/Folha 4.csv");
+    public FoodHabits readFileFour(String relactivePath) {
+        Path path1 = Paths.get(relactivePath);
         String specs = "";
         try {
             Reader reader = Files.newBufferedReader(path1);
@@ -63,16 +62,16 @@ public class FileFunctions {
                 }
             }
         } catch (Exception e) {
-            System.out.println("readFiletwo: " + e);
-            e.getStackTrace();
+
+            assert false;
         }
         return new FoodHabits(specs);
     }
 
 
-    public FoodHabits readFiletwo()  {
+    public FoodHabits readFiletwo(String relactivePath) {
 
-        Path path1=Paths.get("Assets/Folha 2.csv");
+        Path path1 = Paths.get(relactivePath);
 
         String specs = "";
         try {
@@ -85,8 +84,7 @@ public class FileFunctions {
                 }
             }
         } catch (Exception e) {
-            System.out.println("readFiletwo: " + e);
-            e.getStackTrace();
+            assert false;
         }
         return new FoodHabits(specs);
     }
@@ -94,9 +92,9 @@ public class FileFunctions {
     /**
      * Read CSV to get folha 1 values
      */
-    public Person readFileOne() {
-        String data="";
-        Path path1=Paths.get("Assets/Folha 1.csv");
+    public Person readFileOne(String relactivePath) {
+        String data = "";
+        Path path1 = Paths.get(relactivePath);
         try {
             Reader reader = Files.newBufferedReader(path1);
             CSVReader csvReader = new CSVReader(reader);
@@ -108,8 +106,7 @@ public class FileFunctions {
                 }
             }
         } catch (Exception e) {
-            System.out.println(e);
-            e.getStackTrace();
+            assert false;
         }
         return new Person(data);
     }
@@ -118,9 +115,9 @@ public class FileFunctions {
      * Read File 3
      */
 
-    public Physical_Data readFileThree() {
+    public Physical_Data readFileThree(String relactivePath) {
 
-        Path path1=Paths.get("Assets/Folha 3.csv");
+        Path path1 = Paths.get(relactivePath);
         String specs = "";
         try {
             Reader reader = Files.newBufferedReader(path1);
@@ -133,8 +130,7 @@ public class FileFunctions {
                 }
             }
         } catch (Exception e) {
-            System.out.println(e);
-            e.getStackTrace();
+            assert false;
         }
         return new Physical_Data(specs);
     }

@@ -51,7 +51,7 @@ public class CalculosxD {
 
     }
 
-
+/*
     public void calculateEnergyUsingHarris(Float weight, Float size, Integer age, String gender, String activity, Integer termical, String injurie) {
 
         if (gender.equalsIgnoreCase("Masculino"))
@@ -71,7 +71,7 @@ public class CalculosxD {
         System.out.println(" Gasto Energético Total: " + energyWaste);
 
 
-    }
+    }*/
 
 
     public NutricionalSpecs calculateTotalNutrientsPlan(FoodHabits plan, HashMap<String, NutricionalSpecs> productNutricionalSpecs) {
